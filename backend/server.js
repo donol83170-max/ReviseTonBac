@@ -12,14 +12,14 @@ app.use(express.json());
 // Servir les fichiers statiques du frontend (optionnel)
 app.use(express.static('../'));
 
-// ===== PRIX STRIPE =====
+// ===== PRIX STRIPE (paiements uniques) =====
 // Remplace ces IDs par ceux de ton dashboard Stripe
 const PRICES = {
   monthly: process.env.STRIPE_PRICE_MONTHLY || 'price_MONTHLY_ID_HERE',
   annual:  process.env.STRIPE_PRICE_ANNUAL  || 'price_ANNUAL_ID_HERE',
 };
 
-// ===== CRÉER UNE SESSION DE PAIEMENT =====
+// ===== CRÉER UNE SESSION DE PAIEMENT UNIQUE =====
 app.post('/api/create-checkout-session', async (req, res) => {
   const { plan } = req.body;
 
@@ -30,7 +30,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      mode: 'subscription',
+      mode: 'payment',                          // paiement unique (pas abonnement)
       line_items: [{ price: PRICES[plan], quantity: 1 }],
       success_url: `${process.env.FRONTEND_URL || 'http://localhost:5500'}/pages/succes.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url:  `${process.env.FRONTEND_URL || 'http://localhost:5500'}/#tarifs`,
@@ -44,7 +44,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
   }
 });
 
-// ===== WEBHOOK STRIPE (événements post-paiement) =====
+// ===== WEBHOOK STRIPE (confirmation de paiement) =====
 app.post('/api/webhook', express.raw({ type: 'application/json' }), (req, res) => {
   const sig = req.headers['stripe-signature'];
   let event;
@@ -63,13 +63,8 @@ app.post('/api/webhook', express.raw({ type: 'application/json' }), (req, res) =
   switch (event.type) {
     case 'checkout.session.completed':
       const session = event.data.object;
-      console.log(`✅ Paiement réussi — Session: ${session.id}`);
-      // TODO: activer l'accès premium pour l'utilisateur (BDD)
-      break;
-
-    case 'customer.subscription.deleted':
-      console.log(`❌ Abonnement annulé — ${event.data.object.id}`);
-      // TODO: désactiver l'accès premium
+      console.log(`✅ Paiement reçu — Session: ${session.id}`);
+      // TODO: débloquer l'accès premium pour l'utilisateur (BDD)
       break;
 
     default:
@@ -79,19 +74,16 @@ app.post('/api/webhook', express.raw({ type: 'application/json' }), (req, res) =
   res.json({ received: true });
 });
 
-// ===== VÉRIFIER LE STATUT D'ABONNEMENT =====
-app.get('/api/subscription-status', async (req, res) => {
+// ===== VÉRIFIER LE STATUT DU PAIEMENT =====
+app.get('/api/payment-status', async (req, res) => {
   const { session_id } = req.query;
   if (!session_id) return res.status(400).json({ error: 'session_id requis' });
 
   try {
-    const session = await stripe.checkout.sessions.retrieve(session_id, {
-      expand: ['subscription'],
-    });
+    const session = await stripe.checkout.sessions.retrieve(session_id);
     res.json({
-      status: session.payment_status,
-      subscription: session.subscription?.status,
-      customer: session.customer,
+      status: session.payment_status,   // 'paid' si réussi
+      customer: session.customer_details,
     });
   } catch (err) {
     res.status(500).json({ error: err.message });
