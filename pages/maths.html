@@ -31,7 +31,9 @@
   </div>
 
   <div class="themes-section">
-    <h2>✦ Thèmes gratuits</h2>
+
+    <!-- GRATUIT -->
+    <h2>✦ Thème gratuit</h2>
     <div class="themes-grid">
       <a href="../themes/maths/suites.html" class="theme-card free-card">
         <h3>🔢 Suites numériques</h3>
@@ -40,50 +42,104 @@
       </a>
     </div>
 
-    <h2 style="margin-top: 2.5rem;">🔒 Thèmes Premium</h2>
-    <div class="themes-grid">
-      <div class="theme-card locked-card">
-        <span class="lock-icon">🔒</span>
-        <h3>📈 Fonctions et dérivées</h3>
-        <p>Dérivation, étude de fonctions, tableaux de variation.</p>
-        <span class="badge-premium">Premium</span>
-      </div>
-      <div class="theme-card locked-card">
-        <span class="lock-icon">🔒</span>
-        <h3>∫ Intégrales</h3>
-        <p>Primitives, calcul intégral, aire sous une courbe.</p>
-        <span class="badge-premium">Premium</span>
-      </div>
-      <div class="theme-card locked-card">
-        <span class="lock-icon">🔒</span>
-        <h3>📊 Probabilités & statistiques</h3>
-        <p>Loi binomiale, loi normale, intervalles de confiance.</p>
-        <span class="badge-premium">Premium</span>
-      </div>
-      <div class="theme-card locked-card">
-        <span class="lock-icon">🔒</span>
-        <h3>🧮 Logarithme et exponentielle</h3>
-        <p>Propriétés, dérivées, équations transcendantes.</p>
-        <span class="badge-premium">Premium</span>
-      </div>
-      <div class="theme-card locked-card">
-        <span class="lock-icon">🔒</span>
-        <h3>📐 Géométrie dans l'espace</h3>
-        <p>Vecteurs, plans, droites, distances et angles.</p>
-        <span class="badge-premium">Premium</span>
-      </div>
-      <div class="theme-card locked-card">
-        <span class="lock-icon">🔒</span>
-        <h3>🔣 Arithmétique & complexes</h3>
-        <p>Nombres complexes, PGCD, congruences.</p>
-        <span class="badge-premium">Premium</span>
-      </div>
+    <!-- PAYANTS -->
+    <div class="themes-header">
+      <h2>🔒 Thèmes à débloquer</h2>
+      <button class="btn-pack" onclick="checkout('pack_maths')">
+        Pack Maths complet — 5,99€
+      </button>
     </div>
 
-    <div style="text-align:center; margin-top: 3rem;">
-      <p style="color: var(--muted); margin-bottom: 1rem;">Accède à tous les thèmes avec un abonnement Premium</p>
-      <a href="../index.html#tarifs" class="btn-primary">Voir les offres</a>
+    <div class="themes-grid">
+
+      <div class="theme-card payant-card">
+        <div class="theme-card-top">
+          <div>
+            <h3>📈 Fonctions et dérivées</h3>
+            <p>Dérivation, étude de fonctions, tableaux de variation.</p>
+          </div>
+        </div>
+        <div class="theme-card-bottom">
+          <span class="prix-theme">1,99€</span>
+          <button class="btn-theme" onclick="checkout('theme_derivees')">Débloquer</button>
+        </div>
+      </div>
+
+      <div class="theme-card payant-card">
+        <div class="theme-card-top">
+          <div>
+            <h3>∫ Intégrales</h3>
+            <p>Primitives, calcul intégral, aire sous une courbe.</p>
+          </div>
+        </div>
+        <div class="theme-card-bottom">
+          <span class="prix-theme">1,99€</span>
+          <button class="btn-theme" onclick="checkout('theme_integrales')">Débloquer</button>
+        </div>
+      </div>
+
+      <div class="theme-card payant-card">
+        <div class="theme-card-top">
+          <div>
+            <h3>📊 Probabilités & statistiques</h3>
+            <p>Loi binomiale, loi normale, intervalles de confiance.</p>
+          </div>
+        </div>
+        <div class="theme-card-bottom">
+          <span class="prix-theme">1,99€</span>
+          <button class="btn-theme" onclick="checkout('theme_probas')">Débloquer</button>
+        </div>
+      </div>
+
+      <div class="theme-card payant-card">
+        <div class="theme-card-top">
+          <div>
+            <h3>🧮 Logarithme et exponentielle</h3>
+            <p>Propriétés, dérivées, équations transcendantes.</p>
+          </div>
+        </div>
+        <div class="theme-card-bottom">
+          <span class="prix-theme">1,99€</span>
+          <button class="btn-theme" onclick="checkout('theme_log_exp')">Débloquer</button>
+        </div>
+      </div>
+
+      <div class="theme-card payant-card">
+        <div class="theme-card-top">
+          <div>
+            <h3>📐 Géométrie dans l'espace</h3>
+            <p>Vecteurs, plans, droites, distances et angles.</p>
+          </div>
+        </div>
+        <div class="theme-card-bottom">
+          <span class="prix-theme">1,99€</span>
+          <button class="btn-theme" onclick="checkout('theme_geometrie')">Débloquer</button>
+        </div>
+      </div>
+
+      <div class="theme-card payant-card">
+        <div class="theme-card-top">
+          <div>
+            <h3>🔣 Arithmétique & complexes</h3>
+            <p>Nombres complexes, PGCD, congruences.</p>
+          </div>
+        </div>
+        <div class="theme-card-bottom">
+          <span class="prix-theme">1,99€</span>
+          <button class="btn-theme" onclick="checkout('theme_complexes')">Débloquer</button>
+        </div>
+      </div>
+
     </div>
+
+    <div class="pack-cta">
+      <div class="pack-cta-text">
+        <strong>Pack Maths complet</strong>
+        <span>Les 6 thèmes pour le prix de 3 — accès permanent</span>
+      </div>
+      <button class="btn-primary" onclick="checkout('pack_maths')">Tout débloquer — 5,99€</button>
+    </div>
+
   </div>
 
   <script src="../js/main.js"></script>

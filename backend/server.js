@@ -8,30 +8,45 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:5500' }));
 app.use(express.json());
-
-// Servir les fichiers statiques du frontend (optionnel)
 app.use(express.static('../'));
 
-// ===== PRIX STRIPE (paiements uniques) =====
-// Remplace ces IDs par ceux de ton dashboard Stripe
+// ===== CATALOGUE DES PRIX (à remplir avec tes Price IDs Stripe) =====
 const PRICES = {
-  monthly: process.env.STRIPE_PRICE_MONTHLY || 'price_MONTHLY_ID_HERE',
-  annual:  process.env.STRIPE_PRICE_ANNUAL  || 'price_ANNUAL_ID_HERE',
+  // Thèmes Français — 1,99€ chacun
+  theme_theatre:       process.env.PRICE_THEME_THEATRE,
+  theme_poesie:        process.env.PRICE_THEME_POESIE,
+  theme_argumentation: process.env.PRICE_THEME_ARGUMENTATION,
+  theme_commentaire:   process.env.PRICE_THEME_COMMENTAIRE,
+  theme_dissertation:  process.env.PRICE_THEME_DISSERTATION,
+
+  // Thèmes Maths — 1,99€ chacun
+  theme_derivees:      process.env.PRICE_THEME_DERIVEES,
+  theme_integrales:    process.env.PRICE_THEME_INTEGRALES,
+  theme_probas:        process.env.PRICE_THEME_PROBAS,
+  theme_log_exp:       process.env.PRICE_THEME_LOG_EXP,
+  theme_geometrie:     process.env.PRICE_THEME_GEOMETRIE,
+  theme_complexes:     process.env.PRICE_THEME_COMPLEXES,
+
+  // Packs — paiement unique
+  pack_francais:       process.env.PRICE_PACK_FRANCAIS,   // 5,99€
+  pack_maths:          process.env.PRICE_PACK_MATHS,       // 5,99€
+  pack_complet:        process.env.PRICE_PACK_COMPLET,     // 14,99€
 };
 
-// ===== CRÉER UNE SESSION DE PAIEMENT UNIQUE =====
+// ===== CRÉER UNE SESSION DE PAIEMENT =====
 app.post('/api/create-checkout-session', async (req, res) => {
   const { plan } = req.body;
+  const priceId = PRICES[plan];
 
-  if (!PRICES[plan]) {
-    return res.status(400).json({ error: 'Plan invalide' });
+  if (!priceId) {
+    return res.status(400).json({ error: `Plan inconnu : ${plan}` });
   }
 
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      mode: 'payment',                          // paiement unique (pas abonnement)
-      line_items: [{ price: PRICES[plan], quantity: 1 }],
+      mode: 'payment',                        // paiement unique
+      line_items: [{ price: priceId, quantity: 1 }],
       success_url: `${process.env.FRONTEND_URL || 'http://localhost:5500'}/pages/succes.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url:  `${process.env.FRONTEND_URL || 'http://localhost:5500'}/#tarifs`,
       locale: 'fr',
@@ -44,37 +59,27 @@ app.post('/api/create-checkout-session', async (req, res) => {
   }
 });
 
-// ===== WEBHOOK STRIPE (confirmation de paiement) =====
+// ===== WEBHOOK — confirmation de paiement =====
 app.post('/api/webhook', express.raw({ type: 'application/json' }), (req, res) => {
   const sig = req.headers['stripe-signature'];
   let event;
 
   try {
-    event = stripe.webhooks.constructEvent(
-      req.body,
-      sig,
-      process.env.STRIPE_WEBHOOK_SECRET
-    );
+    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
   } catch (err) {
-    console.error('Webhook signature error:', err.message);
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
-  switch (event.type) {
-    case 'checkout.session.completed':
-      const session = event.data.object;
-      console.log(`✅ Paiement reçu — Session: ${session.id}`);
-      // TODO: débloquer l'accès premium pour l'utilisateur (BDD)
-      break;
-
-    default:
-      console.log(`Événement reçu: ${event.type}`);
+  if (event.type === 'checkout.session.completed') {
+    const session = event.data.object;
+    console.log(`✅ Paiement reçu — ${session.id} — ${session.amount_total / 100}€`);
+    // TODO: enregistrer l'achat en base de données et débloquer l'accès
   }
 
   res.json({ received: true });
 });
 
-// ===== VÉRIFIER LE STATUT DU PAIEMENT =====
+// ===== VÉRIFIER UN PAIEMENT =====
 app.get('/api/payment-status', async (req, res) => {
   const { session_id } = req.query;
   if (!session_id) return res.status(400).json({ error: 'session_id requis' });
@@ -82,7 +87,7 @@ app.get('/api/payment-status', async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.retrieve(session_id);
     res.json({
-      status: session.payment_status,   // 'paid' si réussi
+      status: session.payment_status,      // 'paid' si réussi
       customer: session.customer_details,
     });
   } catch (err) {

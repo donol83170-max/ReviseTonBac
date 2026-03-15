@@ -63,6 +63,85 @@
   font-size: 1.2rem;
 }
 
+/* Thème payant à l'unité */
+.theme-card.payant-card {
+  cursor: default;
+  opacity: 1;
+  justify-content: space-between;
+}
+
+.theme-card-top { display: flex; align-items: flex-start; gap: 0.8rem; }
+
+.theme-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.prix-theme {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.btn-theme {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-theme:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+/* Header avec bouton pack */
+.themes-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2.5rem 0 1.2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.themes-header h2 { margin: 0; }
+
+.btn-pack {
+  background: rgba(108,99,255,0.15);
+  color: var(--primary);
+  border: 2px solid rgba(108,99,255,0.4);
+  padding: 0.6rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.btn-pack:hover { background: rgba(108,99,255,0.25); border-color: var(--primary); }
+
+/* CTA pack en bas de page */
+.pack-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(108,99,255,0.15), rgba(255,101,132,0.1));
+  border: 1px solid rgba(108,99,255,0.3);
+  border-radius: 16px;
+  padding: 1.8rem 2rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.pack-cta-text { display: flex; flex-direction: column; gap: 0.3rem; }
+.pack-cta-text strong { font-size: 1.2rem; }
+.pack-cta-text span { color: var(--muted); font-size: 0.9rem; }
+
 /* ===== FICHE DE COURS ===== */
 .fiche-container {
   max-width: 860px;

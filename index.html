@@ -88,7 +88,8 @@
 
   <section class="tarifs" id="tarifs">
     <h2>Tarifs simples et transparents</h2>
-    <p class="subtitle">Accède à tout le contenu pour le prix d'un café par mois</p>
+    <p class="subtitle">Paie uniquement ce dont tu as besoin — aucun abonnement</p>
+
     <div class="tarifs-grid">
 
       <div class="tarif-card">
@@ -96,39 +97,50 @@
         <div class="price">0€</div>
         <ul>
           <li>✅ 1 fiche par matière</li>
-          <li>✅ QCM de découverte</li>
-          <li>✅ Accès illimité aux gratuits</li>
-          <li>❌ Fiches premium</li>
-          <li>❌ Exercices corrigés</li>
+          <li>✅ QCM inclus sur chaque fiche</li>
+          <li>✅ Accès permanent</li>
+          <li>❌ Thèmes supplémentaires</li>
         </ul>
         <a href="#matieres" class="btn-plan free">Commencer</a>
       </div>
 
-      <div class="tarif-card featured">
-        <div class="popular-badge">⭐ Populaire</div>
-        <h3>Premium</h3>
-        <div class="price">4,99€<span> accès 6 mois</span></div>
+      <div class="tarif-card">
+        <h3>Thème à l'unité</h3>
+        <div class="price">1,99€<span> / thème</span></div>
         <ul>
-          <li>✅ Toutes les fiches</li>
+          <li>✅ 1 fiche de cours complète</li>
+          <li>✅ QCM interactif</li>
+          <li>✅ Exercices corrigés</li>
+          <li>✅ Accès permanent</li>
+        </ul>
+        <a href="#matieres" class="btn-plan free">Choisir un thème</a>
+      </div>
+
+      <div class="tarif-card featured">
+        <div class="popular-badge">⭐ Meilleur choix</div>
+        <h3>Pack Matière</h3>
+        <div class="price">5,99€<span> / matière</span></div>
+        <ul>
+          <li>✅ Tous les thèmes d'une matière</li>
           <li>✅ QCM illimités</li>
           <li>✅ Exercices corrigés</li>
-          <li>✅ Annales commentées</li>
-          <li>✅ Paiement unique, sans abonnement</li>
+          <li>✅ Accès permanent</li>
+          <li>✅ Économisez ~60%</li>
         </ul>
-        <button class="btn-plan premium" onclick="checkout('monthly')">Acheter l'accès</button>
+        <a href="#matieres" class="btn-plan premium">Choisir une matière</a>
       </div>
 
       <div class="tarif-card">
-        <h3>Accès complet</h3>
-        <div class="price">14,99€<span> accès 12 mois</span></div>
+        <h3>Pack Complet</h3>
+        <div class="price">14,99€<span> tout inclus</span></div>
         <ul>
-          <li>✅ Tout le Premium</li>
-          <li>✅ Économisez 50%</li>
+          <li>✅ Toutes les matières</li>
+          <li>✅ Tous les thèmes</li>
+          <li>✅ Nouveaux contenus inclus</li>
           <li>✅ Accès jusqu'au bac</li>
-          <li>✅ Support prioritaire</li>
-          <li>✅ Paiement unique, sans abonnement</li>
+          <li>✅ Économisez +70%</li>
         </ul>
-        <button class="btn-plan annual" onclick="checkout('annual')">Acheter l'accès complet</button>
+        <button class="btn-plan annual" onclick="checkout('pack_complet')">Tout débloquer</button>
       </div>
 
     </div>
