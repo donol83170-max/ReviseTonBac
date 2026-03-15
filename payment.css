@@ -19,8 +19,6 @@
   padding: 2.5rem;
   width: 100%;
   max-width: 480px;
-  max-height: 90vh;
-  overflow-y: auto;
   border: 1px solid rgba(255,255,255,.1);
   position: relative;
   animation: modalIn .3s ease;
@@ -50,7 +48,9 @@
 }
 .payment-modal-close:hover { background: rgba(255,255,255,.15); }
 
-.payment-modal-header { margin-bottom: 1.8rem; }
+.payment-modal-header {
+  margin-bottom: 1.8rem;
+}
 .payment-modal-header h3 {
   font-family: 'Syne', sans-serif;
   font-size: 1.4rem;
@@ -58,7 +58,10 @@
   color: #f5f2eb;
   margin-bottom: .3rem;
 }
-.payment-modal-header .payment-subtitle { font-size: .85rem; color: rgba(255,255,255,.45); }
+.payment-modal-header .payment-subtitle {
+  font-size: .85rem;
+  color: rgba(255,255,255,.45);
+}
 
 .payment-product-info {
   background: rgba(255,255,255,.05);
@@ -70,7 +73,11 @@
   align-items: center;
   border: 1px solid rgba(255,255,255,.07);
 }
-.payment-product-info .product-name { font-weight: 500; color: #f5f2eb; font-size: .95rem; }
+.payment-product-info .product-name {
+  font-weight: 500;
+  color: #f5f2eb;
+  font-size: .95rem;
+}
 .payment-product-info .product-price {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
@@ -78,9 +85,16 @@
   color: #c8a84b;
 }
 
-.payment-loading { text-align: center; color: rgba(255,255,255,.45); padding: 2rem; font-size: .95rem; }
+.payment-loading {
+  text-align: center;
+  color: rgba(255,255,255,.45);
+  padding: 2rem;
+  font-size: .95rem;
+}
 
-#stripe-element { margin-bottom: 1.2rem; }
+#stripe-element {
+  margin-bottom: 1.2rem;
+}
 
 .pay-btn {
   width: 100%;
@@ -91,7 +105,11 @@
   cursor: pointer;
   margin-top: .5rem;
 }
-.pay-btn:disabled { opacity: .6; cursor: not-allowed; transform: none !important; }
+.pay-btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none !important;
+}
 
 .payment-error {
   background: rgba(239,68,68,.15);
@@ -104,7 +122,10 @@
 }
 .payment-error.hidden { display: none; }
 
-.payment-success { text-align: center; padding: 1rem 0; }
+.payment-success {
+  text-align: center;
+  padding: 1rem 0;
+}
 .success-icon { font-size: 3rem; margin-bottom: 1rem; }
 .payment-success h3 {
   font-family: 'Syne', sans-serif;
@@ -113,7 +134,10 @@
   color: #f5f2eb;
   margin-bottom: .5rem;
 }
-.payment-success p { color: rgba(255,255,255,.55); margin-bottom: 1.5rem; }
+.payment-success p {
+  color: rgba(255,255,255,.55);
+  margin-bottom: 1.5rem;
+}
 .payment-success .btn-primary { display: inline-block; }
 
 .payment-secure {

@@ -1,5 +1,12 @@
-node_modules/
-backend/.env
+# Clés secrètes — NE JAMAIS COMMITTER
 .env
+backend/.env
+
+# Node
+node_modules/
+backend/node_modules/
+npm-debug.log*
+
+# OS
 .DS_Store
-*.log
+Thumbs.db

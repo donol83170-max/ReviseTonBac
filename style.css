@@ -1,25 +1,21 @@
 /* =============================
-   ReviseTonBac — style.css
+   RevisestonBac — style.css
    Aesthetic: Editorial / Clean Bold
    ============================= */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --paper: #f7f4ed;
-  --cream: #ede8dc;
-  --cream-dark: #d8d0c0;
-  --ink: #2d4a3e;
-  --forest: #1a3328;
-  --sage: #4a7a65;
-  --gold: #c8a017;
-  --gold-pale: #fdf8e8;
-  --accent-fr: var(--gold);
-  --accent-math: var(--sage);
-  --text-muted: #6b7d76;
+  --ink: #0d0d0d;
+  --paper: #f5f2eb;
+  --cream: #ede9de;
+  --accent-fr: #d94f3d;   /* rouge français */
+  --accent-math: #2563eb; /* bleu maths */
+  --gold: #c8a84b;
+  --text-muted: #666;
   --radius: 16px;
-  --font-display: 'Outfit', sans-serif;
-  --font-body: 'Nunito', sans-serif;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -50,8 +46,6 @@ body {
   font-size: 1.3rem;
   font-weight: 800;
   letter-spacing: -0.5px;
-  text-decoration: none;
-  color: var(--ink);
 }
 .nav-logo span { color: var(--accent-fr); }
 .nav-links { display: flex; gap: 2rem; align-items: center; list-style: none; }
@@ -73,11 +67,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
   padding: 5rem 4rem;
   overflow: hidden;
-  background: linear-gradient(160deg, #f5f2eb 0%, #ede9de 60%, #e4dfd3 100%);
 }
 .hero-badge {
   display: inline-block;
@@ -102,7 +93,7 @@ body {
 }
 .hero-title em {
   font-style: normal;
-  color: var(--gold);
+  color: var(--accent-fr);
   position: relative;
   display: inline-block;
 }
@@ -113,22 +104,21 @@ body {
   left: 0;
   width: 100%;
   height: 6px;
-  background: var(--gold);
+  background: var(--accent-fr);
   opacity: .25;
   border-radius: 4px;
 }
 .hero-sub {
   max-width: 520px;
-  margin: 0 auto 2.5rem;
   color: var(--text-muted);
   font-size: 1.1rem;
+  margin-bottom: 2.5rem;
   animation: fadeUp .8s ease both;
 }
 .hero-cta {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  justify-content: center;
   margin-bottom: 3rem;
   animation: fadeUp .9s ease both;
 }
@@ -140,9 +130,6 @@ body {
   border-radius: 100px;
   font-weight: 500;
   font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  font-family: var(--font-body);
   transition: transform .2s, box-shadow .2s;
   display: inline-block;
 }
@@ -154,7 +141,6 @@ body {
   border-radius: 100px;
   border: 1.5px solid var(--ink);
   font-weight: 500;
-  font-family: var(--font-body);
   transition: background .2s;
   display: inline-block;
 }
@@ -171,7 +157,17 @@ body {
 .hero-stats .stat span { font-family: var(--font-display); font-weight: 800; font-size: 1.3rem; color: var(--ink); margin-right: .3rem; }
 .stat-sep { opacity: .3; font-size: 1.4rem; }
 
-.hero-blob { display: none; }
+/* blobs */
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: .18;
+  z-index: -1;
+  pointer-events: none;
+}
+.blob1 { width: 500px; height: 500px; background: var(--accent-fr); top: -100px; right: -100px; }
+.blob2 { width: 350px; height: 350px; background: var(--accent-math); bottom: -80px; right: 200px; }
 
 /* ---- SECTIONS COMMUNES ---- */
 section { padding: 6rem 4rem; }
@@ -182,7 +178,6 @@ section { padding: 6rem 4rem; }
   text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 1rem;
-  text-align: center;
 }
 .section-title {
   font-family: var(--font-display);
@@ -191,11 +186,10 @@ section { padding: 6rem 4rem; }
   line-height: 1.05;
   letter-spacing: -1.5px;
   margin-bottom: 3rem;
-  text-align: center;
 }
 
 /* ---- MATIÈRES ---- */
-.matieres { background: var(--forest); color: var(--paper); }
+.matieres { background: var(--ink); color: var(--paper); }
 .matieres .section-label { color: rgba(255,255,255,.4); }
 .matieres .section-title { color: var(--paper); }
 
@@ -205,7 +199,7 @@ section { padding: 6rem 4rem; }
   gap: 2rem;
 }
 .card {
-  background: #22423a;
+  background: #1a1a1a;
   border-radius: var(--radius);
   padding: 2.5rem;
   border: 1px solid rgba(255,255,255,.08);
@@ -222,8 +216,8 @@ section { padding: 6rem 4rem; }
   border-radius: 100px;
   margin-bottom: 1.2rem;
 }
-.card--fr .card-tag { background: rgba(200,160,23,.2); color: #e8c84a; }
-.card--maths .card-tag { background: rgba(74,122,101,.3); color: #8dccb0; }
+.card--fr .card-tag { background: rgba(217, 79, 61, .2); color: #f08070; }
+.card--maths .card-tag { background: rgba(37, 99, 235, .2); color: #7eb3ff; }
 .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
 .card h3 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; margin-bottom: .7rem; }
 .card p { color: rgba(255,255,255,.55); font-size: .95rem; margin-bottom: 1.5rem; }
@@ -241,7 +235,7 @@ section { padding: 6rem 4rem; }
 .badge-free {
   margin-left: auto;
   background: var(--gold);
-  color: var(--forest);
+  color: #000;
   font-size: .7rem;
   font-weight: 700;
   padding: .2rem .6rem;
@@ -256,10 +250,10 @@ section { padding: 6rem 4rem; }
   padding-bottom: 2px;
   transition: border-color .2s;
 }
-.card--fr .card-cta:hover { border-color: var(--gold); color: #e8c84a; }
-.card--maths .card-cta:hover { border-color: var(--sage); color: #8dccb0; }
+.card--fr .card-cta:hover { border-color: var(--accent-fr); color: #f08070; }
+.card--maths .card-cta:hover { border-color: var(--accent-math); color: #7eb3ff; }
 
-/* ---- COMMENT ÇA MARCHE ---- */
+/* ---- HOW ---- */
 .how { background: var(--cream); }
 .steps {
   display: flex;
@@ -286,7 +280,12 @@ section { padding: 6rem 4rem; }
 }
 .step h4 { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: .5rem; }
 .step p { font-size: .9rem; color: var(--text-muted); }
-.step-arrow { font-size: 2rem; color: var(--text-muted); padding-top: 2.5rem; opacity: .4; }
+.step-arrow {
+  font-size: 2rem;
+  color: var(--text-muted);
+  padding-top: 2.5rem;
+  opacity: .4;
+}
 
 /* ---- TARIFS ---- */
 .tarifs { background: var(--paper); text-align: center; }
@@ -321,7 +320,7 @@ section { padding: 6rem 4rem; }
   left: 50%;
   transform: translateX(-50%);
   background: var(--gold);
-  color: #fff;
+  color: #000;
   font-size: .78rem;
   font-weight: 700;
   padding: .3rem 1rem;
@@ -352,7 +351,7 @@ section { padding: 6rem 4rem; }
 
 /* ---- FOOTER ---- */
 .footer {
-  background: var(--forest);
+  background: var(--ink);
   color: var(--paper);
   padding: 3rem 4rem;
   display: flex;
@@ -371,7 +370,7 @@ section { padding: 6rem 4rem; }
 /* ---- ANIMATIONS ---- */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ---- RESPONSIVE ---- */

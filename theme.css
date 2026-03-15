@@ -5,28 +5,26 @@
 .breadcrumb {
   font-size: .85rem;
   color: var(--text-muted);
-  padding: 1rem 4rem;
+  margin-bottom: 1rem;
 }
-.breadcrumb a { color: var(--gold); text-decoration: none; font-weight: 500; }
-.breadcrumb--maths a { color: var(--sage); }
+.breadcrumb a { color: var(--accent-fr); text-decoration: none; font-weight: 500; }
 
-.theme-hero { padding: 4rem 4rem 3rem; text-align: center; background: var(--forest); color: var(--paper); }
-.theme-hero--fr { background: var(--forest); }
-.theme-hero--maths { background: var(--forest); }
+.theme-hero {
+  padding: 4rem 4rem 3rem;
+}
+.theme-hero--fr { background: #fdf0ee; }
+.theme-hero--maths { background: #eef2fd; }
 
 .theme-badge {
   display: inline-block;
-  background: var(--gold);
+  background: var(--accent-fr);
   color: white;
   font-size: .78rem;
   font-weight: 700;
   padding: .3rem .9rem;
   border-radius: 100px;
   margin-bottom: 1rem;
-  float: left;
-  clear: both;
 }
-.theme-badge--maths { background: var(--accent-math); }
 
 .theme-hero h1 {
   font-family: var(--font-display);
@@ -34,13 +32,12 @@
   font-weight: 800;
   letter-spacing: -2px;
   margin-bottom: 1rem;
-  clear: both;
 }
-.theme-hero p { color: rgba(255,255,255,.7); font-size: 1rem; max-width: 480px; margin: 0 auto; }
+.theme-hero p { color: var(--text-muted); font-size: 1rem; max-width: 480px; }
 
 /* FICHE */
 .fiche-section {
-  padding: 4rem;
+  padding: 4rem 4rem;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -88,7 +85,7 @@
 .fiche-block strong { color: var(--ink); }
 
 .fiche-astuce {
-  background: var(--gold-pale);
+  background: #fff9e6;
   border: 1.5px solid var(--gold);
   border-radius: 10px;
   padding: 1rem 1.2rem;
@@ -97,13 +94,11 @@
   margin-top: 1rem;
 }
 
-/* TABLEAU */
 .tableau {
-  border: 2px solid #c8c0b0;
+  border: 1.5px solid var(--cream);
   border-radius: 10px;
   overflow: hidden;
   font-size: .9rem;
-  margin: 1rem 0;
 }
 .tableau-row {
   display: grid;
@@ -112,38 +107,26 @@
 }
 .tableau-row > div {
   padding: .7rem 1rem;
-  border-bottom: 1px solid #c8c0b0;
-  border-right: 1px solid #c8c0b0;
-  color: var(--ink);
+  border-bottom: 1px solid var(--cream);
+  border-right: 1px solid var(--cream);
+  color: var(--text-muted);
 }
 .tableau-row > div:last-child { border-right: none; }
 .tableau-row:last-child > div { border-bottom: none; }
 .tableau-header > div {
-  background: #2d4a3e;
+  background: var(--cream);
   font-weight: 600;
-  color: var(--paper);
+  color: var(--ink);
   font-size: .82rem;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.formule-block {
-  background: var(--cream);
-  border-radius: 10px;
-  padding: 1rem 1.5rem;
-  font-family: monospace;
-  font-size: 1rem;
-  color: var(--ink);
-  margin: .8rem 0;
-  border: 1.5px solid rgba(0,0,0,.08);
-}
-
 /* QCM */
 .qcm-section {
-  background: var(--forest);
+  background: var(--ink);
   color: var(--paper);
-  padding: 4rem;
-  text-align: center;
+  padding: 4rem 4rem;
 }
 .qcm-section h2 {
   font-family: var(--font-display);
@@ -151,22 +134,21 @@
   font-weight: 800;
   margin-bottom: .5rem;
 }
-.qcm-intro { color: rgba(255,255,255,.65); font-size: .95rem; margin-bottom: 2.5rem; }
+.qcm-intro { color: rgba(255,255,255,.55); font-size: .95rem; margin-bottom: 2.5rem; }
 
-.qcm-container { display: flex; flex-direction: column; gap: 1.5rem; max-width: 760px; margin: 0 auto; }
+.qcm-container { display: flex; flex-direction: column; gap: 1.5rem; max-width: 760px; }
 
 .question-card {
-  background: #22423a;
+  background: #1a1a1a;
   border-radius: var(--radius);
   padding: 1.8rem;
-  border: 1px solid rgba(255,255,255,.1);
-  text-align: left;
+  border: 1px solid rgba(255,255,255,.07);
 }
 .question-num {
   font-size: .78rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: rgba(255,255,255,.45);
+  color: rgba(255,255,255,.35);
   margin-bottom: .6rem;
   font-weight: 600;
 }
@@ -175,12 +157,11 @@
   font-size: 1.05rem;
   margin-bottom: 1.2rem;
   line-height: 1.5;
-  color: var(--paper);
 }
 .options { display: flex; flex-direction: column; gap: .6rem; }
 .option-btn {
-  background: rgba(255,255,255,.08);
-  border: 1.5px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.05);
+  border: 1.5px solid rgba(255,255,255,.1);
   color: var(--paper);
   border-radius: 10px;
   padding: .75rem 1.1rem;
@@ -190,32 +171,31 @@
   font-size: .92rem;
   transition: background .2s, border-color .2s;
 }
-.option-btn:hover:not(:disabled) { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.35); }
-.option-btn.correct { background: rgba(34,197,94,.2); border-color: #22c55e; color: #86efac; }
-.option-btn.wrong { background: rgba(239,68,68,.2); border-color: #ef4444; color: #fca5a5; }
+.option-btn:hover:not(:disabled) { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.25); }
+.option-btn.correct { background: rgba(34,197,94,.15); border-color: #22c55e; color: #86efac; }
+.option-btn.wrong { background: rgba(239,68,68,.15); border-color: #ef4444; color: #fca5a5; }
 .option-btn:disabled { cursor: default; }
 
 .explication {
   margin-top: 1rem;
   padding: .9rem 1.1rem;
-  background: rgba(200,160,23,.15);
+  background: rgba(255,255,255,.05);
   border-radius: 8px;
   font-size: .88rem;
-  color: rgba(255,255,255,.8);
-  border-left: 3px solid var(--gold);
+  color: rgba(255,255,255,.65);
+  border-left: 3px solid rgba(255,255,255,.2);
   display: none;
 }
 .explication.visible { display: block; }
 
+/* RESULT */
 .qcm-result {
   margin-top: 2.5rem;
-  background: #22423a;
+  background: #1a1a1a;
   border-radius: var(--radius);
   padding: 2.5rem;
   text-align: center;
   max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
   border: 1px solid rgba(255,255,255,.1);
 }
 .qcm-result.hidden { display: none; }
@@ -224,12 +204,12 @@
   font-size: 4rem;
   font-weight: 800;
   margin-bottom: .5rem;
-  color: #4ade80;
+  color: #22c55e;
 }
-.qcm-result p { color: rgba(255,255,255,.65); margin-bottom: 1.5rem; }
+.qcm-result p { color: rgba(255,255,255,.6); margin-bottom: 1.5rem; }
 
+/* RESPONSIVE */
 @media (max-width: 900px) {
-  .breadcrumb { padding: 1rem 1.5rem; }
   .theme-hero { padding: 3rem 1.5rem; }
   .fiche-section { padding: 3rem 1.5rem; }
   .qcm-section { padding: 3rem 1.5rem; }
