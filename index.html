@@ -1,163 +1,179 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ReviseTonBac — Révise intelligemment</title>
+  <title>ReviseTonBac — Révise. Réussis.</title>
   <link rel="stylesheet" href="css/style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="logo">📚 ReviseTonBac</div>
-    <div class="nav-links">
-      <a href="#matieres">Matières</a>
-      <a href="#tarifs">Tarifs</a>
-      <a href="#" class="btn-nav">Commencer</a>
-    </div>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Révise<span>ton</span>Bac</a>
+    <ul class="nav-links">
+      <li><a href="pages/francais.html">Français</a></li>
+      <li><a href="pages/maths.html">Maths</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="pages/francais.html" class="btn-nav">Commencer</a></li>
+    </ul>
   </nav>
 
-  <header class="hero">
-    <div class="hero-content">
-      <span class="badge">🎯 Spécial Terminale</span>
-      <h1>Réussis ton <span class="highlight">Bac</span> avec méthode</h1>
-      <p>Fiches de révision, QCM interactifs et exercices corrigés pour toutes les matières du bac.</p>
-      <div class="hero-btns">
-        <a href="#matieres" class="btn-primary">Commencer gratuitement</a>
-        <a href="#tarifs" class="btn-secondary">Voir les offres</a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="floating-card card-1">📖 Français</div>
-      <div class="floating-card card-2">📐 Maths</div>
-      <div class="floating-card card-3">⚗️ Physique</div>
-      <div class="floating-card card-4">🧬 SVT</div>
-    </div>
-  </header>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-blob blob1"></div>
+    <div class="hero-blob blob2"></div>
 
+    <div class="hero-badge">✦ 100% programme officiel Bac 2025</div>
+    <h1 class="hero-title">Révise.<br><em>Réussis.</em></h1>
+    <p class="hero-sub">
+      Fiches de cours claires + QCM corrigés pour décrocher ton Bac.<br>
+      Un thème offert par matière pour commencer dès maintenant.
+    </p>
+    <div class="hero-cta">
+      <a href="pages/francais.html" class="btn-primary">Essayer gratuitement →</a>
+      <a href="#matieres" class="btn-ghost">Voir les matières</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span>12</span>thèmes disponibles</div>
+      <span class="stat-sep">·</span>
+      <div class="stat"><span>2</span>matières</div>
+      <span class="stat-sep">·</span>
+      <div class="stat"><span>1</span>thème offert</div>
+    </div>
+  </section>
+
+  <!-- MATIÈRES -->
   <section class="matieres" id="matieres">
-    <h2>Choisis ta matière</h2>
-    <p class="subtitle">Des contenus gratuits et premium pour chaque discipline</p>
+    <p class="section-label">— Les matières</p>
+    <h2 class="section-title">Deux matières,<br>douze thèmes.</h2>
+
     <div class="cards-grid">
 
-      <a href="pages/francais.html" class="matiere-card">
+      <div class="card card--fr">
+        <div class="card-tag">Première Générale</div>
         <div class="card-icon">📖</div>
         <h3>Français</h3>
-        <p>Roman, poésie, théâtre, argumentation...</p>
-        <span class="badge-free">1 fiche gratuite</span>
-      </a>
+        <p>Maîtrise le commentaire, la dissertation et les objets d'étude du programme.</p>
+        <ul class="card-themes">
+          <li class="free">✦ Le roman et le récit <span class="badge-free">Gratuit</span></li>
+          <li>La poésie</li>
+          <li>Le théâtre</li>
+          <li>La littérature d'idées</li>
+          <li>Méthode commentaire</li>
+          <li>Méthode dissertation</li>
+        </ul>
+        <a href="pages/francais.html" class="card-cta">Voir les thèmes →</a>
+      </div>
 
-      <a href="pages/maths.html" class="matiere-card">
+      <div class="card card--maths">
+        <div class="card-tag">Terminale Générale</div>
         <div class="card-icon">📐</div>
         <h3>Mathématiques</h3>
-        <p>Suites, dérivées, probabilités, géométrie...</p>
-        <span class="badge-free">1 fiche gratuite</span>
-      </a>
-
-      <div class="matiere-card locked">
-        <div class="card-icon">⚗️</div>
-        <h3>Physique-Chimie</h3>
-        <p>Mécanique, optique, chimie organique...</p>
-        <span class="badge-premium">🔒 Premium</span>
-      </div>
-
-      <div class="matiere-card locked">
-        <div class="card-icon">🧬</div>
-        <h3>SVT</h3>
-        <p>Génétique, évolution, corps humain...</p>
-        <span class="badge-premium">🔒 Premium</span>
-      </div>
-
-      <div class="matiere-card locked">
-        <div class="card-icon">🌍</div>
-        <h3>Histoire-Géo</h3>
-        <p>Guerres mondiales, mondialisation, géopolitique...</p>
-        <span class="badge-premium">🔒 Premium</span>
-      </div>
-
-      <div class="matiere-card locked">
-        <div class="card-icon">💡</div>
-        <h3>Philosophie</h3>
-        <p>Dissertations, auteurs, notions clés...</p>
-        <span class="badge-premium">🔒 Premium</span>
+        <p>Comprends vraiment les notions clés pour réussir l'épreuve de maths.</p>
+        <ul class="card-themes">
+          <li class="free">✦ Suites numériques <span class="badge-free">Gratuit</span></li>
+          <li>Dérivation & fonctions</li>
+          <li>Intégration</li>
+          <li>Probabilités & stats</li>
+          <li>Géométrie dans l'espace</li>
+          <li>Logarithme & exponentielle</li>
+        </ul>
+        <a href="pages/maths.html" class="card-cta">Voir les thèmes →</a>
       </div>
 
     </div>
   </section>
 
+  <!-- COMMENT ÇA MARCHE -->
+  <section class="how">
+    <p class="section-label">— Comment ça marche</p>
+    <h2 class="section-title">Simple. Efficace.<br>Immédiat.</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Choisis un thème</h4>
+        <p>Sélectionne la matière et le chapitre que tu veux réviser.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Lis la fiche de cours</h4>
+        <p>Une synthèse claire, structurée, directement tirée du programme.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Teste-toi au QCM</h4>
+        <p>10 questions avec correction détaillée pour valider tes acquis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARIFS -->
   <section class="tarifs" id="tarifs">
-    <h2>Tarifs simples et transparents</h2>
-    <p class="subtitle">Paie uniquement ce dont tu as besoin — aucun abonnement</p>
+    <p class="section-label">— Tarifs</p>
+    <h2 class="section-title">Un paiement unique.<br>À vie.</h2>
+    <p class="tarifs-sub">Pas d'abonnement. Tu paies une fois, c'est à toi pour toujours.</p>
 
     <div class="tarifs-grid">
 
       <div class="tarif-card">
-        <h3>Gratuit</h3>
-        <div class="price">0€</div>
-        <ul>
-          <li>✅ 1 fiche par matière</li>
-          <li>✅ QCM inclus sur chaque fiche</li>
-          <li>✅ Accès permanent</li>
-          <li>❌ Thèmes supplémentaires</li>
-        </ul>
-        <a href="#matieres" class="btn-plan free">Commencer</a>
+        <div class="tarif-label">Thème seul</div>
+        <div class="tarif-price">4<span>,99€</span></div>
+        <p class="tarif-desc">Accès illimité à 1 thème au choix</p>
+        <a href="#matieres" class="btn-primary">Choisir un thème</a>
+      </div>
+
+      <div class="tarif-card tarif-card--featured">
+        <div class="tarif-badge">⭐ Meilleure offre</div>
+        <div class="tarif-label">Pack matière</div>
+        <div class="tarif-price">14<span>,99€</span></div>
+        <p class="tarif-desc">Tous les thèmes d'une matière — <s>29,94€</s></p>
+        <a href="#matieres" class="btn-primary">Choisir une matière</a>
       </div>
 
       <div class="tarif-card">
-        <h3>Thème à l'unité</h3>
-        <div class="price">1,99€<span> / thème</span></div>
-        <ul>
-          <li>✅ 1 fiche de cours complète</li>
-          <li>✅ QCM interactif</li>
-          <li>✅ Exercices corrigés</li>
-          <li>✅ Accès permanent</li>
-        </ul>
-        <a href="#matieres" class="btn-plan free">Choisir un thème</a>
-      </div>
-
-      <div class="tarif-card featured">
-        <div class="popular-badge">⭐ Meilleur choix</div>
-        <h3>Pack Matière</h3>
-        <div class="price">5,99€<span> / matière</span></div>
-        <ul>
-          <li>✅ Tous les thèmes d'une matière</li>
-          <li>✅ QCM illimités</li>
-          <li>✅ Exercices corrigés</li>
-          <li>✅ Accès permanent</li>
-          <li>✅ Économisez ~60%</li>
-        </ul>
-        <a href="#matieres" class="btn-plan premium">Choisir une matière</a>
-      </div>
-
-      <div class="tarif-card">
-        <h3>Pack Complet</h3>
-        <div class="price">14,99€<span> tout inclus</span></div>
-        <ul>
-          <li>✅ Toutes les matières</li>
-          <li>✅ Tous les thèmes</li>
-          <li>✅ Nouveaux contenus inclus</li>
-          <li>✅ Accès jusqu'au bac</li>
-          <li>✅ Économisez +70%</li>
-        </ul>
-        <button class="btn-plan annual" onclick="checkout('pack_complet')">Tout débloquer</button>
+        <div class="tarif-label">Pack Total</div>
+        <div class="tarif-price">34<span>,99€</span></div>
+        <p class="tarif-desc">Français + Maths complets — <s>59,88€</s></p>
+        <button class="btn-primary" onclick="ouvrirPaiement('pack-total')">Tout débloquer</button>
       </div>
 
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-content">
-      <div class="logo">📚 ReviseTonBac</div>
-      <p>Conçu pour les lycéens de Terminale. Bonne chance pour ton bac ! 🍀</p>
-      <div class="footer-links">
-        <a href="#">Mentions légales</a>
-        <a href="#">CGU</a>
-        <a href="#">Contact</a>
-      </div>
+    <div class="footer-logo">Révise<span>ton</span>Bac</div>
+    <p>© 2025 ReviseTonBac — Tous droits réservés</p>
+    <div class="footer-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">CGV</a>
+      <a href="#">Contact</a>
     </div>
   </footer>
 
+  <!-- MODALE PAIEMENT -->
+  <div id="payment-modal" class="payment-modal-overlay hidden">
+    <div class="payment-modal">
+      <button class="payment-modal-close" onclick="fermerModal()">✕</button>
+      <div class="payment-modal-header">
+        <h3>Finaliser l'achat</h3>
+        <p class="payment-subtitle">Paiement sécurisé par Stripe</p>
+      </div>
+      <div class="payment-product-info">
+        <span class="product-name" id="payment-product-name">—</span>
+        <span class="product-price" id="payment-product-price">—</span>
+      </div>
+      <div id="payment-form-container"></div>
+      <div class="payment-secure">🔒 Paiement chiffré SSL · Stripe</div>
+    </div>
+  </div>
+
+  <script src="https://js.stripe.com/v3/"></script>
   <script src="js/main.js"></script>
+  <script src="js/payment.js"></script>
 </body>
 </html>

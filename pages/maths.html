@@ -5,143 +5,177 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mathématiques — ReviseTonBac</title>
   <link rel="stylesheet" href="../css/style.css"/>
-  <link rel="stylesheet" href="../css/themes.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/matiere.css"/>
+  <link rel="stylesheet" href="../css/payment.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-  <nav class="navbar">
-    <a href="../index.html" class="logo">📚 ReviseTonBac</a>
-    <div class="nav-links">
-      <a href="../index.html#matieres">Matières</a>
-      <a href="../index.html#tarifs">Tarifs</a>
-    </div>
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">Révise<span>ton</span>Bac</a>
+    <ul class="nav-links">
+      <li><a href="francais.html">Français</a></li>
+      <li><a href="maths.html" class="active">Maths</a></li>
+      <li><a href="../index.html#tarifs">Tarifs</a></li>
+    </ul>
   </nav>
 
-  <div class="breadcrumb">
-    <a href="../index.html">Accueil</a>
-    <span>›</span>
-    <span>Mathématiques</span>
-  </div>
-
-  <div class="page-header">
-    <span class="badge">📐 Maths — Terminale</span>
-    <h1>Révisions de <span class="highlight">Mathématiques</span></h1>
-    <p>Suites, dérivées, intégrales, probabilités, géométrie... Tout le programme de Terminale.</p>
+  <div class="matiere-hero matiere-hero--maths">
+    <div class="matiere-tag">Terminale Générale</div>
+    <h1>📐 Mathématiques</h1>
+    <p>6 thèmes, des fiches claires et des QCM corrigés pour maîtriser l'épreuve de maths.</p>
   </div>
 
   <div class="themes-section">
-
-    <!-- GRATUIT -->
-    <h2>✦ Thème gratuit</h2>
-    <div class="themes-grid">
-      <a href="../themes/maths/suites.html" class="theme-card free-card">
-        <h3>🔢 Suites numériques</h3>
-        <p>Suites arithmétiques, géométriques, récurrentes, convergence.</p>
-        <span class="badge-free">Gratuit</span>
-      </a>
-    </div>
-
-    <!-- PAYANTS -->
-    <div class="themes-header">
-      <h2>🔒 Thèmes à débloquer</h2>
-      <button class="btn-pack" onclick="checkout('pack_maths')">
-        Pack Maths complet — 5,99€
-      </button>
-    </div>
+    <p class="section-label">— Les thèmes disponibles</p>
 
     <div class="themes-grid">
 
-      <div class="theme-card payant-card">
-        <div class="theme-card-top">
-          <div>
-            <h3>📈 Fonctions et dérivées</h3>
-            <p>Dérivation, étude de fonctions, tableaux de variation.</p>
-          </div>
+      <!-- GRATUIT -->
+      <div class="theme-card theme-card--free theme-card--maths">
+        <div class="theme-free-badge theme-free-badge--maths">✦ Gratuit</div>
+        <div class="theme-num theme-num--maths">01</div>
+        <h3>Suites numériques</h3>
+        <p>Suites arithmétiques et géométriques, raisonnement par récurrence, convergence.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 10 QCM corrigés</span>
         </div>
-        <div class="theme-card-bottom">
-          <span class="prix-theme">1,99€</span>
-          <button class="btn-theme" onclick="checkout('theme_derivees')">Débloquer</button>
-        </div>
+        <a href="../themes/maths/suites.html" class="btn-primary btn-primary--maths">Accéder gratuitement →</a>
       </div>
 
-      <div class="theme-card payant-card">
-        <div class="theme-card-top">
-          <div>
-            <h3>∫ Intégrales</h3>
-            <p>Primitives, calcul intégral, aire sous une courbe.</p>
-          </div>
+      <!-- THÈMES PAYANTS -->
+      <div class="theme-card" id="card-ma-derivation">
+        <div class="theme-num theme-num--maths">02</div>
+        <h3>Dérivation & fonctions</h3>
+        <p>Dérivées usuelles, règles de dérivation, étude de variations et extrema.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 10 QCM corrigés</span>
         </div>
-        <div class="theme-card-bottom">
-          <span class="prix-theme">1,99€</span>
-          <button class="btn-theme" onclick="checkout('theme_integrales')">Débloquer</button>
-        </div>
+        <div class="theme-price" id="price-ma-derivation">4,99€</div>
+        <button class="btn-primary btn-primary--maths" onclick="debloquer('ma-derivation')">Débloquer</button>
       </div>
 
-      <div class="theme-card payant-card">
-        <div class="theme-card-top">
-          <div>
-            <h3>📊 Probabilités & statistiques</h3>
-            <p>Loi binomiale, loi normale, intervalles de confiance.</p>
-          </div>
+      <div class="theme-card" id="card-ma-integration">
+        <div class="theme-num theme-num--maths">03</div>
+        <h3>Intégration</h3>
+        <p>Intégrales, primitives, calcul d'aires, théorème fondamental de l'analyse.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 10 QCM corrigés</span>
         </div>
-        <div class="theme-card-bottom">
-          <span class="prix-theme">1,99€</span>
-          <button class="btn-theme" onclick="checkout('theme_probas')">Débloquer</button>
-        </div>
+        <div class="theme-price" id="price-ma-integration">4,99€</div>
+        <button class="btn-primary btn-primary--maths" onclick="debloquer('ma-integration')">Débloquer</button>
       </div>
 
-      <div class="theme-card payant-card">
-        <div class="theme-card-top">
-          <div>
-            <h3>🧮 Logarithme et exponentielle</h3>
-            <p>Propriétés, dérivées, équations transcendantes.</p>
-          </div>
+      <div class="theme-card" id="card-ma-probas">
+        <div class="theme-num theme-num--maths">04</div>
+        <h3>Probabilités & stats</h3>
+        <p>Variables aléatoires, loi binomiale, loi normale, intervalles de fluctuation.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 10 QCM corrigés</span>
         </div>
-        <div class="theme-card-bottom">
-          <span class="prix-theme">1,99€</span>
-          <button class="btn-theme" onclick="checkout('theme_log_exp')">Débloquer</button>
-        </div>
+        <div class="theme-price" id="price-ma-probas">4,99€</div>
+        <button class="btn-primary btn-primary--maths" onclick="debloquer('ma-probas')">Débloquer</button>
       </div>
 
-      <div class="theme-card payant-card">
-        <div class="theme-card-top">
-          <div>
-            <h3>📐 Géométrie dans l'espace</h3>
-            <p>Vecteurs, plans, droites, distances et angles.</p>
-          </div>
+      <div class="theme-card" id="card-ma-geo">
+        <div class="theme-num theme-num--maths">05</div>
+        <h3>Géométrie dans l'espace</h3>
+        <p>Vecteurs 3D, plans, droites, distances et angles dans l'espace.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 10 QCM corrigés</span>
         </div>
-        <div class="theme-card-bottom">
-          <span class="prix-theme">1,99€</span>
-          <button class="btn-theme" onclick="checkout('theme_geometrie')">Débloquer</button>
-        </div>
+        <div class="theme-price" id="price-ma-geo">4,99€</div>
+        <button class="btn-primary btn-primary--maths" onclick="debloquer('ma-geo')">Débloquer</button>
       </div>
 
-      <div class="theme-card payant-card">
-        <div class="theme-card-top">
-          <div>
-            <h3>🔣 Arithmétique & complexes</h3>
-            <p>Nombres complexes, PGCD, congruences.</p>
-          </div>
+      <div class="theme-card" id="card-ma-log">
+        <div class="theme-num theme-num--maths">06</div>
+        <h3>Logarithme & exponentielle</h3>
+        <p>Fonctions ln et exp, propriétés, limites, équations et inéquations.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 10 QCM corrigés</span>
         </div>
-        <div class="theme-card-bottom">
-          <span class="prix-theme">1,99€</span>
-          <button class="btn-theme" onclick="checkout('theme_complexes')">Débloquer</button>
-        </div>
+        <div class="theme-price" id="price-ma-log">4,99€</div>
+        <button class="btn-primary btn-primary--maths" onclick="debloquer('ma-log')">Débloquer</button>
       </div>
 
     </div>
 
-    <div class="pack-cta">
-      <div class="pack-cta-text">
-        <strong>Pack Maths complet</strong>
-        <span>Les 6 thèmes pour le prix de 3 — accès permanent</span>
+    <!-- PACK BANNER -->
+    <div class="pack-banner pack-banner--maths">
+      <div>
+        <div class="pack-label">Pack Maths complet</div>
+        <div class="pack-desc">Les 6 thèmes débloqués d'un coup — économise 14,95€</div>
       </div>
-      <button class="btn-primary" onclick="checkout('pack_maths')">Tout débloquer — 5,99€</button>
+      <div class="pack-right">
+        <div class="pack-price">17,99€ <s>29,94€</s></div>
+        <button class="btn-primary" onclick="ouvrirPaiement('pack-maths')">Tout débloquer</button>
+      </div>
     </div>
 
   </div>
 
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">Révise<span>ton</span>Bac</div>
+    <p>© 2025 ReviseTonBac — Tous droits réservés</p>
+    <div class="footer-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">CGV</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <!-- MODALE PAIEMENT -->
+  <div id="payment-modal" class="payment-modal-overlay hidden">
+    <div class="payment-modal">
+      <button class="payment-modal-close" onclick="fermerModal()">✕</button>
+      <div class="payment-modal-header">
+        <h3>Finaliser l'achat</h3>
+        <p class="payment-subtitle">Paiement sécurisé par Stripe</p>
+      </div>
+      <div class="payment-product-info">
+        <span class="product-name" id="payment-product-name">—</span>
+        <span class="product-price" id="payment-product-price">—</span>
+      </div>
+      <div id="payment-form-container"></div>
+      <div class="payment-secure">🔒 Paiement chiffré SSL · Stripe</div>
+    </div>
+  </div>
+
+  <script src="https://js.stripe.com/v3/"></script>
   <script src="../js/main.js"></script>
+  <script src="../js/payment.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      ['ma-derivation','ma-integration','ma-probas','ma-geo','ma-log'].forEach(id => {
+        if (estDebloque(id)) marquerDebloque(id);
+      });
+    });
+
+    function debloquer(produitId) {
+      if (estDebloque(produitId)) return;
+      ouvrirPaiement(produitId);
+    }
+
+    function marquerDebloque(produitId) {
+      const card = document.getElementById(`card-${produitId}`);
+      const priceEl = document.getElementById(`price-${produitId}`);
+      if (!card) return;
+      const btn = card.querySelector('button');
+      if (btn) {
+        btn.textContent = '✅ Débloqué — Accéder';
+        btn.style.background = '#22c55e';
+        btn.onclick = () => window.location.href = `../themes/maths/${produitId.replace('ma-','')}.html`;
+      }
+      if (priceEl) priceEl.style.display = 'none';
+    }
+  </script>
 </body>
 </html>

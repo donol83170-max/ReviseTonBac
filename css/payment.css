@@ -1,0 +1,125 @@
+/* payment.css — modale de paiement Stripe */
+
+.payment-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.7);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.payment-modal-overlay.hidden { display: none; }
+
+.payment-modal {
+  background: #1a1a1a;
+  border-radius: 20px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 480px;
+  border: 1px solid rgba(255,255,255,.1);
+  position: relative;
+  animation: modalIn .3s ease;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.payment-modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: rgba(255,255,255,.08);
+  border: none;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+}
+.payment-modal-close:hover { background: rgba(255,255,255,.15); }
+
+.payment-modal-header { margin-bottom: 1.8rem; }
+.payment-modal-header h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #f5f2eb;
+  margin-bottom: .3rem;
+}
+.payment-modal-header .payment-subtitle { font-size: .85rem; color: rgba(255,255,255,.45); }
+
+.payment-product-info {
+  background: rgba(255,255,255,.05);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255,255,255,.07);
+}
+.payment-product-info .product-name { font-weight: 500; color: #f5f2eb; font-size: .95rem; }
+.payment-product-info .product-price {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #c8a84b;
+}
+
+.payment-loading { text-align: center; color: rgba(255,255,255,.45); padding: 2rem; font-size: .95rem; }
+
+#stripe-element { margin-bottom: 1.2rem; }
+
+.pay-btn {
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-top: .5rem;
+}
+.pay-btn:disabled { opacity: .6; cursor: not-allowed; transform: none !important; }
+
+.payment-error {
+  background: rgba(239,68,68,.15);
+  border: 1px solid #ef4444;
+  color: #fca5a5;
+  border-radius: 8px;
+  padding: .75rem 1rem;
+  font-size: .88rem;
+  margin-bottom: 1rem;
+}
+.payment-error.hidden { display: none; }
+
+.payment-success { text-align: center; padding: 1rem 0; }
+.success-icon { font-size: 3rem; margin-bottom: 1rem; }
+.payment-success h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #f5f2eb;
+  margin-bottom: .5rem;
+}
+.payment-success p { color: rgba(255,255,255,.55); margin-bottom: 1.5rem; }
+.payment-success .btn-primary { display: inline-block; }
+
+.payment-secure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  font-size: .78rem;
+  color: rgba(255,255,255,.3);
+  margin-top: 1.2rem;
+}

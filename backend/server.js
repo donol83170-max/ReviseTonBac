@@ -1,100 +1,98 @@
-const express = require('express');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-const cors = require('cors');
 require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:5500' }));
 app.use(express.json());
+app.use(cors({ origin: process.env.FRONTEND_URL || '*' }));
 app.use(express.static('../'));
 
-// ===== CATALOGUE DES PRIX (à remplir avec tes Price IDs Stripe) =====
-const PRICES = {
-  // Thèmes Français — 1,99€ chacun
-  theme_theatre:       process.env.PRICE_THEME_THEATRE,
-  theme_poesie:        process.env.PRICE_THEME_POESIE,
-  theme_argumentation: process.env.PRICE_THEME_ARGUMENTATION,
-  theme_commentaire:   process.env.PRICE_THEME_COMMENTAIRE,
-  theme_dissertation:  process.env.PRICE_THEME_DISSERTATION,
+// ─── Catalogue des produits ───────────────────────────────────────────────────
+const PRODUITS = {
+  // Thèmes Français — 4,99€ = 499 centimes
+  'fr-poesie':       { nom: 'La poésie',              prix: 499,  matiere: 'francais' },
+  'fr-theatre':      { nom: 'Le théâtre',              prix: 499,  matiere: 'francais' },
+  'fr-idees':        { nom: "La littérature d'idées",  prix: 499,  matiere: 'francais' },
+  'fr-commentaire':  { nom: 'Méthode commentaire',     prix: 499,  matiere: 'francais' },
+  'fr-dissertation': { nom: 'Méthode dissertation',    prix: 499,  matiere: 'francais' },
 
-  // Thèmes Maths — 1,99€ chacun
-  theme_derivees:      process.env.PRICE_THEME_DERIVEES,
-  theme_integrales:    process.env.PRICE_THEME_INTEGRALES,
-  theme_probas:        process.env.PRICE_THEME_PROBAS,
-  theme_log_exp:       process.env.PRICE_THEME_LOG_EXP,
-  theme_geometrie:     process.env.PRICE_THEME_GEOMETRIE,
-  theme_complexes:     process.env.PRICE_THEME_COMPLEXES,
+  // Thèmes Maths — 4,99€ = 499 centimes
+  'ma-derivation':   { nom: 'Dérivation & fonctions',     prix: 499,  matiere: 'maths' },
+  'ma-integration':  { nom: 'Intégration',                prix: 499,  matiere: 'maths' },
+  'ma-probas':       { nom: 'Probabilités & stats',        prix: 499,  matiere: 'maths' },
+  'ma-geo':          { nom: 'Géométrie dans l\'espace',    prix: 499,  matiere: 'maths' },
+  'ma-log':          { nom: 'Logarithme & exponentielle',  prix: 499,  matiere: 'maths' },
 
-  // Packs — paiement unique
-  pack_francais:       process.env.PRICE_PACK_FRANCAIS,   // 5,99€
-  pack_maths:          process.env.PRICE_PACK_MATHS,       // 5,99€
-  pack_complet:        process.env.PRICE_PACK_COMPLET,     // 14,99€
+  // Packs
+  'pack-francais':   { nom: 'Pack Français complet',  prix: 1499, matiere: 'francais' },
+  'pack-maths':      { nom: 'Pack Maths complet',      prix: 1799, matiere: 'maths'    },
+  'pack-total':      { nom: 'Pack Total ReviseTonBac', prix: 3499, matiere: 'all'      },
 };
 
-// ===== CRÉER UNE SESSION DE PAIEMENT =====
-app.post('/api/create-checkout-session', async (req, res) => {
-  const { plan } = req.body;
-  const priceId = PRICES[plan];
+// ─── Clé publique Stripe pour le frontend ─────────────────────────────────────
+app.get('/config', (req, res) => {
+  res.json({ publicKey: process.env.STRIPE_PUBLIC_KEY });
+});
 
-  if (!priceId) {
-    return res.status(400).json({ error: `Plan inconnu : ${plan}` });
+// ─── Créer un PaymentIntent ───────────────────────────────────────────────────
+app.post('/create-payment-intent', async (req, res) => {
+  const { produitId } = req.body;
+  const produit = PRODUITS[produitId];
+
+  if (!produit) {
+    return res.status(400).json({ error: `Produit introuvable : ${produitId}` });
   }
 
   try {
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
-      mode: 'payment',                        // paiement unique
-      line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${process.env.FRONTEND_URL || 'http://localhost:5500'}/pages/succes.html?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url:  `${process.env.FRONTEND_URL || 'http://localhost:5500'}/#tarifs`,
-      locale: 'fr',
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: produit.prix,
+      currency: 'eur',
+      metadata: {
+        produitId,
+        produitNom: produit.nom,
+        matiere: produit.matiere,
+      },
+      description: `ReviseTonBac — ${produit.nom}`,
     });
 
-    res.json({ url: session.url });
+    res.json({
+      clientSecret: paymentIntent.client_secret,
+      produit,
+    });
   } catch (err) {
     console.error('Stripe error:', err.message);
-    res.status(500).json({ error: 'Erreur lors de la création de la session' });
+    res.status(500).json({ error: err.message });
   }
 });
 
-// ===== WEBHOOK — confirmation de paiement =====
-app.post('/api/webhook', express.raw({ type: 'application/json' }), (req, res) => {
-  const sig = req.headers['stripe-signature'];
-  let event;
+// ─── Confirmer le paiement ────────────────────────────────────────────────────
+app.post('/confirm-payment', async (req, res) => {
+  const { paymentIntentId } = req.body;
 
   try {
-    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
-  } catch (err) {
-    return res.status(400).send(`Webhook Error: ${err.message}`);
-  }
+    const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
 
-  if (event.type === 'checkout.session.completed') {
-    const session = event.data.object;
-    console.log(`✅ Paiement reçu — ${session.id} — ${session.amount_total / 100}€`);
-    // TODO: enregistrer l'achat en base de données et débloquer l'accès
-  }
+    if (paymentIntent.status === 'succeeded') {
+      const produitId = paymentIntent.metadata.produitId;
+      console.log(`✅ Paiement confirmé — ${paymentIntent.metadata.produitNom} — ${paymentIntent.amount / 100}€`);
+      // TODO: enregistrer en base de données pour un accès permanent
 
-  res.json({ received: true });
-});
-
-// ===== VÉRIFIER UN PAIEMENT =====
-app.get('/api/payment-status', async (req, res) => {
-  const { session_id } = req.query;
-  if (!session_id) return res.status(400).json({ error: 'session_id requis' });
-
-  try {
-    const session = await stripe.checkout.sessions.retrieve(session_id);
-    res.json({
-      status: session.payment_status,      // 'paid' si réussi
-      customer: session.customer_details,
-    });
+      res.json({
+        success: true,
+        produitId,
+        message: `Accès débloqué : ${paymentIntent.metadata.produitNom}`,
+      });
+    } else {
+      res.status(400).json({ success: false, message: 'Paiement non confirmé.' });
+    }
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
+// ─── Démarrage ────────────────────────────────────────────────────────────────
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`🚀 Serveur ReviseTonBac lancé sur http://localhost:${PORT}`);
+  console.log(`✅ Serveur ReviseTonBac démarré sur http://localhost:${PORT}`);
 });

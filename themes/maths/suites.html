@@ -3,206 +3,200 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Suites Numériques — ReviseTonBac</title>
+  <title>Suites numériques — ReviseTonBac</title>
   <link rel="stylesheet" href="../../css/style.css"/>
-  <link rel="stylesheet" href="../../css/themes.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../../css/theme.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-  <nav class="navbar">
-    <a href="../../index.html" class="logo">📚 ReviseTonBac</a>
-    <div class="nav-links">
-      <a href="../../pages/maths.html">← Maths</a>
-      <a href="../../index.html#tarifs">Premium</a>
-    </div>
+  <nav class="nav">
+    <a href="../../index.html" class="nav-logo">Révise<span>ton</span>Bac</a>
+    <ul class="nav-links">
+      <li><a href="../../pages/maths.html">← Maths</a></li>
+      <li><a href="../../index.html#tarifs">Tarifs</a></li>
+    </ul>
   </nav>
 
-  <div class="breadcrumb">
-    <a href="../../index.html">Accueil</a>
-    <span>›</span>
-    <a href="../../pages/maths.html">Mathématiques</a>
-    <span>›</span>
-    <span>Suites numériques</span>
+  <div class="breadcrumb breadcrumb--maths">
+    <a href="../../pages/maths.html">Maths</a> → Suites numériques
   </div>
 
-  <div class="fiche-container">
+  <div class="theme-hero theme-hero--maths">
+    <div class="theme-badge theme-badge--maths">✦ Gratuit</div>
+    <h1>Suites numériques</h1>
+    <p>Maîtrise les suites arithmétiques, géométriques et le raisonnement par récurrence.</p>
+  </div>
+
+  <!-- FICHE DE COURS -->
+  <div class="fiche-section">
     <div class="fiche-header">
-      <span class="badge">📐 Gratuit — Mathématiques</span>
-      <h1>Suites Numériques</h1>
-      <div class="meta">
-        <span>🔢 Arithmétique & Géométrique</span>
-        <span>⏱️ ~25 min de lecture</span>
-        <span>🎯 QCM inclus</span>
-      </div>
+      <h2>📄 Fiche de cours</h2>
+      <span class="fiche-tag">Terminale Générale — Analyse</span>
     </div>
 
-    <!-- SECTION 1 -->
-    <div class="cours-section">
-      <h2>1. Définitions fondamentales</h2>
+    <div class="fiche-content">
 
-      <div class="definition">
-        <strong>Définition — Suite numérique</strong>
-        Une <em>suite numérique</em> est une fonction définie sur ℕ (ou une partie de ℕ) à valeurs réelles. On note les termes u₀, u₁, u₂, ..., uₙ ou encore (uₙ)ₙ∈ℕ.
+      <div class="fiche-block">
+        <h3>1. Définition d'une suite</h3>
+        <p>Une <strong>suite numérique</strong> est une fonction définie sur ℕ (ou une partie de ℕ) à valeurs dans ℝ. On note u<sub>n</sub> le terme de rang n.</p>
+        <ul>
+          <li><strong>Suite explicite</strong> : u<sub>n</sub> = f(n) — le terme est donné directement en fonction de n</li>
+          <li><strong>Suite par récurrence</strong> : u<sub>n+1</sub> = f(u<sub>n</sub>) — chaque terme est défini à partir du précédent</li>
+        </ul>
       </div>
 
-      <h3>Deux modes de définition</h3>
-      <ul>
-        <li><strong>Définition explicite</strong> : on exprime uₙ directement en fonction de n. Ex : uₙ = 2n + 1</li>
-        <li><strong>Définition récurrente</strong> : on exprime uₙ₊₁ en fonction de uₙ (et donne un terme initial u₀ ou u₁).</li>
-      </ul>
-
-      <div class="exemple">
-        <strong>Exemple — définition récurrente</strong>
-        u₀ = 3 et uₙ₊₁ = uₙ + 5 pour tout n ∈ ℕ.<br/>
-        On calcule : u₁ = 8, u₂ = 13, u₃ = 18... C'est une suite arithmétique de raison 5.
+      <div class="fiche-block">
+        <h3>2. Suite arithmétique</h3>
+        <p>Une suite (u<sub>n</sub>) est <strong>arithmétique</strong> si chaque terme s'obtient en ajoutant une constante r (raison) au terme précédent.</p>
+        <div class="formule-block">u<sub>n+1</sub> = u<sub>n</sub> + r</div>
+        <p><strong>Terme général :</strong></p>
+        <div class="formule-block">u<sub>n</sub> = u<sub>0</sub> + n·r &nbsp;&nbsp; ou &nbsp;&nbsp; u<sub>n</sub> = u<sub>p</sub> + (n−p)·r</div>
+        <p><strong>Somme des n premiers termes :</strong></p>
+        <div class="formule-block">S = n × (premier terme + dernier terme) / 2</div>
+        <div class="fiche-astuce">💡 <strong>Moyen mnémotechnique :</strong> Suite arithmétique = addition constante. Pense à une suite de marches régulières.</div>
       </div>
+
+      <div class="fiche-block">
+        <h3>3. Suite géométrique</h3>
+        <p>Une suite (u<sub>n</sub>) est <strong>géométrique</strong> si chaque terme s'obtient en multipliant par une constante q (raison) le terme précédent.</p>
+        <div class="formule-block">u<sub>n+1</sub> = u<sub>n</sub> × q</div>
+        <p><strong>Terme général :</strong></p>
+        <div class="formule-block">u<sub>n</sub> = u<sub>0</sub> × q<sup>n</sup> &nbsp;&nbsp; ou &nbsp;&nbsp; u<sub>n</sub> = u<sub>p</sub> × q<sup>(n−p)</sup></div>
+        <p><strong>Somme des n premiers termes (q ≠ 1) :</strong></p>
+        <div class="formule-block">S = u<sub>0</sub> × (1 − q<sup>n</sup>) / (1 − q)</div>
+      </div>
+
+      <div class="fiche-block">
+        <h3>4. Sens de variation</h3>
+        <div class="tableau">
+          <div class="tableau-row tableau-header">
+            <div>Type</div>
+            <div>Condition</div>
+            <div>Variation</div>
+          </div>
+          <div class="tableau-row">
+            <div>Arithmétique</div>
+            <div>r &gt; 0</div>
+            <div>Croissante</div>
+          </div>
+          <div class="tableau-row">
+            <div>Arithmétique</div>
+            <div>r &lt; 0</div>
+            <div>Décroissante</div>
+          </div>
+          <div class="tableau-row">
+            <div>Géométrique</div>
+            <div>q &gt; 1 et u₀ &gt; 0</div>
+            <div>Croissante</div>
+          </div>
+          <div class="tableau-row">
+            <div>Géométrique</div>
+            <div>0 &lt; q &lt; 1 et u₀ &gt; 0</div>
+            <div>Décroissante</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fiche-block">
+        <h3>5. Raisonnement par récurrence</h3>
+        <p>Pour démontrer qu'une propriété P(n) est vraie pour tout n ≥ n₀ :</p>
+        <ul>
+          <li><strong>Initialisation :</strong> Vérifier P(n₀)</li>
+          <li><strong>Hérédité :</strong> Supposer P(n) vraie (hypothèse de récurrence) et démontrer P(n+1)</li>
+          <li><strong>Conclusion :</strong> Par le principe de récurrence, P(n) est vraie pour tout n ≥ n₀</li>
+        </ul>
+        <div class="fiche-astuce">💡 <strong>Erreur classique :</strong> Ne pas oublier l'initialisation ! Sans elle, le raisonnement est invalide.</div>
+      </div>
+
     </div>
-
-    <!-- SECTION 2 -->
-    <div class="cours-section">
-      <h2>2. Suites arithmétiques</h2>
-
-      <div class="definition">
-        <strong>Définition</strong>
-        Une suite (uₙ) est <em>arithmétique</em> de raison r si pour tout n : uₙ₊₁ = uₙ + r
-      </div>
-
-      <h3>Formules clés</h3>
-      <div class="formule">Terme général : uₙ = u₀ + n·r &nbsp;|&nbsp; uₙ = u₁ + (n-1)·r</div>
-      <div class="formule">Somme des n+1 premiers termes : Sₙ = (n+1) × (u₀ + uₙ) / 2</div>
-
-      <h3>Sens de variation</h3>
-      <ul>
-        <li>Si r > 0 : suite <strong>croissante</strong></li>
-        <li>Si r < 0 : suite <strong>décroissante</strong></li>
-        <li>Si r = 0 : suite <strong>constante</strong></li>
-      </ul>
-
-      <div class="exemple">
-        <strong>Exemple complet</strong>
-        u₁ = 7, raison r = 3.<br/>
-        • u₁₀ = u₁ + 9×3 = 7 + 27 = <strong>34</strong><br/>
-        • Somme S = u₁ + u₂ + ... + u₁₀ = 10 × (7+34)/2 = 10 × 20,5 = <strong>205</strong>
-      </div>
-    </div>
-
-    <!-- SECTION 3 -->
-    <div class="cours-section">
-      <h2>3. Suites géométriques</h2>
-
-      <div class="definition">
-        <strong>Définition</strong>
-        Une suite (uₙ) est <em>géométrique</em> de raison q (q ≠ 0) si pour tout n : uₙ₊₁ = q × uₙ
-      </div>
-
-      <h3>Formules clés</h3>
-      <div class="formule">Terme général : uₙ = u₀ × qⁿ &nbsp;|&nbsp; uₙ = u₁ × qⁿ⁻¹</div>
-      <div class="formule">Somme (q ≠ 1) : Sₙ = u₀ × (1 - qⁿ⁺¹) / (1 - q)</div>
-
-      <h3>Sens de variation (si u₀ > 0)</h3>
-      <ul>
-        <li>Si q > 1 : suite <strong>croissante</strong></li>
-        <li>Si 0 < q < 1 : suite <strong>décroissante</strong></li>
-        <li>Si q < 0 : suite <strong>alternativement positive et négative</strong></li>
-      </ul>
-
-      <div class="exemple">
-        <strong>Exemple complet</strong>
-        u₀ = 2, raison q = 3.<br/>
-        • u₄ = 2 × 3⁴ = 2 × 81 = <strong>162</strong><br/>
-        • S₄ = 2 × (1 - 3⁵)/(1 - 3) = 2 × (-242)/(-2) = 2 × 121 = <strong>242</strong>
-      </div>
-
-      <div class="attention">
-        <strong>Piège classique</strong>
-        Pour la somme S = u₀ + u₁ + ... + uₙ, il y a n+1 termes (de l'indice 0 à n). Ne pas confondre n termes et n+1 termes !
-      </div>
-    </div>
-
-    <!-- SECTION 4 -->
-    <div class="cours-section">
-      <h2>4. Sens de variation</h2>
-
-      <h3>Comment étudier la monotonie ?</h3>
-      <p>Pour montrer qu'une suite est croissante ou décroissante, on calcule <strong>uₙ₊₁ − uₙ</strong> :</p>
-      <ul>
-        <li>Si uₙ₊₁ − uₙ > 0 : suite <strong>strictement croissante</strong></li>
-        <li>Si uₙ₊₁ − uₙ < 0 : suite <strong>strictement décroissante</strong></li>
-        <li>Si uₙ₊₁ − uₙ = 0 : suite <strong>constante</strong></li>
-      </ul>
-
-      <p>On peut aussi comparer <strong>uₙ₊₁ / uₙ</strong> à 1 (pour les suites à termes strictement positifs) :</p>
-      <ul>
-        <li>Si uₙ₊₁ / uₙ > 1 : croissante</li>
-        <li>Si uₙ₊₁ / uₙ < 1 : décroissante</li>
-      </ul>
-    </div>
-
-    <!-- SECTION 5 -->
-    <div class="cours-section">
-      <h2>5. Limites et convergence</h2>
-
-      <div class="definition">
-        <strong>Définition — Convergence</strong>
-        Une suite (uₙ) <em>converge</em> vers un réel L si uₙ tend vers L quand n tend vers +∞. On note : lim uₙ = L.
-      </div>
-
-      <h3>Limites usuelles à connaître</h3>
-      <div class="formule">lim(n→+∞) qⁿ = 0 si |q| &lt; 1 &nbsp;|&nbsp; diverge si |q| ≥ 1 (q ≠ 1)</div>
-      <div class="formule">Toute suite arithmétique de raison r ≠ 0 diverge vers ±∞</div>
-
-      <div class="attention">
-        <strong>Théorème des suites encadrées (gendarmes)</strong>
-        Si aₙ ≤ uₙ ≤ bₙ et que lim(aₙ) = lim(bₙ) = L, alors lim(uₙ) = L.
-      </div>
-    </div>
-
-    <!-- QCM -->
-    <div class="qcm-section">
-      <h2>🎯 Teste tes connaissances</h2>
-      <div id="qcm-suites"></div>
-    </div>
-
   </div>
 
-  <div class="fiche-nav">
-    <a href="../../pages/maths.html">← Retour Maths</a>
-    <a href="../../index.html#tarifs">Voir tout le premium →</a>
+  <!-- QCM -->
+  <div class="qcm-section">
+    <h2>✅ QCM — 10 questions</h2>
+    <p class="qcm-intro">Teste tes connaissances sur les suites numériques. Clique sur la bonne réponse.</p>
+    <div class="qcm-container" id="qcm"></div>
+    <div class="qcm-result hidden" id="result">
+      <div class="result-score" id="score-text"></div>
+      <p id="result-msg"></p>
+      <button class="btn-primary" onclick="resetQCM()">Recommencer</button>
+    </div>
   </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">Révise<span>ton</span>Bac</div>
+    <p>© 2025 ReviseTonBac — Tous droits réservés</p>
+    <div class="footer-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">CGV</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
 
   <script src="../../js/qcm.js"></script>
   <script>
-    new QCM('qcm-suites', [
+    initQCM([
       {
-        question: "Quelle est la formule du terme général d'une suite arithmétique de premier terme u₀ et de raison r ?",
+        q: "Quelle est la formule du terme général d'une suite arithmétique de premier terme u₀ et de raison r ?",
         options: ["uₙ = u₀ × rⁿ", "uₙ = u₀ + n·r", "uₙ = u₀ + r/n", "uₙ = n × u₀ + r"],
         correct: 1,
-        explanation: "Le terme général d'une suite arithmétique est uₙ = u₀ + n·r. On ajoute n fois la raison r au premier terme."
+        explication: "Pour une suite arithmétique, on ajoute n fois la raison r au premier terme : uₙ = u₀ + n·r."
       },
       {
-        question: "Une suite géométrique de raison q = 0,5 et de premier terme u₀ = 16. Quelle est la valeur de u₃ ?",
+        q: "Une suite géométrique de raison q = 0,5 et u₀ = 16. Quelle est la valeur de u₃ ?",
         options: ["4", "2", "8", "1"],
         correct: 1,
-        explanation: "u₃ = u₀ × q³ = 16 × (0,5)³ = 16 × 0,125 = 2."
+        explication: "u₃ = u₀ × q³ = 16 × (0,5)³ = 16 × 0,125 = 2."
       },
       {
-        question: "Comment prouve-t-on qu'une suite est strictement croissante ?",
+        q: "Comment prouve-t-on qu'une suite est strictement croissante ?",
         options: ["On montre que uₙ > 0", "On montre que uₙ₊₁ − uₙ > 0", "On montre que uₙ₊₁ × uₙ > 1", "On montre que la raison est entière"],
         correct: 1,
-        explanation: "Pour montrer la croissance, on calcule uₙ₊₁ − uₙ et on montre que cette différence est strictement positive."
+        explication: "Pour montrer la croissance stricte, on calcule uₙ₊₁ − uₙ et on démontre que cette différence est strictement positive."
       },
       {
-        question: "La somme 1 + 2 + 3 + ... + 100 est égale à :",
+        q: "La somme 1 + 2 + 3 + ... + 100 vaut :",
         options: ["5050", "5000", "4950", "10000"],
         correct: 0,
-        explanation: "C'est la somme d'une suite arithmétique : S = 100 × (1+100)/2 = 100 × 50,5 = 5050."
+        explication: "Formule de la somme arithmétique : S = 100 × (1 + 100) / 2 = 100 × 50,5 = 5050."
       },
       {
-        question: "Quelle est la limite de uₙ = (0,9)ⁿ quand n → +∞ ?",
+        q: "Quelle est la limite de uₙ = (0,9)ⁿ quand n → +∞ ?",
         options: ["1", "+∞", "0,9", "0"],
         correct: 3,
-        explanation: "Comme |0,9| < 1, on a lim(qⁿ) = 0. Toute suite géométrique de raison |q| < 1 converge vers 0."
+        explication: "Comme |0,9| < 1, qⁿ → 0 quand n → +∞. Toute suite géométrique de raison |q| < 1 converge vers 0."
+      },
+      {
+        q: "Quelle est la première étape d'un raisonnement par récurrence ?",
+        options: ["L'hérédité", "La conclusion", "L'initialisation", "La démonstration"],
+        correct: 2,
+        explication: "Un raisonnement par récurrence commence toujours par l'initialisation : vérifier que la propriété est vraie pour n₀ (souvent 0 ou 1)."
+      },
+      {
+        q: "Une suite arithmétique de raison r = −3 est :",
+        options: ["Croissante", "Décroissante", "Constante", "Alternée"],
+        correct: 1,
+        explication: "Pour une suite arithmétique, si r < 0, la suite est strictement décroissante."
+      },
+      {
+        q: "Pour une suite géométrique de premier terme u₀ = 5 et de raison q = 2, quel est u₄ ?",
+        options: ["40", "80", "160", "20"],
+        correct: 1,
+        explication: "u₄ = u₀ × q⁴ = 5 × 2⁴ = 5 × 16 = 80."
+      },
+      {
+        q: "La somme géométrique S = u₀ + u₁ + ... + u₄ avec u₀ = 1 et q = 3 vaut :",
+        options: ["121", "242", "81", "40"],
+        correct: 0,
+        explication: "S = 1 × (1 − 3⁵) / (1 − 3) = (1 − 243) / (−2) = (−242) / (−2) = 121."
+      },
+      {
+        q: "Une suite définie par u₀ = 2 et uₙ₊₁ = 3uₙ est :",
+        options: ["Arithmétique de raison 3", "Géométrique de raison 3", "Arithmétique de raison 2", "Constante"],
+        correct: 1,
+        explication: "uₙ₊₁ = q × uₙ avec q = 3 : c'est la définition d'une suite géométrique de raison 3."
       }
     ]);
   </script>

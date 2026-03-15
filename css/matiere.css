@@ -1,0 +1,136 @@
+/* matiere.css — pages Français & Maths */
+
+.nav-logo { text-decoration: none; color: var(--ink); }
+.nav-links .active { border-bottom: 2px solid var(--ink); }
+
+.matiere-hero {
+  padding: 5rem 4rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.matiere-hero--fr { background: #fdf0ee; }
+.matiere-hero--maths { background: #eef2fd; }
+
+.matiere-tag {
+  display: inline-block;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  padding: .3rem .9rem;
+  border-radius: 100px;
+  margin-bottom: 1.2rem;
+}
+.matiere-hero--fr .matiere-tag { background: rgba(217,79,61,.15); color: var(--accent-fr); }
+.matiere-hero--maths .matiere-tag { background: rgba(37,99,235,.15); color: var(--accent-math); }
+
+.matiere-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-bottom: 1rem;
+}
+.matiere-hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 520px; }
+
+/* THEMES SECTION */
+.themes-section { padding: 4rem 4rem 5rem; }
+.themes-section .section-label { margin-bottom: 2rem; }
+
+.themes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.theme-card {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 2rem;
+  border: 1.5px solid transparent;
+  position: relative;
+  transition: transform .3s, box-shadow .3s;
+}
+.theme-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.08); }
+.theme-card--free { border-color: var(--accent-fr); background: #fff9f8; }
+.theme-card--maths.theme-card--free { border-color: var(--accent-math); background: #f6f9ff; }
+
+.theme-free-badge {
+  position: absolute;
+  top: -12px;
+  left: 1.5rem;
+  background: var(--accent-fr);
+  color: white;
+  font-size: .75rem;
+  font-weight: 700;
+  padding: .25rem .8rem;
+  border-radius: 100px;
+}
+.theme-free-badge--maths { background: var(--accent-math); }
+
+.theme-num {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--accent-fr);
+  opacity: .15;
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+.theme-num--maths { color: var(--accent-math); }
+
+.theme-card h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; margin-bottom: .6rem; }
+.theme-card p { font-size: .9rem; color: var(--text-muted); margin-bottom: 1.2rem; line-height: 1.5; }
+
+.theme-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: .8rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+.theme-price {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--ink);
+}
+
+.btn-primary--maths { background: var(--accent-math); }
+.btn-primary--maths:hover { background: #1d4ed8; }
+
+/* PACK BANNER */
+.pack-banner {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: var(--radius);
+  padding: 2rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.pack-banner--maths { background: var(--accent-math); }
+
+.pack-label { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; margin-bottom: .3rem; }
+.pack-desc { font-size: .9rem; opacity: .7; }
+.pack-right { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.pack-price { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; white-space: nowrap; }
+.pack-price s { font-size: 1rem; opacity: .5; font-family: var(--font-body); }
+.pack-banner .btn-primary { background: var(--paper); color: var(--ink); white-space: nowrap; }
+.pack-banner--maths .btn-primary { background: var(--paper); color: var(--accent-math); }
+
+@media (max-width: 900px) {
+  .matiere-hero { padding: 3rem 1.5rem; }
+  .themes-section { padding: 3rem 1.5rem; }
+  .themes-grid { grid-template-columns: 1fr; }
+  .pack-banner { flex-direction: column; text-align: center; }
+  .pack-right { justify-content: center; }
+}
