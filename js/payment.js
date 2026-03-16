@@ -114,6 +114,7 @@ function fermerModal() {
 
 // ─── Vérifier si un thème est débloqué ───────────────────────────────────────
 function estDebloque(produitId) {
+  if (localStorage.getItem('rsb_admin') === '1') return true;
   const achats = JSON.parse(localStorage.getItem('rsb_achats') || '[]');
   if (achats.includes(produitId)) return true;
   if (produitId.startsWith('fr-') && achats.includes('pack-francais')) return true;
@@ -121,6 +122,7 @@ function estDebloque(produitId) {
   if (achats.includes('pack-total')) return true;
   return false;
 }
+
 
 // ─── Apparence Stripe Elements ────────────────────────────────────────────────
 function stripeAppearance() {
