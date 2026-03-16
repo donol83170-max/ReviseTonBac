@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Probabilités & stats — ReviseTonBac</title>
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <link rel="stylesheet" href="../../css/theme.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="../../index.html" class="nav-logo">Révise<span>ton</span>Bac</a>
+    <ul class="nav-links">
+      <li><a href="../../pages/maths.html">← Maths</a></li>
+      <li><a href="../../index.html#tarifs">Tarifs</a></li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb breadcrumb--maths">
+    <a href="../../pages/maths.html">Maths</a> → Probabilités & stats
+  </div>
+
+  <div class="theme-hero theme-hero--maths">
+    <div class="theme-badge theme-badge--maths">✦ Payant</div>
+    <h1>Probabilités & stats</h1>
+    <p>Maîtrise la loi binomiale, la loi normale, les intervalles de fluctuation et les tests d'hypothèse.</p>
+  </div>
+
+  <!-- FICHE DE COURS -->
+  <div class="fiche-section">
+    <div class="fiche-header">
+      <h2>📄 Fiche de cours</h2>
+      <span class="fiche-tag">Terminale Générale — Probabilités</span>
+    </div>
+
+    <div class="fiche-content">
+
+      <div class="fiche-block">
+        <h3>1. Loi binomiale B(n, p)</h3>
+        <p>On répète <strong>n fois</strong> de façon indépendante une épreuve de Bernoulli de probabilité de succès <strong>p</strong>. Le nombre de succès X suit la loi binomiale :</p>
+        <div class="formule-block">P(X = k) = C(n,k) × pᵏ × (1−p)ⁿ⁻ᵏ</div>
+        <div class="tableau">
+          <div class="tableau-row tableau-header">
+            <div>Paramètre</div>
+            <div>Formule</div>
+            <div>Exemple B(10 ; 0,3)</div>
+          </div>
+          <div class="tableau-row">
+            <div>Espérance E(X)</div>
+            <div>np</div>
+            <div>3</div>
+          </div>
+          <div class="tableau-row">
+            <div>Variance V(X)</div>
+            <div>np(1−p)</div>
+            <div>2,1</div>
+          </div>
+          <div class="tableau-row">
+            <div>Écart-type σ</div>
+            <div>√(np(1−p))</div>
+            <div>≈ 1,45</div>
+          </div>
+        </div>
+        <div class="fiche-astuce">💡 <strong>Conditions :</strong> épreuves indépendantes, même probabilité p à chaque essai, nombre n fixé à l'avance.</div>
+      </div>
+
+      <div class="fiche-block">
+        <h3>2. Loi normale N(μ, σ²)</h3>
+        <p>La loi normale est une loi continue en cloche, symétrique autour de μ. La <strong>loi normale centrée réduite N(0,1)</strong> a μ = 0 et σ = 1.</p>
+        <p><strong>Règle des 1-2-3 sigma :</strong></p>
+        <ul>
+          <li>P(μ − σ ≤ X ≤ μ + σ) ≈ <strong>68 %</strong></li>
+          <li>P(μ − 2σ ≤ X ≤ μ + 2σ) ≈ <strong>95 %</strong></li>
+          <li>P(μ − 3σ ≤ X ≤ μ + 3σ) ≈ <strong>99,7 %</strong></li>
+        </ul>
+        <p><strong>Réduction :</strong> si X ~ N(μ ; σ²), alors Z = (X − μ)/σ suit N(0,1).</p>
+        <div class="fiche-astuce">💡 <strong>Approximation :</strong> B(n, p) ≈ N(np ; np(1−p)) quand np ≥ 5 et n(1−p) ≥ 5 (théorème de Moivre-Laplace).</div>
+      </div>
+
+      <div class="fiche-block">
+        <h3>3. Intervalle de fluctuation</h3>
+        <p>Pour une proportion théorique <strong>p</strong> et un échantillon de taille <strong>n</strong>, l'intervalle de fluctuation au seuil 95% est :</p>
+        <div class="formule-block">I = [p − 1/√n ; p + 1/√n]</div>
+        <p>La fréquence observée f a environ 95% de chances de tomber dans cet intervalle.</p>
+        <ul>
+          <li>Si f ∈ I → pas de raison de rejeter l'hypothèse</li>
+          <li>Si f ∉ I → on rejette l'hypothèse H₀ au seuil 5%</li>
+        </ul>
+      </div>
+
+      <div class="fiche-block">
+        <h3>4. Intervalle de confiance</h3>
+        <p>À partir d'une fréquence <strong>f</strong> observée sur un échantillon de taille n, on estime p par :</p>
+        <div class="formule-block">IC₉₅ = [f − 1/√n ; f + 1/√n]</div>
+        <p>On est "confiant à 95%" que la vraie proportion p est dans cet intervalle.</p>
+      </div>
+
+      <div class="fiche-block">
+        <h3>5. Probabilités — rappels essentiels</h3>
+        <ul>
+          <li><strong>Formule d'inclusion-exclusion :</strong> P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</li>
+          <li><strong>Indépendance :</strong> A et B indépendants ⟺ P(A ∩ B) = P(A) × P(B)</li>
+          <li><strong>Probabilité conditionnelle :</strong> P(A|B) = P(A ∩ B) / P(B)</li>
+          <li><strong>Espérance :</strong> E(X) = Σ xᵢ × pᵢ</li>
+          <li><strong>Variance :</strong> V(X) = E(X²) − [E(X)]² &nbsp;(formule de König-Huygens)</li>
+          <li><strong>Écart-type :</strong> σ = √V(X)</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- QCM -->
+  <div class="qcm-section">
+    <h2>✅ QCM — 20 questions</h2>
+    <p class="qcm-intro">Teste tes connaissances en probabilités et statistiques. Clique sur la bonne réponse.</p>
+    <div class="qcm-container" id="qcm"></div>
+    <div class="qcm-result hidden" id="result"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">Révise<span>ton</span>Bac</div>
+    <p>© 2025 ReviseTonBac — Tous droits réservés</p>
+    <div class="footer-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">CGV</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <script src="../../js/qcm.js"></script>
+  <script>
+    initQCM([
+      {
+        q: "Une variable aléatoire X suit une loi binomiale B(n, p). Quelle est son espérance ?",
+        options: ["np", "np(1−p)", "√(np(1−p))", "n/p"],
+        correct: 0,
+        explication: "L'espérance d'une variable X ~ B(n, p) est E(X) = np.",
+        exemple: "X ~ B(10 ; 0,3) → E(X) = 10 × 0,3 = 3."
+      },
+      {
+        q: "La variance d'une loi binomiale B(n, p) est :",
+        options: ["np", "np(1−p)", "√np", "n²p"],
+        correct: 1,
+        explication: "V(X) = np(1−p). L'écart-type est σ = √(np(1−p)).",
+        exemple: "X ~ B(10 ; 0,3) → V(X) = 10 × 0,3 × 0,7 = 2,1. σ ≈ 1,45."
+      },
+      {
+        q: "On répète 5 fois une épreuve de Bernoulli indépendante avec p = 0,4. Quelle loi suit le nombre de succès ?",
+        options: ["Loi normale N(0,1)", "Loi de Poisson", "Loi binomiale B(5 ; 0,4)", "Loi uniforme"],
+        correct: 2,
+        explication: "n répétitions indépendantes d'une épreuve de Bernoulli de paramètre p → loi binomiale B(n, p).",
+        exemple: "Lancer 5 fois une pièce (p = 0,5) : le nombre de 'face' suit B(5 ; 0,5)."
+      },
+      {
+        q: "P(X = k) pour X ~ B(n, p) est donnée par :",
+        options: ["pᵏ(1−p)ⁿ⁻ᵏ", "C(n,k) × pᵏ × (1−p)ⁿ⁻ᵏ", "n × p × k", "k! × p"],
+        correct: 1,
+        explication: "P(X = k) = C(n,k) × pᵏ × (1−p)ⁿ⁻ᵏ où C(n,k) = n! / (k!(n−k)!).",
+        exemple: "X ~ B(3 ; 0,5), P(X=2) = C(3,2) × 0,5² × 0,5 = 3 × 0,25 × 0,5 = 0,375."
+      },
+      {
+        q: "La loi normale N(μ, σ²) est dite centrée réduite quand :",
+        options: ["μ = 1 et σ = 0", "μ = 0 et σ = 1", "μ = σ", "μ = 0 et σ = 0"],
+        correct: 1,
+        explication: "Centrée = μ = 0 (moyenne nulle). Réduite = σ = 1 (écart-type unitaire).",
+        exemple: "Si X ~ N(2 ; 9) avec σ = 3, alors Z = (X−2)/3 suit N(0, 1)."
+      },
+      {
+        q: "Pour une loi normale N(μ, σ²), environ quelle proportion des valeurs est dans [μ − 2σ ; μ + 2σ] ?",
+        options: ["68 %", "90 %", "95 %", "99,7 %"],
+        correct: 2,
+        explication: "Règle empirique : 68% dans [μ±σ], 95% dans [μ±2σ], 99,7% dans [μ±3σ].",
+        exemple: "X ~ N(100 ; 225) → σ = 15 → 95% des valeurs dans [70 ; 130]."
+      },
+      {
+        q: "L'intervalle de fluctuation asymptotique au seuil 95% pour une proportion théorique p est :",
+        options: ["[p − 1/√n ; p + 1/√n]", "[f − 1/√n ; f + 1/√n]", "[p − σ ; p + σ]", "[0 ; 1]"],
+        correct: 0,
+        explication: "L'intervalle de fluctuation est centré sur la proportion théorique p connue.",
+        exemple: "p = 0,6 et n = 100 → intervalle [0,6 − 0,1 ; 0,6 + 0,1] = [0,5 ; 0,7]."
+      },
+      {
+        q: "Deux événements A et B sont indépendants si et seulement si :",
+        options: ["P(A ∩ B) = P(A) + P(B)", "P(A ∩ B) = P(A) × P(B)", "P(A|B) = P(B)", "A et B sont incompatibles"],
+        correct: 1,
+        explication: "A et B indépendants ⟺ P(A ∩ B) = P(A) × P(B). La réalisation de l'un n'influence pas l'autre.",
+        exemple: "Lancer deux dés : P(6 au 1er et 6 au 2e) = 1/6 × 1/6 = 1/36."
+      },
+      {
+        q: "La probabilité conditionnelle P(A | B) est définie par :",
+        options: ["P(A) × P(B)", "P(A ∩ B) / P(A)", "P(A ∩ B) / P(B)", "P(A) / P(B)"],
+        correct: 2,
+        explication: "P(A|B) = P(A ∩ B) / P(B), en restreignant l'univers à B (si P(B) ≠ 0).",
+        exemple: "P(A∩B) = 0,12 et P(B) = 0,4 → P(A|B) = 0,12 / 0,4 = 0,3."
+      },
+      {
+        q: "Pour un échantillon de taille n avec fréquence observée f, l'intervalle de confiance au niveau 95% pour p est :",
+        options: ["[f − 2σ ; f + 2σ]", "[f − 1/√n ; f + 1/√n]", "[0 ; p]", "[f/2 ; 2f]"],
+        correct: 1,
+        explication: "L'intervalle de confiance est centré sur f pour estimer la proportion inconnue p.",
+        exemple: "n = 400, f = 0,55 → IC = [0,55 − 0,05 ; 0,55 + 0,05] = [0,50 ; 0,60]."
+      },
+      {
+        q: "L'espérance d'une variable aléatoire X prenant les valeurs x₁, x₂,… avec probabilités p₁, p₂,… est :",
+        options: ["Max(xᵢ)", "Σ xᵢ / n", "Σ (xᵢ × pᵢ)", "Σ pᵢ²"],
+        correct: 2,
+        explication: "E(X) = Σ xᵢ × pᵢ : c'est la moyenne pondérée par les probabilités.",
+        exemple: "X vaut 1€ (p=0,5) ou 3€ (p=0,5) → E(X) = 1×0,5 + 3×0,5 = 2€."
+      },
+      {
+        q: "Si X suit une loi normale N(50 ; 100), son écart-type σ est :",
+        options: ["100", "50", "10", "√50"],
+        correct: 2,
+        explication: "La notation N(μ ; σ²) donne σ² = 100, donc σ = √100 = 10.",
+        exemple: "95% des valeurs de X se trouvent dans [50−20 ; 50+20] = [30 ; 70]."
+      },
+      {
+        q: "Lors d'un test d'hypothèse, on rejette H₀ si la fréquence observée est :",
+        options: ["Dans l'intervalle de fluctuation", "Hors de l'intervalle de fluctuation", "Égale à p₀", "Inférieure à p₀"],
+        correct: 1,
+        explication: "Si f tombe hors de l'intervalle de fluctuation, l'écart est jugé trop grand pour être dû au hasard.",
+        exemple: "Intervalle [0,4 ; 0,6] et f = 0,35 → on rejette H₀ au seuil 5%."
+      },
+      {
+        q: "Par quelle loi peut-on approcher B(n, p) lorsque n est grand ?",
+        options: ["Une loi uniforme", "La loi normale N(np ; np(1−p))", "Une loi exponentielle", "On ne peut pas"],
+        correct: 1,
+        explication: "Théorème de Moivre-Laplace : B(n,p) ≈ N(np ; np(1−p)) si np ≥ 5 et n(1−p) ≥ 5.",
+        exemple: "n=100, p=0,3 → np=30 et n(1−p)=70 ≥ 5 : on peut utiliser N(30 ; 21)."
+      },
+      {
+        q: "Soit P(A) = 0,6, P(B) = 0,5 et P(A ∩ B) = 0,3. Que vaut P(A ∪ B) ?",
+        options: ["1,1", "0,9", "0,8", "0,3"],
+        correct: 2,
+        explication: "Formule d'inclusion-exclusion : P(A ∪ B) = P(A) + P(B) − P(A ∩ B).",
+        exemple: "0,6 + 0,5 − 0,3 = 0,8. On soustrait l'intersection pour ne pas la compter deux fois."
+      },
+      {
+        q: "La variance V(X) est liée à l'espérance par la formule de König-Huygens :",
+        options: ["V(X) = E(X)²", "V(X) = E(X²) − (E(X))²", "V(X) = E(X) − E(X²)", "V(X) = σ"],
+        correct: 1,
+        explication: "V(X) = E(X²) − [E(X)]² : la moyenne des carrés moins le carré de la moyenne.",
+        exemple: "E(X) = 1 et E(X²) = 2 → V(X) = 2 − 1² = 1."
+      },
+      {
+        q: "La loi des grands nombres affirme que :",
+        options: ["La fréquence tend vers 0 quand n augmente", "La fréquence tend vers p quand n → +∞", "La variance augmente avec n", "L'espérance est toujours entière"],
+        correct: 1,
+        explication: "En répétant l'expérience un grand nombre de fois, la fréquence relative converge vers la probabilité théorique.",
+        exemple: "En lançant une pièce 10 000 fois, la fréquence de 'face' tend vers 0,5."
+      },
+      {
+        q: "Si X ~ B(20 ; 0,5), P(X ≤ 10) est approximativement :",
+        options: ["Inférieure à 0,5", "Supérieure à 0,5", "Égale à 0,5 (environ)", "Égale à 1"],
+        correct: 2,
+        explication: "B(20 ; 0,5) est symétrique autour de np = 10, donc P(X ≤ 10) ≈ 0,5 (légèrement supérieure car P(X=10) > 0).",
+        exemple: "P(X ≤ 10) ≈ 0,588 en incluant P(X=10) ≈ 0,176."
+      },
+      {
+        q: "Chez un médecin, 80% des patients sont guéris. Sur 3 patients indépendants, P(tous guéris) vaut :",
+        options: ["0,8", "0,512", "0,384", "0,096"],
+        correct: 1,
+        explication: "Les patients sont indépendants : P = 0,8 × 0,8 × 0,8 = 0,8³ = 0,512.",
+        exemple: "C(3,3) × 0,8³ × 0,2⁰ = 1 × 0,512 × 1 = 0,512."
+      },
+      {
+        q: "L'écart-type σ et la variance V(X) sont liés par :",
+        options: ["σ = V(X)", "σ = V(X)²", "σ = √V(X)", "V(X) = 1/σ"],
+        correct: 2,
+        explication: "L'écart-type est la racine carrée de la variance : σ = √V(X).",
+        exemple: "V(X) = 4 → σ = 2.  V(X) = 2,25 → σ = 1,5."
+      }
+    ]);
+  </script>
+</body>
+</html>
