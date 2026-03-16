@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Géométrie dans l'espace — ReviseTonBac</title>
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <link rel="stylesheet" href="../../css/theme.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="../../index.html" class="nav-logo">Révise<span>ton</span>Bac</a>
+    <ul class="nav-links">
+      <li><a href="../../pages/maths.html">← Maths</a></li>
+      <li><a href="../../index.html#tarifs">Tarifs</a></li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb breadcrumb--maths">
+    <a href="../../pages/maths.html">Maths</a> → Géométrie dans l'espace
+  </div>
+
+  <div class="theme-hero theme-hero--maths">
+    <div class="theme-badge theme-badge--maths">✦ Payant</div>
+    <h1>Géométrie dans l'espace</h1>
+    <p>Maîtrise les vecteurs 3D, les plans, les droites, les distances et les angles dans l'espace.</p>
+  </div>
+
+  <!-- FICHE DE COURS -->
+  <div class="fiche-section">
+    <div class="fiche-header">
+      <h2>📄 Fiche de cours</h2>
+      <span class="fiche-tag">Terminale Générale — Géométrie</span>
+    </div>
+
+    <div class="fiche-content">
+
+      <div class="fiche-block">
+        <h3>1. Vecteurs dans l'espace</h3>
+        <p>Un vecteur de l'espace a trois coordonnées (x ; y ; z).</p>
+        <div class="tableau">
+          <div class="tableau-row tableau-header">
+            <div>Opération</div>
+            <div>Formule</div>
+            <div>Exemple</div>
+          </div>
+          <div class="tableau-row">
+            <div>Vecteur AB</div>
+            <div>B − A = (x_B−x_A ; y_B−y_A ; z_B−z_A)</div>
+            <div>A(1;2;3), B(4;6;1) → (3;4;−2)</div>
+          </div>
+          <div class="tableau-row">
+            <div>Norme ||u||</div>
+            <div>√(x² + y² + z²)</div>
+            <div>u(3;−4;0) → 5</div>
+          </div>
+          <div class="tableau-row">
+            <div>Milieu M de [AB]</div>
+            <div>((x_A+x_B)/2 ; (y_A+y_B)/2 ; (z_A+z_B)/2)</div>
+            <div>A(0;0;0), B(2;4;6) → M(1;2;3)</div>
+          </div>
+          <div class="tableau-row">
+            <div>Produit scalaire u·v</div>
+            <div>x₁x₂ + y₁y₂ + z₁z₂ = ||u||·||v||·cos(θ)</div>
+            <div>u(1;2;3)·v(4;−1;2) = 8</div>
+          </div>
+        </div>
+        <div class="fiche-astuce">💡 <strong>Orthogonalité :</strong> u ⊥ v ⟺ u·v = 0. <strong>Colinéarité :</strong> u et v colinéaires ⟺ ∃k, u = k·v.</div>
+      </div>
+
+      <div class="fiche-block">
+        <h3>2. Plans dans l'espace</h3>
+        <p>Un plan est défini par un point et un <strong>vecteur normal</strong> n(a ; b ; c). Son équation est :</p>
+        <div class="formule-block">a(x − x₀) + b(y − y₀) + c(z − z₀) = 0 &nbsp; soit &nbsp; ax + by + cz = d</div>
+        <ul>
+          <li>Le vecteur normal se lit directement dans les coefficients : n = (a ; b ; c)</li>
+          <li>Deux plans sont <strong>parallèles</strong> ⟺ leurs normaux sont colinéaires</li>
+          <li>Deux plans sont <strong>perpendiculaires</strong> ⟺ leurs normaux sont orthogonaux</li>
+        </ul>
+        <p><strong>Distance d'un point P(x₀ ; y₀ ; z₀) à un plan ax + by + cz + d = 0 :</strong></p>
+        <div class="formule-block">dist = |ax₀ + by₀ + cz₀ + d| / √(a² + b² + c²)</div>
+      </div>
+
+      <div class="fiche-block">
+        <h3>3. Droites dans l'espace</h3>
+        <p>Une droite est définie par un point A et un <strong>vecteur directeur</strong> u. Équations paramétriques :</p>
+        <div class="formule-block">x = x_A + t·u_x &nbsp;;&nbsp; y = y_A + t·u_y &nbsp;;&nbsp; z = z_A + t·u_z &nbsp; (t ∈ ℝ)</div>
+        <ul>
+          <li>Droite <strong>⊥ à un plan</strong> ⟺ vecteur directeur colinéaire au vecteur normal du plan</li>
+          <li>Droite <strong>∥ à un plan</strong> ⟺ vecteur directeur ⊥ au vecteur normal du plan</li>
+          <li>Droites <strong>gauches</strong> : ni parallèles, ni sécantes (pas dans le même plan)</li>
+        </ul>
+      </div>
+
+      <div class="fiche-block">
+        <h3>4. Plan médiateur et sphère</h3>
+        <p>Le <strong>plan médiateur</strong> de [AB] passe par le milieu de [AB] et est perpendiculaire à AB. Tout point M du plan médiateur vérifie <strong>MA = MB</strong>.</p>
+        <p>Une <strong>sphère</strong> de centre Ω(a ; b ; c) et de rayon r a pour équation :</p>
+        <div class="formule-block">(x−a)² + (y−b)² + (z−c)² = r²</div>
+      </div>
+
+      <div class="fiche-block">
+        <h3>5. Angles et orthogonalité</h3>
+        <ul>
+          <li><strong>Angle entre deux vecteurs :</strong> cos(θ) = (u·v) / (||u||·||v||)</li>
+          <li><strong>Angle entre deux plans :</strong> angle entre leurs vecteurs normaux</li>
+          <li><strong>Angle entre une droite et un plan :</strong> complément de l'angle entre le vecteur directeur et le normal</li>
+        </ul>
+        <div class="fiche-astuce">💡 Deux droites de l'espace qui ne sont ni parallèles ni sécantes sont dites <strong>gauches</strong> : elles ne sont pas coplanaires.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- QCM -->
+  <div class="qcm-section">
+    <h2>✅ QCM — 20 questions</h2>
+    <p class="qcm-intro">Teste tes connaissances en géométrie dans l'espace. Clique sur la bonne réponse.</p>
+    <div class="qcm-container" id="qcm"></div>
+    <div class="qcm-result hidden" id="result"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">Révise<span>ton</span>Bac</div>
+    <p>© 2025 ReviseTonBac — Tous droits réservés</p>
+    <div class="footer-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">CGV</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <script src="../../js/qcm.js"></script>
+  <script>
+    initQCM([
+      {
+        q: "Les coordonnées du vecteur AB avec A(1 ; 2 ; 3) et B(4 ; 6 ; 1) sont :",
+        options: ["(5 ; 8 ; 4)", "(3 ; 4 ; −2)", "(−3 ; −4 ; 2)", "(3 ; 4 ; 2)"],
+        correct: 1,
+        explication: "AB = B − A = (4−1 ; 6−2 ; 1−3) = (3 ; 4 ; −2).",
+        exemple: "A(0;0;0) et B(2;3;1) → AB = (2 ; 3 ; 1)."
+      },
+      {
+        q: "Le produit scalaire de u(1 ; 2 ; 3) et v(4 ; −1 ; 2) est :",
+        options: ["8", "12", "0", "−8"],
+        correct: 0,
+        explication: "u·v = 1×4 + 2×(−1) + 3×2 = 4 − 2 + 6 = 8.",
+        exemple: "u(1;0;0)·v(0;1;0) = 0 → vecteurs perpendiculaires."
+      },
+      {
+        q: "Deux vecteurs u et v sont orthogonaux si et seulement si :",
+        options: ["u = v", "u·v = 1", "u·v = 0", "||u|| = ||v||"],
+        correct: 2,
+        explication: "L'orthogonalité se caractérise par un produit scalaire nul : u·v = 0.",
+        exemple: "u(1;0;0) et v(0;1;0) : u·v = 0 → perpendiculaires."
+      },
+      {
+        q: "La norme du vecteur u(3 ; −4 ; 0) est :",
+        options: ["7", "1", "5", "25"],
+        correct: 2,
+        explication: "||u|| = √(3² + (−4)² + 0²) = √(9 + 16) = √25 = 5.",
+        exemple: "u(1;1;1) → ||u|| = √(1+1+1) = √3."
+      },
+      {
+        q: "L'équation d'un plan de vecteur normal n(a ; b ; c) passant par A(x₀ ; y₀ ; z₀) est :",
+        options: ["ax + by + cz = 0", "a(x−x₀) + b(y−y₀) + c(z−z₀) = 0", "x/a + y/b + z/c = 1", "ax₀ + by₀ + cz₀ = 0"],
+        correct: 1,
+        explication: "Un plan est défini par un point et un vecteur normal. On développe pour obtenir ax + by + cz = d.",
+        exemple: "n(1;0;0), A(3;0;0) → plan d'équation x = 3."
+      },
+      {
+        q: "Un vecteur normal au plan 2x − y + 3z = 5 est :",
+        options: ["(2 ; 1 ; 3)", "(2 ; −1 ; 3)", "(5 ; 0 ; 0)", "(−2 ; 1 ; −3)"],
+        correct: 1,
+        explication: "Les coefficients de x, y, z dans ax + by + cz = d donnent directement le vecteur normal (a ; b ; c).",
+        exemple: "Plan x + 2y − z = 0 → vecteur normal (1 ; 2 ; −1)."
+      },
+      {
+        q: "Le milieu M de [AB] avec A(2 ; 4 ; 0) et B(6 ; 0 ; 4) a pour coordonnées :",
+        options: ["(4 ; 2 ; 2)", "(8 ; 4 ; 4)", "(2 ; 4 ; 2)", "(4 ; 4 ; 2)"],
+        correct: 0,
+        explication: "M = ((2+6)/2 ; (4+0)/2 ; (0+4)/2) = (4 ; 2 ; 2).",
+        exemple: "A(0;0;0) et B(2;4;6) → M(1 ; 2 ; 3)."
+      },
+      {
+        q: "Les équations paramétriques d'une droite passant par A et de vecteur directeur u sont :",
+        options: ["x = a + t, y = b + t, z = c + t", "x = x_A + t·u_x, y = y_A + t·u_y, z = z_A + t·u_z", "ax + by + cz = 0", "x/u_x = y/u_y = z/u_z"],
+        correct: 1,
+        explication: "On paramètre la droite par t ∈ ℝ en partant du point A dans la direction u.",
+        exemple: "A(1;0;2), u(1;1;0) → x = 1+t, y = t, z = 2."
+      },
+      {
+        q: "Deux plans sont parallèles si leurs vecteurs normaux sont :",
+        options: ["Orthogonaux", "Égaux", "Colinéaires", "De même norme"],
+        correct: 2,
+        explication: "Deux plans sont parallèles (ou confondus) si et seulement si leurs vecteurs normaux sont colinéaires.",
+        exemple: "Plans x+y+z=1 et 2x+2y+2z=5 → normaux (1;1;1) et (2;2;2) colinéaires → plans parallèles."
+      },
+      {
+        q: "La distance du point P(1 ; 2 ; 3) au plan x + y + z = 0 est :",
+        options: ["6", "6/√3", "√6", "2√3"],
+        correct: 3,
+        explication: "d = |ax₀ + by₀ + cz₀ + d| / √(a²+b²+c²) = |1+2+3| / √3 = 6/√3 = 2√3.",
+        exemple: "Plan z = 0, point (0;0;5) → distance = 5."
+      },
+      {
+        q: "Deux droites de l'espace qui ne sont ni parallèles ni sécantes sont appelées :",
+        options: ["Orthogonales", "Coplanaires", "Gauches", "Conjuguées"],
+        correct: 2,
+        explication: "Des droites gauches ne sont pas dans le même plan : elles n'ont ni point commun ni vecteurs directeurs parallèles.",
+        exemple: "L'axe x et la droite y=1, z=1 (parallèle à l'axe z) sont des droites gauches."
+      },
+      {
+        q: "Le vecteur AB est colinéaire au vecteur CD si et seulement si :",
+        options: ["AB + CD = 0", "AB·CD = 0", "∃k ∈ ℝ tel que AB = k·CD", "||AB|| = ||CD||"],
+        correct: 2,
+        explication: "Deux vecteurs sont colinéaires s'il existe un réel k tel que l'un est le multiple de l'autre.",
+        exemple: "AB(2;4;−6) et CD(1;2;−3) : AB = 2·CD → colinéaires."
+      },
+      {
+        q: "Une droite est perpendiculaire à un plan si son vecteur directeur est :",
+        options: ["Parallèle au plan", "Contenu dans le plan", "Colinéaire au vecteur normal du plan", "Orthogonal au vecteur normal"],
+        correct: 2,
+        explication: "Droite ⊥ plan ⟺ vecteur directeur de la droite colinéaire au vecteur normal du plan.",
+        exemple: "Plan z = 0 (normal (0;0;1)), droite de direction (0;0;1) → droite perpendiculaire au plan."
+      },
+      {
+        q: "Le plan médiateur d'un segment [AB] est :",
+        options: ["Le plan contenant AB", "L'ensemble des points équidistants de A et B", "Le plan perpendiculaire à AB passant par A", "Le plan parallèle à AB"],
+        correct: 1,
+        explication: "Le plan médiateur passe par le milieu de [AB], est perpendiculaire à AB. Tout point M vérifie MA = MB.",
+        exemple: "A(0;0;0) et B(2;0;0) → plan médiateur : x = 1."
+      },
+      {
+        q: "Le produit scalaire u·v vaut aussi :",
+        options: ["||u|| + ||v||", "||u|| × ||v|| × cos(θ)", "||u|| × ||v|| × sin(θ)", "||u − v||"],
+        correct: 1,
+        explication: "u·v = ||u|| × ||v|| × cos(θ) où θ est l'angle entre les deux vecteurs.",
+        exemple: "u et v unitaires perpendiculaires → cos(90°) = 0 → u·v = 0."
+      },
+      {
+        q: "Quelle est la distance entre A(1 ; 1 ; 1) et B(4 ; 5 ; 1) ?",
+        options: ["5", "7", "10", "√7"],
+        correct: 0,
+        explication: "AB = √((4−1)² + (5−1)² + (1−1)²) = √(9 + 16 + 0) = √25 = 5.",
+        exemple: "A(0;0;0) et B(1;1;1) → AB = √3 ≈ 1,73."
+      },
+      {
+        q: "Un plan passant par trois points non alignés A, B, C est déterminé par :",
+        options: ["AB uniquement", "Deux vecteurs colinéaires", "Deux vecteurs directeurs AB et AC", "La norme de AB"],
+        correct: 2,
+        explication: "Deux vecteurs non colinéaires issus du même point définissent entièrement un plan.",
+        exemple: "A(0;0;0), B(1;0;0), C(0;1;0) → plan xOy d'équation z = 0."
+      },
+      {
+        q: "Le produit scalaire est :",
+        options: ["Anti-commutatif : u·v = −v·u", "Commutatif : u·v = v·u", "Non distributif sur l'addition", "Toujours positif"],
+        correct: 1,
+        explication: "Le produit scalaire est commutatif : u·v = v·u. Il est aussi distributif sur l'addition.",
+        exemple: "u(1;2;3)·v(4;5;6) = 4+10+18 = 32 = v·u."
+      },
+      {
+        q: "Soit le plan P : 3x + y − 2z + 6 = 0. La distance de l'origine O(0;0;0) à ce plan est :",
+        options: ["6", "6/√14", "√14", "3"],
+        correct: 1,
+        explication: "d = |3×0 + 1×0 − 2×0 + 6| / √(9 + 1 + 4) = 6/√14.",
+        exemple: "Plan x = 3 → distance de l'origine = |0 − 3|/1 = 3."
+      },
+      {
+        q: "Les vecteurs u(1 ; 2 ; −1) et v(2 ; 4 ; −2) sont :",
+        options: ["Orthogonaux", "Colinéaires", "De même norme", "Opposés"],
+        correct: 1,
+        explication: "v = 2u → les vecteurs sont colinéaires (v est le double de u).",
+        exemple: "u(1;0;0) et v(5;0;0) : v = 5u → colinéaires."
+      }
+    ]);
+  </script>
+</body>
+</html>
