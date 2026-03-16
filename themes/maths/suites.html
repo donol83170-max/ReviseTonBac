@@ -197,6 +197,66 @@
         options: ["Arithmétique de raison 3", "Géométrique de raison 3", "Arithmétique de raison 2", "Constante"],
         correct: 1,
         explication: "uₙ₊₁ = q × uₙ avec q = 3 : c'est la définition d'une suite géométrique de raison 3."
+      },
+      {
+        q: "Une suite arithmétique a pour premier terme u₁ = 3 et pour raison r = 4. Quelle est la valeur de u₆ ?",
+        options: ["19", "23", "25", "27"],
+        correct: 1,
+        explication: "u₆ = u₁ + (6−1) × r = 3 + 5 × 4 = 3 + 20 = 23."
+      },
+      {
+        q: "Qu'est-ce qu'une suite majorée ?",
+        options: ["Une suite dont tous les termes sont négatifs", "Une suite dont tous les termes sont inférieurs ou égaux à un réel M", "Une suite qui tend vers +∞", "Une suite dont la raison est positive"],
+        correct: 1,
+        explication: "Une suite (uₙ) est majorée s'il existe un réel M tel que uₙ ≤ M pour tout n."
+      },
+      {
+        q: "Une suite croissante et majorée est obligatoirement :",
+        options: ["Divergente", "Nulle", "Convergente", "Géométrique"],
+        correct: 2,
+        explication: "D'après le théorème de la limite monotone, toute suite croissante et majorée converge vers une limite finie."
+      },
+      {
+        q: "La suite géométrique de raison q = −1 et u₀ = 2 est :",
+        options: ["Croissante", "Décroissante", "Constante", "Alternée"],
+        correct: 3,
+        explication: "Avec q = −1, les termes alternent de signe : 2, −2, 2, −2… La suite est dite alternée et elle diverge."
+      },
+      {
+        q: "Quelle est la limite de la suite uₙ = 3ⁿ quand n → +∞ ?",
+        options: ["0", "3", "1", "+∞"],
+        correct: 3,
+        explication: "Pour une suite géométrique de raison q > 1 (ici q = 3), la limite est +∞."
+      },
+      {
+        q: "Soit une suite définie par u₀ = 5 et uₙ₊₁ = uₙ − 2. Quelle est la valeur de u₃ ?",
+        options: ["1", "−1", "3", "−3"],
+        correct: 1,
+        explication: "u₁ = 5 − 2 = 3, u₂ = 3 − 2 = 1, u₃ = 1 − 2 = −1."
+      },
+      {
+        q: "Une suite constante non nulle est à la fois :",
+        options: ["Ni arithmétique ni géométrique", "Seulement géométrique", "Seulement arithmétique", "Arithmétique (raison 0) et géométrique (raison 1)"],
+        correct: 3,
+        explication: "Une suite constante uₙ = k est arithmétique car on ajoute 0 à chaque étape (uₙ₊₁ = uₙ + 0) et géométrique car on multiplie par 1 (uₙ₊₁ = uₙ × 1)."
+      },
+      {
+        q: "La somme S = 2 + 4 + 6 + … + 20 vaut :",
+        options: ["100", "90", "110", "120"],
+        correct: 2,
+        explication: "C'est la somme d'une suite arithmétique de 10 termes, u₁ = 2, u₁₀ = 20. S = 10 × (2 + 20) / 2 = 10 × 11 = 110."
+      },
+      {
+        q: "Dans un raisonnement par récurrence, l'hérédité consiste à :",
+        options: ["Vérifier la propriété pour n = 0", "Conclure que la propriété est vraie", "Supposer P(n) vraie et démontrer P(n+1)", "Calculer la limite de la suite"],
+        correct: 2,
+        explication: "L'hérédité est la deuxième étape : on suppose que P(n) est vraie (hypothèse de récurrence) et on en déduit que P(n+1) est vraie."
+      },
+      {
+        q: "Suite géométrique avec u₂ = 12 et u₅ = 96. Quelle est la raison q ?",
+        options: ["4", "3", "1,5", "2"],
+        correct: 3,
+        explication: "u₅ = u₂ × q³, donc 96 = 12 × q³, q³ = 8, q = 2."
       }
     ]);
   </script>

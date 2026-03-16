@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Essayer gratuitement — ReviseTonBac</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="../css/matiere.css"/>
+  <link rel="stylesheet" href="../css/payment.css"/>
+  <link rel="stylesheet" href="../css/decouvrir.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">Révise<span>ton</span>Bac</a>
+    <ul class="nav-links">
+      <li><a href="francais.html">Français</a></li>
+      <li><a href="maths.html">Maths</a></li>
+      <li><a href="../index.html#tarifs">Tarifs</a></li>
+    </ul>
+  </nav>
+
+  <!-- THÈMES GRATUITS -->
+  <div class="decouvrir-hero">
+    <p class="section-label">— Thèmes gratuits</p>
+    <h1 class="section-title">Commence à réviser maintenant.</h1>
+    <p class="decouvrir-sub">Un thème offert par matière, sans inscription.</p>
+  </div>
+
+  <div class="decouvrir-grid">
+
+    <div class="decouvrir-card decouvrir-card--maths">
+      <div class="decouvrir-num">01</div>
+      <div class="decouvrir-badge">✦ Gratuit</div>
+      <div class="decouvrir-icon">📐</div>
+      <h2>Suites numériques</h2>
+      <p>Suites arithmétiques et géométriques, raisonnement par récurrence, convergence.</p>
+      <ul class="decouvrir-details">
+        <li>📄 Fiche de cours complète</li>
+        <li>✅ 20 QCM corrigés</li>
+        <li>📊 Score en direct</li>
+      </ul>
+      <a href="../themes/maths/suites.html" class="btn-decouvrir btn-decouvrir--maths">Accéder gratuitement →</a>
+    </div>
+
+    <div class="decouvrir-card decouvrir-card--fr">
+      <div class="decouvrir-num">01</div>
+      <div class="decouvrir-badge">✦ Gratuit</div>
+      <div class="decouvrir-icon">📖</div>
+      <h2>Le roman et le récit</h2>
+      <p>Narrateurs, points de vue, incipit, temps du récit et courants littéraires.</p>
+      <ul class="decouvrir-details">
+        <li>📄 Fiche de cours complète</li>
+        <li>✅ 20 QCM corrigés</li>
+        <li>📊 Score en direct</li>
+      </ul>
+      <a href="../themes/francais/roman.html" class="btn-decouvrir btn-decouvrir--fr">Accéder gratuitement →</a>
+    </div>
+
+  </div>
+
+  <!-- THÈMES MATHS PAYANTS -->
+  <div class="themes-section" id="maths">
+    <p class="section-label">— Mathématiques</p>
+    <div class="themes-grid">
+
+      <div class="theme-card" id="card-ma-derivation">
+        <div class="theme-num theme-num--maths">02</div>
+        <h3>Dérivation & fonctions</h3>
+        <p>Dérivées usuelles, règles de dérivation, étude de variations et extrema.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 20 QCM corrigés</span>
+        </div>
+        <div class="theme-price" id="price-ma-derivation">4,99€</div>
+        <button class="btn-primary btn-primary--maths" onclick="debloquer('ma-derivation')">Débloquer</button>
+      </div>
+
+      <div class="theme-card" id="card-ma-integration">
+        <div class="theme-num theme-num--maths">03</div>
+        <h3>Intégration</h3>
+        <p>Intégrales, primitives, calcul d'aires, théorème fondamental de l'analyse.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 20 QCM corrigés</span>
+        </div>
+        <div class="theme-price" id="price-ma-integration">4,99€</div>
+        <button class="btn-primary btn-primary--maths" onclick="debloquer('ma-integration')">Débloquer</button>
+      </div>
+
+      <div class="theme-card" id="card-ma-probas">
+        <div class="theme-num theme-num--maths">04</div>
+        <h3>Probabilités & stats</h3>
+        <p>Variables aléatoires, loi binomiale, loi normale, intervalles de fluctuation.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 20 QCM corrigés</span>
+        </div>
+        <div class="theme-price" id="price-ma-probas">4,99€</div>
+        <button class="btn-primary btn-primary--maths" onclick="debloquer('ma-probas')">Débloquer</button>
+      </div>
+
+      <div class="theme-card" id="card-ma-geo">
+        <div class="theme-num theme-num--maths">05</div>
+        <h3>Géométrie dans l'espace</h3>
+        <p>Vecteurs 3D, plans, droites, distances et angles dans l'espace.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 20 QCM corrigés</span>
+        </div>
+        <div class="theme-price" id="price-ma-geo">4,99€</div>
+        <button class="btn-primary btn-primary--maths" onclick="debloquer('ma-geo')">Débloquer</button>
+      </div>
+
+      <div class="theme-card" id="card-ma-log">
+        <div class="theme-num theme-num--maths">06</div>
+        <h3>Logarithme & exponentielle</h3>
+        <p>Fonctions ln et exp, propriétés, limites, équations et inéquations.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 20 QCM corrigés</span>
+        </div>
+        <div class="theme-price" id="price-ma-log">4,99€</div>
+        <button class="btn-primary btn-primary--maths" onclick="debloquer('ma-log')">Débloquer</button>
+      </div>
+
+    </div>
+    <div class="pack-banner pack-banner--maths">
+      <div>
+        <div class="pack-label">Pack Maths complet</div>
+        <div class="pack-desc">Les 6 thèmes débloqués d'un coup — économise 14,95€</div>
+      </div>
+      <div class="pack-right">
+        <div class="pack-price">17,99€ <s>29,94€</s></div>
+        <button class="btn-primary" onclick="ouvrirPaiement('pack-maths')">Tout débloquer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- THÈMES FRANÇAIS PAYANTS -->
+  <div class="themes-section themes-section--fr" id="francais">
+    <p class="section-label">— Français</p>
+    <div class="themes-grid">
+
+      <div class="theme-card" id="card-fr-poesie">
+        <div class="theme-num">02</div>
+        <h3>La poésie</h3>
+        <p>Formes poétiques, figures de style, mouvements littéraires et versification.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 20 QCM corrigés</span>
+        </div>
+        <div class="theme-price" id="price-fr-poesie">4,99€</div>
+        <button class="btn-primary" onclick="debloquer('fr-poesie')">Débloquer</button>
+      </div>
+
+      <div class="theme-card" id="card-fr-theatre">
+        <div class="theme-num">03</div>
+        <h3>Le théâtre</h3>
+        <p>Genres dramatiques, structure de la pièce, registres et mise en scène.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 20 QCM corrigés</span>
+        </div>
+        <div class="theme-price" id="price-fr-theatre">4,99€</div>
+        <button class="btn-primary" onclick="debloquer('fr-theatre')">Débloquer</button>
+      </div>
+
+      <div class="theme-card" id="card-fr-idees">
+        <div class="theme-num">04</div>
+        <h3>La littérature d'idées</h3>
+        <p>Essai, pamphlet, maximes, utopie et littérature engagée.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 20 QCM corrigés</span>
+        </div>
+        <div class="theme-price" id="price-fr-idees">4,99€</div>
+        <button class="btn-primary" onclick="debloquer('fr-idees')">Débloquer</button>
+      </div>
+
+      <div class="theme-card" id="card-fr-commentaire">
+        <div class="theme-num">05</div>
+        <h3>Méthode commentaire</h3>
+        <p>Structure, introduction, axes d'analyse et rédaction du commentaire littéraire.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 20 QCM corrigés</span>
+        </div>
+        <div class="theme-price" id="price-fr-commentaire">4,99€</div>
+        <button class="btn-primary" onclick="debloquer('fr-commentaire')">Débloquer</button>
+      </div>
+
+      <div class="theme-card" id="card-fr-dissertation">
+        <div class="theme-num">06</div>
+        <h3>Méthode dissertation</h3>
+        <p>Problématique, plan dialectique, argumentation et rédaction.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 20 QCM corrigés</span>
+        </div>
+        <div class="theme-price" id="price-fr-dissertation">4,99€</div>
+        <button class="btn-primary" onclick="debloquer('fr-dissertation')">Débloquer</button>
+      </div>
+
+    </div>
+    <div class="pack-banner">
+      <div>
+        <div class="pack-label">Pack Français complet</div>
+        <div class="pack-desc">Les 6 thèmes débloqués d'un coup — économise 14,95€</div>
+      </div>
+      <div class="pack-right">
+        <div class="pack-price">14,99€ <s>29,94€</s></div>
+        <button class="btn-primary" onclick="ouvrirPaiement('pack-francais')">Tout débloquer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">Révise<span>ton</span>Bac</div>
+    <p>© 2025 ReviseTonBac — Tous droits réservés</p>
+    <div class="footer-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">CGV</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <!-- MODALE PAIEMENT -->
+  <div id="payment-modal" class="payment-modal-overlay hidden">
+    <div class="payment-modal">
+      <button class="payment-modal-close" onclick="fermerModal()">✕</button>
+      <div class="payment-modal-header">
+        <h3>Finaliser l'achat</h3>
+        <p class="payment-subtitle">Paiement sécurisé par Stripe</p>
+      </div>
+      <div class="payment-product-info">
+        <span class="product-name" id="payment-product-name">—</span>
+        <span class="product-price" id="payment-product-price">—</span>
+      </div>
+      <div id="payment-form-container"></div>
+      <div class="payment-secure">🔒 Paiement chiffré SSL · Stripe</div>
+    </div>
+  </div>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/payment.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      ['ma-derivation','ma-integration','ma-probas','ma-geo','ma-log'].forEach(id => {
+        if (estDebloque(id)) marquerDebloqueM(id);
+      });
+      ['fr-poesie','fr-theatre','fr-idees','fr-commentaire','fr-dissertation'].forEach(id => {
+        if (estDebloque(id)) marquerDebloqueF(id);
+      });
+    });
+
+    function debloquer(produitId) {
+      if (estDebloque(produitId)) return;
+      ouvrirPaiement(produitId);
+    }
+
+    function marquerDebloqueM(produitId) {
+      const card = document.getElementById(`card-${produitId}`);
+      const priceEl = document.getElementById(`price-${produitId}`);
+      if (!card) return;
+      const btn = card.querySelector('button');
+      if (btn) {
+        btn.textContent = '✅ Débloqué — Accéder';
+        btn.style.background = '#22c55e';
+        btn.onclick = () => window.location.href = `../themes/maths/${produitId.replace('ma-','')}.html`;
+      }
+      if (priceEl) priceEl.style.display = 'none';
+    }
+
+    function marquerDebloqueF(produitId) {
+      const card = document.getElementById(`card-${produitId}`);
+      const priceEl = document.getElementById(`price-${produitId}`);
+      if (!card) return;
+      const btn = card.querySelector('button');
+      if (btn) {
+        btn.textContent = '✅ Débloqué — Accéder';
+        btn.style.background = '#22c55e';
+        btn.onclick = () => window.location.href = `../themes/francais/${produitId.replace('fr-','')}.html`;
+      }
+      if (priceEl) priceEl.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

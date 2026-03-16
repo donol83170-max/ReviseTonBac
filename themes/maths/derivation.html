@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dérivation & fonctions — ReviseTonBac</title>
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <link rel="stylesheet" href="../../css/theme.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="../../index.html" class="nav-logo">Révise<span>ton</span>Bac</a>
+    <ul class="nav-links">
+      <li><a href="../../pages/maths.html">← Maths</a></li>
+      <li><a href="../../index.html#tarifs">Tarifs</a></li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb breadcrumb--maths">
+    <a href="../../pages/maths.html">Maths</a> → Dérivation & fonctions
+  </div>
+
+  <div class="theme-hero theme-hero--maths">
+    <div class="theme-badge theme-badge--maths">✦ Payant</div>
+    <h1>Dérivation & fonctions</h1>
+    <p>Maîtrise les dérivées usuelles, les règles de dérivation et l'étude de variations.</p>
+  </div>
+
+  <!-- FICHE DE COURS -->
+  <div class="fiche-section">
+    <div class="fiche-header">
+      <h2>📄 Fiche de cours</h2>
+      <span class="fiche-tag">Terminale Générale — Analyse</span>
+    </div>
+
+    <div class="fiche-content">
+
+      <div class="fiche-block">
+        <h3>1. Dérivées usuelles</h3>
+        <div class="tableau">
+          <div class="tableau-row tableau-header">
+            <div>Fonction f(x)</div>
+            <div>Dérivée f'(x)</div>
+            <div>Conditions</div>
+          </div>
+          <div class="tableau-row">
+            <div>c (constante)</div>
+            <div>0</div>
+            <div>—</div>
+          </div>
+          <div class="tableau-row">
+            <div>xⁿ</div>
+            <div>n·xⁿ⁻¹</div>
+            <div>n ∈ ℝ</div>
+          </div>
+          <div class="tableau-row">
+            <div>√x</div>
+            <div>1/(2√x)</div>
+            <div>x &gt; 0</div>
+          </div>
+          <div class="tableau-row">
+            <div>eˣ</div>
+            <div>eˣ</div>
+            <div>—</div>
+          </div>
+          <div class="tableau-row">
+            <div>ln(x)</div>
+            <div>1/x</div>
+            <div>x &gt; 0</div>
+          </div>
+          <div class="tableau-row">
+            <div>sin(x)</div>
+            <div>cos(x)</div>
+            <div>—</div>
+          </div>
+          <div class="tableau-row">
+            <div>cos(x)</div>
+            <div>−sin(x)</div>
+            <div>—</div>
+          </div>
+          <div class="tableau-row">
+            <div>tan(x)</div>
+            <div>1/cos²(x)</div>
+            <div>cos(x) ≠ 0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fiche-block">
+        <h3>2. Règles de dérivation</h3>
+        <p><strong>Somme :</strong></p>
+        <div class="formule-block">(u + v)' = u' + v'</div>
+        <p><strong>Produit :</strong></p>
+        <div class="formule-block">(u × v)' = u'v + uv'</div>
+        <p><strong>Quotient :</strong></p>
+        <div class="formule-block">(u/v)' = (u'v − uv') / v²</div>
+        <p><strong>Composée :</strong></p>
+        <div class="formule-block">(f ∘ g)' = g' × (f' ∘ g) &nbsp;&nbsp; ou &nbsp;&nbsp; (u^n)' = n·u'·u^(n−1)</div>
+        <div class="fiche-astuce">💡 <strong>Moyen mnémotechnique (quotient) :</strong> "La dérivée du haut fois le bas, moins le haut fois la dérivée du bas, le tout sur le bas au carré."</div>
+      </div>
+
+      <div class="fiche-block">
+        <h3>3. Sens de variation et signe de f'</h3>
+        <div class="tableau">
+          <div class="tableau-row tableau-header">
+            <div>Signe de f'(x)</div>
+            <div>Sens de f</div>
+            <div>Tableau de variation</div>
+          </div>
+          <div class="tableau-row">
+            <div>f'(x) &gt; 0</div>
+            <div>f croissante</div>
+            <div>↗</div>
+          </div>
+          <div class="tableau-row">
+            <div>f'(x) &lt; 0</div>
+            <div>f décroissante</div>
+            <div>↘</div>
+          </div>
+          <div class="tableau-row">
+            <div>f'(x) = 0</div>
+            <div>Extremum possible</div>
+            <div>— (si changement de signe)</div>
+          </div>
+        </div>
+        <div class="fiche-astuce">💡 <strong>Attention :</strong> f'(x₀) = 0 ne suffit pas à conclure à un extremum. Il faut que f' <strong>change de signe</strong> en x₀.</div>
+      </div>
+
+      <div class="fiche-block">
+        <h3>4. Tangente à une courbe</h3>
+        <p>La tangente à la courbe de f au point d'abscisse x₀ a pour équation :</p>
+        <div class="formule-block">y = f'(x₀) · (x − x₀) + f(x₀)</div>
+        <ul>
+          <li><strong>f'(x₀)</strong> est le coefficient directeur (pente) de la tangente</li>
+          <li><strong>f(x₀)</strong> est l'ordonnée du point de tangence</li>
+        </ul>
+      </div>
+
+      <div class="fiche-block">
+        <h3>5. Dérivée seconde et convexité</h3>
+        <p>La dérivée seconde f'' est la dérivée de f'.</p>
+        <ul>
+          <li>Si <strong>f''(x) &gt; 0</strong> sur I → f est <strong>convexe</strong> sur I (courbe tournée vers le haut)</li>
+          <li>Si <strong>f''(x) &lt; 0</strong> sur I → f est <strong>concave</strong> sur I (courbe tournée vers le bas)</li>
+          <li>Si f'(x₀) = 0 et <strong>f''(x₀) &gt; 0</strong> → minimum local en x₀</li>
+          <li>Si f'(x₀) = 0 et <strong>f''(x₀) &lt; 0</strong> → maximum local en x₀</li>
+        </ul>
+        <div class="fiche-astuce">💡 Un <strong>point d'inflexion</strong> est un point où f'' s'annule et change de signe — la courbe change de concavité.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- QCM -->
+  <div class="qcm-section">
+    <h2>✅ QCM — 20 questions</h2>
+    <p class="qcm-intro">Teste tes connaissances sur la dérivation. Clique sur la bonne réponse.</p>
+    <div class="qcm-container" id="qcm"></div>
+    <div class="qcm-result hidden" id="result"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">Révise<span>ton</span>Bac</div>
+    <p>© 2025 ReviseTonBac — Tous droits réservés</p>
+    <div class="footer-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">CGV</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <script src="../../js/qcm.js"></script>
+  <script>
+    initQCM([
+      {
+        q: "Quelle est la dérivée de f(x) = x³ ?",
+        options: ["3x", "3x²", "x²", "2x³"],
+        correct: 1,
+        explication: "La dérivée de xⁿ est n·xⁿ⁻¹. Donc (x³)' = 3x².",
+        exemple: "f(x) = x³ → f'(x) = 3x². En x = 2 : f'(2) = 12."
+      },
+      {
+        q: "Quelle est la dérivée de f(x) = sin(x) ?",
+        options: ["−sin(x)", "cos(x)", "−cos(x)", "tan(x)"],
+        correct: 1,
+        explication: "La dérivée de sin(x) est cos(x). C'est une formule fondamentale à connaître.",
+        exemple: "f(x) = sin(x) → f'(π/2) = cos(π/2) = 0. La courbe est horizontale en π/2."
+      },
+      {
+        q: "Quelle est la dérivée de f(x) = eˣ ?",
+        options: ["x·eˣ⁻¹", "eˣ", "e", "1/eˣ"],
+        correct: 1,
+        explication: "La fonction exponentielle est sa propre dérivée : (eˣ)' = eˣ.",
+        exemple: "f(x) = eˣ → f'(0) = e⁰ = 1. La pente de la tangente en 0 est 1."
+      },
+      {
+        q: "Quelle est la dérivée de f(x) = ln(x) ?",
+        options: ["ln(x)/x", "x·ln(x)", "1/x", "1/ln(x)"],
+        correct: 2,
+        explication: "La dérivée de ln(x) est 1/x, définie pour x > 0.",
+        exemple: "f(x) = ln(x) → f'(2) = 1/2. En x = 2, la pente vaut 0,5."
+      },
+      {
+        q: "Quelle est la dérivée du produit f(x) = u·v ?",
+        options: ["u'·v'", "u'·v − u·v'", "u'·v + u·v'", "u'/v'"],
+        correct: 2,
+        explication: "La règle du produit : (uv)' = u'v + uv'. Ne pas confondre avec la règle du quotient.",
+        exemple: "f(x) = x²·sin(x) → f'(x) = 2x·sin(x) + x²·cos(x)."
+      },
+      {
+        q: "Quelle est la dérivée du quotient f(x) = u/v ?",
+        options: ["(u'v') / v²", "(u'v − uv') / v²", "(uv' − u'v) / v²", "u'/v'"],
+        correct: 1,
+        explication: "La règle du quotient : (u/v)' = (u'v − uv') / v². Attention à l'ordre : u' en premier.",
+        exemple: "f(x) = x/eˣ → f'(x) = (1·eˣ − x·eˣ) / e²ˣ = (1−x)/eˣ."
+      },
+      {
+        q: "Si f'(x) > 0 sur un intervalle, alors f est :",
+        options: ["Décroissante", "Constante", "Croissante", "Nulle"],
+        correct: 2,
+        explication: "Un signe positif de la dérivée indique que la fonction est strictement croissante sur cet intervalle.",
+        exemple: "f(x) = x² → f'(x) = 2x > 0 pour x > 0 : f croît sur ]0 ; +∞[."
+      },
+      {
+        q: "Un extremum local se trouve là où :",
+        options: ["f(x) = 0", "f(x) est maximale", "f'(x) = 0 et f' change de signe", "f'(x) > 0"],
+        correct: 2,
+        explication: "Un extremum (maximum ou minimum local) se trouve en un point où la dérivée s'annule ET change de signe.",
+        exemple: "f(x) = x³ → f'(0) = 0 mais f' ne change pas de signe : pas d'extremum en 0."
+      },
+      {
+        q: "Quelle est la dérivée de f(x) = cos(x) ?",
+        options: ["sin(x)", "−sin(x)", "cos(x)", "−cos(x)/x"],
+        correct: 1,
+        explication: "La dérivée de cos(x) est −sin(x). Attention au signe négatif.",
+        exemple: "f(x) = cos(x) → f'(0) = −sin(0) = 0. La tangente en 0 est horizontale."
+      },
+      {
+        q: "Quelle est la dérivée de f(x) = √x ?",
+        options: ["1/(2√x²)", "1/(2√x)", "2√x", "√x/2"],
+        correct: 1,
+        explication: "√x = x^(1/2), donc (√x)' = (1/2)·x^(−1/2) = 1/(2√x).",
+        exemple: "f(x) = √x → f'(4) = 1/(2√4) = 1/4 = 0,25."
+      },
+      {
+        q: "La dérivée de f(x) = 5x² − 3x + 2 est :",
+        options: ["5x − 3", "10x − 3x", "10x − 3", "5x² − 3"],
+        correct: 2,
+        explication: "On dérive terme par terme : (5x²)' = 10x, (−3x)' = −3, (2)' = 0. Donc f'(x) = 10x − 3.",
+        exemple: "f'(1) = 10(1) − 3 = 7. La pente de f en x = 1 est 7."
+      },
+      {
+        q: "La dérivée d'une constante est :",
+        options: ["La constante elle-même", "1", "0", "Indéfinie"],
+        correct: 2,
+        explication: "Une constante ne varie pas, sa dérivée est donc toujours 0.",
+        exemple: "f(x) = 7 → f'(x) = 0. La courbe est une droite horizontale de pente nulle."
+      },
+      {
+        q: "Quelle est la dérivée de f(x) = (2x + 1)⁴ ?",
+        options: ["4(2x + 1)³", "8(2x + 1)³", "4(2x + 1)", "8x + 4"],
+        correct: 1,
+        explication: "Règle de la composée : (u⁴)' = 4u³·u'. Ici u = 2x+1, u' = 2. Donc 4·(2x+1)³·2 = 8(2x+1)³.",
+        exemple: "En x = 0 : f'(0) = 8·(1)³ = 8."
+      },
+      {
+        q: "Si f'(x) < 0 sur [a;b], alors f est :",
+        options: ["Croissante sur [a;b]", "Positive sur [a;b]", "Décroissante sur [a;b]", "Nulle sur [a;b]"],
+        correct: 2,
+        explication: "Un signe négatif de la dérivée indique que la fonction est strictement décroissante.",
+        exemple: "f(x) = −x² → f'(x) = −2x < 0 pour x > 0 : f décroît sur ]0 ; +∞[."
+      },
+      {
+        q: "L'équation de la tangente à f en x₀ est :",
+        options: ["y = f(x₀)", "y = f'(x₀)·x", "y = f'(x₀)·(x − x₀) + f(x₀)", "y = f(x₀)·x + f'(x₀)"],
+        correct: 2,
+        explication: "La tangente en x₀ a pour pente f'(x₀) et passe par le point (x₀ ; f(x₀)).",
+        exemple: "f(x) = x², x₀ = 1. f(1) = 1, f'(1) = 2. Tangente : y = 2(x−1) + 1 = 2x − 1."
+      },
+      {
+        q: "Quelle est la dérivée de f(x) = tan(x) ?",
+        options: ["cos²(x)", "−1/sin²(x)", "1/cos²(x)", "sin(x)/cos(x)"],
+        correct: 2,
+        explication: "La dérivée de tan(x) est 1/cos²(x), aussi notée 1 + tan²(x).",
+        exemple: "f'(0) = 1/cos²(0) = 1/1 = 1. La pente de tan en 0 est 1."
+      },
+      {
+        q: "Si f'(x₀) = 0 et f''(x₀) > 0, alors x₀ est :",
+        options: ["Un maximum local", "Un point d'inflexion", "Un minimum local", "Un zéro de f"],
+        correct: 2,
+        explication: "Si la dérivée seconde est positive au point critique, la courbe est convexe : c'est un minimum local.",
+        exemple: "f(x) = x² → f'(0) = 0 et f''(0) = 2 > 0 : minimum en x = 0."
+      },
+      {
+        q: "La dérivée de f(x) = e^sin(x) est :",
+        options: ["e^sin(x)", "cos(x)", "cos(x)·e^sin(x)", "sin(x)·e^sin(x)"],
+        correct: 2,
+        explication: "Règle de la composée : (e^u)' = u'·e^u. Ici u = sin(x), u' = cos(x).",
+        exemple: "En x = 0 : f'(0) = cos(0)·e^sin(0) = 1·e⁰ = 1."
+      },
+      {
+        q: "Une fonction f est dite 'de classe C¹' si :",
+        options: ["Elle est positive", "Elle est croissante", "Elle est dérivable et sa dérivée est continue", "Elle admet un maximum"],
+        correct: 2,
+        explication: "Une fonction C¹ est dérivable sur son domaine et sa dérivée f' est continue.",
+        exemple: "f(x) = x² est C¹ sur ℝ car f'(x) = 2x est continue partout."
+      },
+      {
+        q: "f(x) = x³ − 3x. Où se trouvent les extremums locaux ?",
+        options: ["x = 0 uniquement", "x = 3 et x = −3", "x = 1 (min) et x = −1 (max)", "x = 1 et x = 3"],
+        correct: 2,
+        explication: "f'(x) = 3x² − 3 = 3(x²−1). f'(x) = 0 pour x = ±1. En −1 : maximum local, en 1 : minimum local.",
+        exemple: "f(−1) = −1 + 3 = 2 (maximum local). f(1) = 1 − 3 = −2 (minimum local)."
+      }
+    ]);
+  </script>
+</body>
+</html>

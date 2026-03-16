@@ -1,0 +1,139 @@
+/* decouvrir.css — page thèmes gratuits */
+
+.decouvrir-hero {
+  padding: 4rem 4rem 2rem;
+  text-align: center;
+}
+.decouvrir-sub {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-top: -.5rem;
+  margin-bottom: 0;
+}
+
+.decouvrir-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 3rem 4rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.decouvrir-card {
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  position: relative;
+  border: 2px solid transparent;
+  transition: transform .3s;
+}
+.decouvrir-card:hover { transform: translateY(-4px); }
+.decouvrir-card--maths {
+  background: var(--forest);
+  color: var(--paper);
+  border-color: var(--sage);
+}
+.decouvrir-card--fr {
+  background: var(--forest);
+  color: var(--paper);
+  border-color: var(--gold);
+}
+
+.decouvrir-num {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 800;
+  opacity: .1;
+  line-height: 1;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+.decouvrir-badge {
+  display: inline-block;
+  font-size: .75rem;
+  font-weight: 700;
+  padding: .25rem .8rem;
+  border-radius: 100px;
+  margin-bottom: 1rem;
+}
+.decouvrir-card--maths .decouvrir-badge { background: var(--sage); color: var(--paper); }
+.decouvrir-card--fr .decouvrir-badge { background: var(--gold); color: var(--forest); }
+
+.decouvrir-icon { font-size: 2.5rem; margin-bottom: 1rem; text-align: center; }
+
+.decouvrir-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: .7rem;
+  text-align: center;
+}
+.decouvrir-card p {
+  color: rgba(255,255,255,.6);
+  font-size: .95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.decouvrir-details {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: 2rem;
+}
+.decouvrir-details li {
+  font-size: .88rem;
+  color: rgba(255,255,255,.55);
+}
+
+.btn-decouvrir {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: .9rem 1.5rem;
+  border-radius: 100px;
+  transition: transform .2s, box-shadow .2s;
+}
+.btn-decouvrir:hover { transform: translateY(-2px); }
+.btn-decouvrir--maths { background: var(--sage); color: var(--paper); }
+.btn-decouvrir--fr { background: var(--gold); color: var(--forest); }
+
+.decouvrir-more {
+  text-align: center;
+  padding: 1rem 4rem 5rem;
+  color: var(--text-muted);
+}
+.decouvrir-more p { margin-bottom: 1.2rem; font-size: .95rem; }
+.decouvrir-more-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.themes-section--fr { background: var(--cream); }
+
+/* Centrage des cartes thèmes */
+.decouvrir-grid ~ .themes-section .theme-card,
+.themes-section .theme-card {
+  text-align: center;
+}
+.themes-section .theme-meta {
+  justify-content: center;
+}
+.themes-section .theme-num {
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .decouvrir-hero { padding: 3rem 1.5rem 1.5rem; }
+  .decouvrir-grid { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+  .decouvrir-more { padding: 1rem 1.5rem 3rem; }
+}
