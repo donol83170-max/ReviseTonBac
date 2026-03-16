@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Logarithme & exponentielle — ReviseTonBac</title>
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <link rel="stylesheet" href="../../css/theme.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="../../index.html" class="nav-logo">Révise<span>ton</span>Bac</a>
+    <ul class="nav-links">
+      <li><a href="../../pages/maths.html">← Maths</a></li>
+      <li><a href="../../index.html#tarifs">Tarifs</a></li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb breadcrumb--maths">
+    <a href="../../pages/maths.html">Maths</a> → Logarithme & exponentielle
+  </div>
+
+  <div class="theme-hero theme-hero--maths">
+    <div class="theme-badge theme-badge--maths">✦ Payant</div>
+    <h1>Logarithme & exponentielle</h1>
+    <p>Maîtrise les fonctions ln et exp, leurs propriétés, limites, équations et inéquations.</p>
+  </div>
+
+  <!-- FICHE DE COURS -->
+  <div class="fiche-section">
+    <div class="fiche-header">
+      <h2>📄 Fiche de cours</h2>
+      <span class="fiche-tag">Terminale Générale — Analyse</span>
+    </div>
+
+    <div class="fiche-content">
+
+      <div class="fiche-block">
+        <h3>1. Fonction logarithme népérien ln</h3>
+        <p><strong>Domaine :</strong> ]0 ; +∞[ &nbsp;|&nbsp; <strong>ln(e) = 1</strong> &nbsp;|&nbsp; <strong>ln(1) = 0</strong></p>
+        <div class="tableau">
+          <div class="tableau-row tableau-header">
+            <div>Propriété</div>
+            <div>Formule</div>
+            <div>Exemple</div>
+          </div>
+          <div class="tableau-row">
+            <div>Produit</div>
+            <div>ln(ab) = ln(a) + ln(b)</div>
+            <div>ln(6) = ln(2) + ln(3)</div>
+          </div>
+          <div class="tableau-row">
+            <div>Quotient</div>
+            <div>ln(a/b) = ln(a) − ln(b)</div>
+            <div>ln(1/2) = −ln(2)</div>
+          </div>
+          <div class="tableau-row">
+            <div>Puissance</div>
+            <div>ln(aⁿ) = n × ln(a)</div>
+            <div>ln(8) = 3 ln(2)</div>
+          </div>
+          <div class="tableau-row">
+            <div>Dérivée</div>
+            <div>(ln x)' = 1/x &nbsp;;&nbsp; (ln u)' = u'/u</div>
+            <div>ln(x²+1) → 2x/(x²+1)</div>
+          </div>
+        </div>
+        <p><strong>Limites :</strong></p>
+        <div class="formule-block">lim(x→0⁺) ln(x) = −∞ &nbsp;&nbsp;&nbsp; lim(x→+∞) ln(x) = +∞</div>
+        <div class="fiche-astuce">💡 La croissance de ln est très lente : ln "l'emporte" sur toute puissance de ln mais est "dominée" par tout xᵅ (α > 0).</div>
+      </div>
+
+      <div class="fiche-block">
+        <h3>2. Fonction exponentielle eˣ</h3>
+        <p><strong>Domaine :</strong> ℝ &nbsp;|&nbsp; <strong>Toujours positive</strong> &nbsp;|&nbsp; <strong>e⁰ = 1</strong></p>
+        <div class="tableau">
+          <div class="tableau-row tableau-header">
+            <div>Propriété</div>
+            <div>Formule</div>
+            <div>Exemple</div>
+          </div>
+          <div class="tableau-row">
+            <div>Produit</div>
+            <div>eᵃ × eᵇ = eᵃ⁺ᵇ</div>
+            <div>e² × e³ = e⁵</div>
+          </div>
+          <div class="tableau-row">
+            <div>Quotient</div>
+            <div>eᵃ / eᵇ = eᵃ⁻ᵇ</div>
+            <div>e⁵ / e² = e³</div>
+          </div>
+          <div class="tableau-row">
+            <div>Puissance</div>
+            <div>(eᵃ)ⁿ = eⁿᵃ</div>
+            <div>(e²)³ = e⁶</div>
+          </div>
+          <div class="tableau-row">
+            <div>Dérivée</div>
+            <div>(eˣ)' = eˣ &nbsp;;&nbsp; (e^u)' = u' × e^u</div>
+            <div>e^(3x) → 3e^(3x)</div>
+          </div>
+        </div>
+        <p><strong>Limites :</strong></p>
+        <div class="formule-block">lim(x→−∞) eˣ = 0 &nbsp;&nbsp;&nbsp; lim(x→+∞) eˣ = +∞</div>
+        <div class="fiche-astuce">💡 <strong>Croissances comparées :</strong> eˣ "l'emporte" sur tout polynôme : lim(x→+∞) eˣ/xⁿ = +∞. Et lim(x→−∞) xⁿeˣ = 0.</div>
+      </div>
+
+      <div class="fiche-block">
+        <h3>3. Fonctions réciproques</h3>
+        <p>ln et exp sont des fonctions réciproques l'une de l'autre :</p>
+        <div class="formule-block">e^(ln x) = x &nbsp; (pour x &gt; 0) &nbsp;&nbsp;&nbsp;&nbsp; ln(eˣ) = x &nbsp; (pour tout x ∈ ℝ)</div>
+        <p><strong>Résolution d'équations :</strong></p>
+        <ul>
+          <li>ln(x) = a ⟺ x = eᵃ &nbsp; (appliquer exp des deux côtés)</li>
+          <li>eˣ = b ⟺ x = ln(b) &nbsp; (appliquer ln des deux côtés, avec b > 0)</li>
+        </ul>
+      </div>
+
+      <div class="fiche-block">
+        <h3>4. Étude de fonctions — rappels clés</h3>
+        <ul>
+          <li>ln est <strong>strictement croissante</strong> et <strong>concave</strong> sur ]0 ; +∞[ (f'' = −1/x² &lt; 0)</li>
+          <li>eˣ est <strong>strictement croissante</strong> et <strong>convexe</strong> sur ℝ (f'' = eˣ &gt; 0)</li>
+          <li>ln(x) &lt; ln(y) ⟺ x &lt; y &nbsp;(inégalité conservée car ln croissante)</li>
+          <li>eˣ &lt; eʸ ⟺ x &lt; y &nbsp;(inégalité conservée car exp croissante)</li>
+        </ul>
+        <div class="fiche-astuce">💡 Pour résoudre ln(f(x)) &gt; ln(g(x)), il faut d'abord s'assurer que f(x) &gt; 0 et g(x) &gt; 0, puis comparer f(x) et g(x).</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- QCM -->
+  <div class="qcm-section">
+    <h2>✅ QCM — 20 questions</h2>
+    <p class="qcm-intro">Teste tes connaissances sur ln et l'exponentielle. Clique sur la bonne réponse.</p>
+    <div class="qcm-container" id="qcm"></div>
+    <div class="qcm-result hidden" id="result"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">Révise<span>ton</span>Bac</div>
+    <p>© 2025 ReviseTonBac — Tous droits réservés</p>
+    <div class="footer-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">CGV</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <script src="../../js/qcm.js"></script>
+  <script>
+    initQCM([
+      {
+        q: "ln(1) est égal à :",
+        options: ["1", "e", "0", "−1"],
+        correct: 2,
+        explication: "ln(1) = 0 car e⁰ = 1. C'est une valeur fondamentale à connaître.",
+        exemple: "ln(1) = 0. De même ln(e) = 1 car e¹ = e."
+      },
+      {
+        q: "ln(a × b) est égal à :",
+        options: ["ln(a) × ln(b)", "ln(a) + ln(b)", "ln(a) − ln(b)", "ln(a + b)"],
+        correct: 1,
+        explication: "Propriété fondamentale : ln(ab) = ln(a) + ln(b) pour a, b > 0.",
+        exemple: "ln(6) = ln(2 × 3) = ln(2) + ln(3) ≈ 0,693 + 1,099 = 1,792."
+      },
+      {
+        q: "ln(a/b) est égal à :",
+        options: ["ln(a) + ln(b)", "ln(a) / ln(b)", "ln(a) − ln(b)", "ln(a) × ln(b)"],
+        correct: 2,
+        explication: "ln(a/b) = ln(a) − ln(b) pour a, b > 0.",
+        exemple: "ln(1/2) = ln(1) − ln(2) = 0 − ln(2) = −ln(2) ≈ −0,693."
+      },
+      {
+        q: "ln(aⁿ) est égal à :",
+        options: ["n + ln(a)", "ln(a)ⁿ", "n × ln(a)", "n / ln(a)"],
+        correct: 2,
+        explication: "ln(aⁿ) = n × ln(a) pour a > 0 et n réel.",
+        exemple: "ln(8) = ln(2³) = 3 × ln(2) ≈ 3 × 0,693 = 2,079."
+      },
+      {
+        q: "La dérivée de ln(x) pour x > 0 est :",
+        options: ["ln(x)/x", "x × ln(x)", "1/x", "1/ln(x)"],
+        correct: 2,
+        explication: "(ln x)' = 1/x. C'est une formule fondamentale.",
+        exemple: "f(x) = ln(x) → f'(2) = 1/2 = 0,5."
+      },
+      {
+        q: "La dérivée de ln(u) où u est une fonction dérivable positive est :",
+        options: ["1/u", "u'/u", "u/u'", "ln(u')"],
+        correct: 1,
+        explication: "Règle de la composée : (ln u)' = u'/u.",
+        exemple: "f(x) = ln(x² + 1) → f'(x) = 2x / (x² + 1)."
+      },
+      {
+        q: "e^(ln x) est égal à :",
+        options: ["ln(eˣ)", "x²", "x", "e"],
+        correct: 2,
+        explication: "exp et ln sont des fonctions réciproques : e^(ln x) = x pour x > 0.",
+        exemple: "e^(ln 5) = 5. e^(ln 1) = 1."
+      },
+      {
+        q: "ln(eˣ) est égal à :",
+        options: ["e", "eˣ", "x", "1/x"],
+        correct: 2,
+        explication: "ln et exp sont réciproques : ln(eˣ) = x pour tout x réel.",
+        exemple: "ln(e³) = 3. ln(e⁻²) = −2."
+      },
+      {
+        q: "La dérivée de eˣ est :",
+        options: ["x·eˣ⁻¹", "eˣ", "e", "1/eˣ"],
+        correct: 1,
+        explication: "La fonction exponentielle est sa propre dérivée : (eˣ)' = eˣ.",
+        exemple: "f(x) = eˣ → f'(0) = e⁰ = 1. La pente de la tangente en 0 vaut 1."
+      },
+      {
+        q: "La dérivée de e^u où u est une fonction dérivable est :",
+        options: ["e^u", "u' × e^u", "u × e^(u−1)", "e^(u')"],
+        correct: 1,
+        explication: "Règle de la composée : (e^u)' = u' × e^u.",
+        exemple: "f(x) = e^(3x) → f'(x) = 3e^(3x)."
+      },
+      {
+        q: "Sur quel domaine la fonction ln est-elle définie ?",
+        options: ["ℝ", "[0 ; +∞[", "]0 ; +∞[", "]−∞ ; 0["],
+        correct: 2,
+        explication: "ln(x) n'est défini que pour x strictement positif. ln(0) et ln(x < 0) n'existent pas.",
+        exemple: "ln(0,001) existe (≈ −6,9), mais ln(0) et ln(−1) n'existent pas."
+      },
+      {
+        q: "lim(x→+∞) ln(x) vaut :",
+        options: ["0", "1", "e", "+∞"],
+        correct: 3,
+        explication: "ln(x) tend vers +∞ quand x → +∞, mais très lentement.",
+        exemple: "ln(1 000 000) ≈ 13,8 seulement, alors que la valeur de x est 10⁶."
+      },
+      {
+        q: "lim(x→0⁺) ln(x) vaut :",
+        options: ["0", "1", "+∞", "−∞"],
+        correct: 3,
+        explication: "Quand x tend vers 0 par valeurs positives, ln(x) tend vers −∞.",
+        exemple: "ln(0,1) ≈ −2,3 ; ln(0,001) ≈ −6,9 ; ln(10⁻¹⁰⁰) = −100 × ln(10)."
+      },
+      {
+        q: "La fonction exponentielle eˣ est :",
+        options: ["Décroissante sur ℝ", "Positive seulement pour x > 0", "Strictement croissante sur ℝ", "Nulle en x = 0"],
+        correct: 2,
+        explication: "eˣ est strictement croissante, toujours strictement positive, et vaut 1 en x = 0.",
+        exemple: "e⁻¹⁰⁰ > 0 (très petit mais positif). e⁰ = 1."
+      },
+      {
+        q: "Résoudre ln(x) = 2 donne :",
+        options: ["x = 2", "x = 2e", "x = e²", "x = ln(2)"],
+        correct: 2,
+        explication: "ln(x) = 2 ⟺ x = e² (on applique exp des deux côtés).",
+        exemple: "ln(x) = 0 → x = e⁰ = 1. ln(x) = 1 → x = e."
+      },
+      {
+        q: "Résoudre eˣ = 5 donne :",
+        options: ["x = 5/e", "x = e⁵", "x = ln(5)", "x = 5"],
+        correct: 2,
+        explication: "eˣ = 5 ⟺ x = ln(5) (on applique ln des deux côtés).",
+        exemple: "eˣ = 1 → x = ln(1) = 0. eˣ = e³ → x = 3."
+      },
+      {
+        q: "La fonction f(x) = ln(x) est concave sur ]0 ; +∞[ car :",
+        options: ["f'(x) < 0", "f''(x) < 0", "f''(x) > 0", "f'(x) = 0"],
+        correct: 1,
+        explication: "f'(x) = 1/x > 0 (croissante) et f''(x) = −1/x² < 0 → concave.",
+        exemple: "La courbe de ln est toujours 'tournée vers le bas' sur ]0 ; +∞[."
+      },
+      {
+        q: "lim(x→+∞) eˣ/xⁿ vaut (pour n entier quelconque) :",
+        options: ["0", "n", "1", "+∞"],
+        correct: 3,
+        explication: "L'exponentielle 'l'emporte' sur tout polynôme : eˣ croît plus vite que xⁿ.",
+        exemple: "eˣ/x¹⁰⁰ → +∞ quand x → +∞ (croissances comparées)."
+      },
+      {
+        q: "f(x) = x − ln(x) sur ]0 ; +∞[. Son minimum est atteint en :",
+        options: ["x = 0", "x = e", "x = 1", "x = ln(1)"],
+        correct: 2,
+        explication: "f'(x) = 1 − 1/x = 0 → x = 1. f''(1) = 1 > 0 → minimum. f(1) = 1.",
+        exemple: "f(1) = 1 − ln(1) = 1 − 0 = 1 est la valeur minimale."
+      },
+      {
+        q: "Quelle égalité est correcte ?",
+        options: ["ln(x + y) = ln(x) + ln(y)", "(ln x)' = ln(1/x)", "e^(a+b) = eᵃ × eᵇ", "ln(x²) = ln(x)²"],
+        correct: 2,
+        explication: "eᵃ⁺ᵇ = eᵃ × eᵇ est la propriété fondamentale de l'exponentielle.",
+        exemple: "e² × e³ = e^(2+3) = e⁵ ≈ 148,4."
+      }
+    ]);
+  </script>
+</body>
+</html>
