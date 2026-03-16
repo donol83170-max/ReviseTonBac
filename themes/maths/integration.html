@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Intégration — ReviseTonBac</title>
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <link rel="stylesheet" href="../../css/theme.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="../../index.html" class="nav-logo">Révise<span>ton</span>Bac</a>
+    <ul class="nav-links">
+      <li><a href="../../pages/maths.html">← Maths</a></li>
+      <li><a href="../../index.html#tarifs">Tarifs</a></li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb breadcrumb--maths">
+    <a href="../../pages/maths.html">Maths</a> → Intégration
+  </div>
+
+  <div class="theme-hero theme-hero--maths">
+    <div class="theme-badge theme-badge--maths">✦ Payant</div>
+    <h1>Intégration</h1>
+    <p>Maîtrise les primitives, le calcul d'intégrales et le théorème fondamental de l'analyse.</p>
+  </div>
+
+  <!-- FICHE DE COURS -->
+  <div class="fiche-section">
+    <div class="fiche-header">
+      <h2>📄 Fiche de cours</h2>
+      <span class="fiche-tag">Terminale Générale — Analyse</span>
+    </div>
+
+    <div class="fiche-content">
+
+      <div class="fiche-block">
+        <h3>1. Primitives usuelles</h3>
+        <div class="tableau">
+          <div class="tableau-row tableau-header">
+            <div>Fonction f(x)</div>
+            <div>Primitive F(x)</div>
+            <div>Conditions</div>
+          </div>
+          <div class="tableau-row">
+            <div>k (constante)</div>
+            <div>kx + C</div>
+            <div>—</div>
+          </div>
+          <div class="tableau-row">
+            <div>xⁿ (n ≠ −1)</div>
+            <div>xⁿ⁺¹ / (n+1) + C</div>
+            <div>n ∈ ℝ, n ≠ −1</div>
+          </div>
+          <div class="tableau-row">
+            <div>1/x</div>
+            <div>ln|x| + C</div>
+            <div>x ≠ 0</div>
+          </div>
+          <div class="tableau-row">
+            <div>eˣ</div>
+            <div>eˣ + C</div>
+            <div>—</div>
+          </div>
+          <div class="tableau-row">
+            <div>sin(x)</div>
+            <div>−cos(x) + C</div>
+            <div>—</div>
+          </div>
+          <div class="tableau-row">
+            <div>cos(x)</div>
+            <div>sin(x) + C</div>
+            <div>—</div>
+          </div>
+          <div class="tableau-row">
+            <div>1/(2√x)</div>
+            <div>√x + C</div>
+            <div>x &gt; 0</div>
+          </div>
+        </div>
+        <div class="fiche-astuce">💡 <strong>Règle :</strong> Deux primitives d'une même fonction diffèrent d'une constante. Si F est une primitive de f, toutes les primitives sont de la forme F(x) + C.</div>
+      </div>
+
+      <div class="fiche-block">
+        <h3>2. Intégrale définie</h3>
+        <p>Si F est une primitive de f sur [a ; b], l'intégrale de a à b est :</p>
+        <div class="formule-block">∫ₐᵇ f(x) dx = [F(x)]ₐᵇ = F(b) − F(a)</div>
+        <p><strong>Propriétés :</strong></p>
+        <ul>
+          <li><strong>Linéarité :</strong> ∫ₐᵇ (αf + βg) dx = α∫ₐᵇ f dx + β∫ₐᵇ g dx</li>
+          <li><strong>Relation de Chasles :</strong> ∫ₐᵇ f dx = ∫ₐᶜ f dx + ∫ᶜᵇ f dx</li>
+          <li><strong>Borne identique :</strong> ∫ₐᵃ f dx = 0</li>
+          <li><strong>Inversion des bornes :</strong> ∫ᵇₐ f dx = −∫ₐᵇ f dx</li>
+        </ul>
+      </div>
+
+      <div class="fiche-block">
+        <h3>3. Interprétation géométrique</h3>
+        <p>Si <strong>f(x) ≥ 0</strong> sur [a ; b], l'intégrale ∫ₐᵇ f(x) dx représente l'<strong>aire</strong> (en unités carrées) du domaine délimité par la courbe, l'axe des abscisses et les droites x = a et x = b.</p>
+        <p>Si f change de signe, l'aire géométrique s'obtient en séparant les zones positives et négatives :</p>
+        <div class="formule-block">Aire = ∫ₐᶜ f(x) dx − ∫ᶜᵇ f(x) dx &nbsp; (si f ≥ 0 sur [a;c] et f ≤ 0 sur [c;b])</div>
+        <div class="fiche-astuce">💡 <strong>Aire entre deux courbes :</strong> Si f ≥ g sur [a;b], l'aire entre les deux courbes est ∫ₐᵇ (f(x) − g(x)) dx.</div>
+      </div>
+
+      <div class="fiche-block">
+        <h3>4. Valeur moyenne</h3>
+        <p>La valeur moyenne d'une fonction f sur [a ; b] est :</p>
+        <div class="formule-block">μ = 1/(b−a) × ∫ₐᵇ f(x) dx</div>
+        <p>Elle représente la "hauteur moyenne" de la courbe sur cet intervalle.</p>
+      </div>
+
+      <div class="fiche-block">
+        <h3>5. Fonctions paires et impaires</h3>
+        <ul>
+          <li>Si f est <strong>paire</strong> (f(−x) = f(x)) : ∫₋ₐᵃ f(x) dx = 2∫₀ᵃ f(x) dx</li>
+          <li>Si f est <strong>impaire</strong> (f(−x) = −f(x)) : ∫₋ₐᵃ f(x) dx = 0</li>
+        </ul>
+        <div class="fiche-astuce">💡 Reconnaître la parité d'une fonction permet de simplifier considérablement les calculs d'intégrales sur des intervalles symétriques.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- QCM -->
+  <div class="qcm-section">
+    <h2>✅ QCM — 20 questions</h2>
+    <p class="qcm-intro">Teste tes connaissances sur l'intégration. Clique sur la bonne réponse.</p>
+    <div class="qcm-container" id="qcm"></div>
+    <div class="qcm-result hidden" id="result"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">Révise<span>ton</span>Bac</div>
+    <p>© 2025 ReviseTonBac — Tous droits réservés</p>
+    <div class="footer-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">CGV</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <script src="../../js/qcm.js"></script>
+  <script>
+    initQCM([
+      {
+        q: "Quelle est une primitive de f(x) = 3x² ?",
+        options: ["x³/3 + C", "x³ + C", "6x + C", "9x + C"],
+        correct: 1,
+        explication: "La primitive de xⁿ est xⁿ⁺¹/(n+1). Ici : ∫3x² dx = 3·x³/3 = x³ + C.",
+        exemple: "Vérification : (x³)' = 3x². ✓"
+      },
+      {
+        q: "Quelle est une primitive de f(x) = cos(x) ?",
+        options: ["−sin(x) + C", "sin(x) + C", "−cos(x) + C", "tan(x) + C"],
+        correct: 1,
+        explication: "La dérivée de sin(x) est cos(x), donc sin(x) est une primitive de cos(x).",
+        exemple: "∫cos(x) dx = sin(x) + C. Vérification : (sin x)' = cos x. ✓"
+      },
+      {
+        q: "Quelle est une primitive de f(x) = 1/x pour x > 0 ?",
+        options: ["1/x² + C", "−1/x² + C", "ln(x) + C", "eˣ + C"],
+        correct: 2,
+        explication: "La dérivée de ln(x) est 1/x pour x > 0, donc ln(x) est la primitive cherchée.",
+        exemple: "∫(1/x) dx = ln|x| + C. Vérification : (ln x)' = 1/x. ✓"
+      },
+      {
+        q: "Quelle est la valeur de ∫₀² 2x dx ?",
+        options: ["2", "8", "4", "1"],
+        correct: 2,
+        explication: "Une primitive de 2x est x². Donc [x²]₀² = 4 − 0 = 4.",
+        exemple: "∫₀² 2x dx = [x²]₀² = 4 − 0 = 4."
+      },
+      {
+        q: "Quelle est une primitive de f(x) = eˣ ?",
+        options: ["eˣ/x + C", "eˣ + C", "x·eˣ + C", "ln(x) + C"],
+        correct: 1,
+        explication: "La fonction exponentielle est sa propre primitive : (eˣ)' = eˣ.",
+        exemple: "∫eˣ dx = eˣ + C. Vérification : (eˣ)' = eˣ. ✓"
+      },
+      {
+        q: "Si F et G sont deux primitives de f sur un intervalle, alors F − G est :",
+        options: ["Nulle", "Une fonction de x", "Une constante", "Égale à f"],
+        correct: 2,
+        explication: "Deux primitives d'une même fonction diffèrent d'une constante : F(x) − G(x) = k.",
+        exemple: "x² et x² + 5 sont deux primitives de 2x. Leur différence vaut 5, une constante."
+      },
+      {
+        q: "Quelle est la valeur de ∫₁³ 1 dx ?",
+        options: ["0", "3", "1", "2"],
+        correct: 3,
+        explication: "∫₁³ 1 dx = [x]₁³ = 3 − 1 = 2.",
+        exemple: "Intégrer la constante 1 sur [1;3] donne la longueur de l'intervalle : 2."
+      },
+      {
+        q: "Quelle est une primitive de f(x) = sin(x) ?",
+        options: ["cos(x) + C", "−cos(x) + C", "sin(x) + C", "−sin(x) + C"],
+        correct: 1,
+        explication: "La dérivée de −cos(x) est sin(x). Donc −cos(x) est une primitive de sin(x).",
+        exemple: "∫sin(x) dx = −cos(x) + C. Vérification : (−cos x)' = sin x. ✓"
+      },
+      {
+        q: "Quelle est la valeur de ∫₀¹ eˣ dx ?",
+        options: ["e + 1", "e − 1", "1", "e"],
+        correct: 1,
+        explication: "[eˣ]₀¹ = e¹ − e⁰ = e − 1 ≈ 1,718.",
+        exemple: "∫₀¹ eˣ dx = e − 1 ≈ 1,718."
+      },
+      {
+        q: "L'intégrale ∫ₐᵃ f(x) dx est égale à :",
+        options: ["2f(a)", "f(a)", "0", "1"],
+        correct: 2,
+        explication: "Quand les deux bornes sont identiques, il n'y a aucune aire à mesurer : l'intégrale vaut 0.",
+        exemple: "∫₂² x³ dx = 0, quelle que soit la fonction."
+      },
+      {
+        q: "Si f(x) ≥ 0 sur [a;b], l'intégrale ∫ₐᵇ f(x) dx représente :",
+        options: ["La longueur de la courbe", "L'aire sous la courbe", "La dérivée de f en a", "La valeur maximale de f"],
+        correct: 1,
+        explication: "Pour f ≥ 0, l'intégrale donne l'aire entre la courbe et l'axe des abscisses.",
+        exemple: "∫₀¹ x dx = 1/2 = aire du triangle de base 1 et hauteur 1."
+      },
+      {
+        q: "Quelle est la valeur de ∫₀π sin(x) dx ?",
+        options: ["0", "1", "2", "π"],
+        correct: 2,
+        explication: "[−cos(x)]₀π = −cos(π) − (−cos(0)) = 1 + 1 = 2.",
+        exemple: "La courbe sin(x) sur [0;π] est entièrement positive, l'aire vaut 2 unités carrées."
+      },
+      {
+        q: "Quelle est une primitive de f(x) = 1/(2√x) pour x > 0 ?",
+        options: ["√x + C", "2√x + C", "−1/√x + C", "ln(x)/2 + C"],
+        correct: 0,
+        explication: "La dérivée de √x est 1/(2√x). Donc √x est une primitive de 1/(2√x).",
+        exemple: "∫(1/(2√x)) dx = √x + C. Vérification : (√x)' = 1/(2√x). ✓"
+      },
+      {
+        q: "La relation de Chasles affirme que :",
+        options: ["∫ₐᵇ f = ∫ₐᵇ g si f = g", "∫ₐᵇ f + ∫ₐᵇ g = ∫ₐᵇ (f+g)", "∫ₐᵇ f = ∫ₐᶜ f + ∫ᶜᵇ f", "∫ₐᵇ f = −∫ᵇₐ f"],
+        correct: 2,
+        explication: "On peut découper une intégrale en passant par un point intermédiaire c quelconque.",
+        exemple: "∫₀³ f = ∫₀¹ f + ∫₁³ f, pour tout c dans [a;b]."
+      },
+      {
+        q: "Quelle est la valeur de ∫₀² (x² + 1) dx ?",
+        options: ["4", "14/3", "5", "3"],
+        correct: 1,
+        explication: "[x³/3 + x]₀² = (8/3 + 2) − 0 = 8/3 + 6/3 = 14/3.",
+        exemple: "∫₀² (x² + 1) dx = [x³/3 + x]₀² = 14/3 ≈ 4,67."
+      },
+      {
+        q: "Si f est négative sur [a;b], l'aire géométrique entre la courbe et l'axe des x est :",
+        options: ["∫ₐᵇ f(x) dx", "−∫ₐᵇ f(x) dx", "∫ₐᵇ f(x)² dx", "0"],
+        correct: 1,
+        explication: "Quand f < 0, l'intégrale est négative. On prend l'opposé pour obtenir l'aire (positive).",
+        exemple: "∫π²π (sin x) dx = −2 < 0 → aire géométrique = 2 unités carrées."
+      },
+      {
+        q: "Quelle est une primitive de f(x) = 4x³ − 2x + 5 ?",
+        options: ["12x² − 2 + C", "x⁴ − x² + 5x + C", "4x⁴ − 2x² + 5x + C", "x⁴ − x² + C"],
+        correct: 1,
+        explication: "On intègre terme par terme : 4x³ → x⁴, −2x → −x², 5 → 5x.",
+        exemple: "∫(4x³ − 2x + 5) dx = x⁴ − x² + 5x + C."
+      },
+      {
+        q: "La valeur moyenne d'une fonction f sur [a;b] est :",
+        options: ["(f(a) + f(b)) / 2", "1/(b−a) × ∫ₐᵇ f(x) dx", "f((a+b)/2)", "(b−a) × ∫ₐᵇ f(x) dx"],
+        correct: 1,
+        explication: "La valeur moyenne est l'intégrale divisée par la longueur de l'intervalle.",
+        exemple: "Valeur moyenne de x sur [0;2] = 1/2 × ∫₀² x dx = 1/2 × 2 = 1."
+      },
+      {
+        q: "Quelle est la valeur de ∫₋₁¹ x³ dx ?",
+        options: ["1/2", "2", "0", "−1/2"],
+        correct: 2,
+        explication: "x³ est une fonction impaire sur un intervalle symétrique [−1;1] : l'intégrale est nulle.",
+        exemple: "[x⁴/4]₋₁¹ = 1/4 − 1/4 = 0. ✓"
+      },
+      {
+        q: "L'aire entre deux courbes f et g (avec f ≥ g) sur [a;b] est :",
+        options: ["∫ₐᵇ (f − g)(x) dx", "∫ₐᵇ f(x) × g(x) dx", "∫ₐᵇ f(x) dx + ∫ₐᵇ g(x) dx", "(∫ₐᵇ f(x) dx)²"],
+        correct: 0,
+        explication: "L'aire entre deux courbes = intégrale de la différence (courbe du haut − courbe du bas).",
+        exemple: "Aire entre f(x)=x et g(x)=x² sur [0;1] : ∫₀¹ (x − x²) dx = 1/2 − 1/3 = 1/6."
+      }
+    ]);
+  </script>
+</body>
+</html>
