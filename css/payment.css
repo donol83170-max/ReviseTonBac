@@ -125,3 +125,21 @@
   color: rgba(255,255,255,.3);
   margin-top: 1.2rem;
 }
+
+.token-info {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  padding: .8rem 1rem;
+  font-size: .85rem;
+  word-break: break-all;
+  text-align: left;
+}
+.token-info strong {
+  display: block;
+  font-family: monospace;
+  font-size: .8rem;
+  color: #d94f3d;
+  margin: .3rem 0;
+}
+.token-info small { color: rgba(255,255,255,.35); }

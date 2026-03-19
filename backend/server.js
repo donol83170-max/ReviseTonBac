@@ -2,6 +2,40 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const Database = require('better-sqlite3');
+const path = require('path');
+const crypto = require('crypto');
+
+// ─── Base de données SQLite ────────────────────────────────────────────────────
+const db = new Database(path.join(__dirname, 'purchases.db'));
+db.exec(`
+  CREATE TABLE IF NOT EXISTS purchases (
+    token TEXT PRIMARY KEY,
+    produit_ids TEXT NOT NULL,
+    payment_intent_id TEXT UNIQUE,
+    created_at INTEGER NOT NULL
+  )
+`);
+
+function generateToken() {
+  return crypto.randomBytes(24).toString('hex');
+}
+
+function savePurchase(paymentIntentId, produitId) {
+  const existing = db.prepare('SELECT * FROM purchases WHERE payment_intent_id = ?').get(paymentIntentId);
+  if (existing) return existing.token;
+
+  const token = generateToken();
+  db.prepare('INSERT INTO purchases (token, produit_ids, payment_intent_id, created_at) VALUES (?, ?, ?, ?)')
+    .run(token, JSON.stringify([produitId]), paymentIntentId, Date.now());
+  return token;
+}
+
+function getPurchasesByToken(token) {
+  const row = db.prepare('SELECT produit_ids FROM purchases WHERE token = ?').get(token);
+  if (!row) return null;
+  return JSON.parse(row.produit_ids);
+}
 
 const app = express();
 app.use(express.json());
@@ -84,11 +118,12 @@ app.post('/confirm-payment', async (req, res) => {
     if (paymentIntent.status === 'succeeded') {
       const produitId = paymentIntent.metadata.produitId;
       console.log(`✅ Paiement confirmé — ${paymentIntent.metadata.produitNom} — ${paymentIntent.amount / 100}€`);
-      // TODO: enregistrer en base de données pour un accès permanent
+      const token = savePurchase(paymentIntent.id, produitId);
 
       res.json({
         success: true,
         produitId,
+        token,
         message: `Accès débloqué : ${paymentIntent.metadata.produitNom}`,
       });
     } else {
@@ -97,6 +132,17 @@ app.post('/confirm-payment', async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
+});
+
+// ─── Restaurer l'accès via token ──────────────────────────────────────────────
+app.post('/restore-access', (req, res) => {
+  const { token } = req.body;
+  if (!token) return res.status(400).json({ error: 'Token manquant.' });
+
+  const produitIds = getPurchasesByToken(token.trim());
+  if (!produitIds) return res.status(404).json({ error: 'Token invalide ou introuvable.' });
+
+  res.json({ success: true, produitIds });
 });
 
 // ─── Démarrage ────────────────────────────────────────────────────────────────

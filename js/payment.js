@@ -84,26 +84,52 @@ async function confirmerPaiement() {
       body: JSON.stringify({ paymentIntentId: paymentIntent.id }),
     });
     const data = await res.json();
-    if (data.success) afficherSucces(data.produitId);
+    if (data.success) afficherSucces(data.produitId, data.token);
   }
 }
 
 // ─── Afficher le succès et sauvegarder en localStorage ────────────────────────
-function afficherSucces(produitId) {
+function afficherSucces(produitId, token) {
   const achats = JSON.parse(localStorage.getItem('rsb_achats') || '[]');
   if (!achats.includes(produitId)) achats.push(produitId);
   localStorage.setItem('rsb_achats', JSON.stringify(achats));
+
+  if (token) localStorage.setItem('rsb_token', token);
 
   document.getElementById('payment-form-container').innerHTML = `
     <div class="payment-success">
       <div class="success-icon">✅</div>
       <h3>Paiement réussi !</h3>
       <p>Ton thème est maintenant débloqué.</p>
+      ${token ? `<p class="token-info">🔑 Ton code d'accès : <strong>${token}</strong><br><small>Conserve-le pour restaurer ton accès depuis un autre appareil.</small></p>` : ''}
       <button class="btn-primary" onclick="fermerModal(); location.reload();">
         Accéder au contenu →
       </button>
     </div>
   `;
+}
+
+// ─── Restaurer l'accès via token ──────────────────────────────────────────────
+async function restaurerAcces(token) {
+  if (!token) return;
+  try {
+    const res = await fetch(`${BACKEND_URL}/restore-access`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token }),
+    });
+    const data = await res.json();
+    if (data.success && data.produitIds) {
+      const achats = JSON.parse(localStorage.getItem('rsb_achats') || '[]');
+      data.produitIds.forEach(id => { if (!achats.includes(id)) achats.push(id); });
+      localStorage.setItem('rsb_achats', JSON.stringify(achats));
+      localStorage.setItem('rsb_token', token);
+      return true;
+    }
+  } catch (err) {
+    console.error('Restore error:', err);
+  }
+  return false;
 }
 
 // ─── Fermer la modale ─────────────────────────────────────────────────────────
@@ -119,6 +145,7 @@ function estDebloque(produitId) {
   if (achats.includes(produitId)) return true;
   if (produitId.startsWith('fr-') && achats.includes('pack-francais')) return true;
   if (produitId.startsWith('ma-') && achats.includes('pack-maths')) return true;
+  if (produitId.startsWith('hg-') && achats.includes('pack-histoire-geo')) return true;
   if (achats.includes('pack-total')) return true;
   return false;
 }
