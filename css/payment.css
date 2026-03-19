@@ -143,3 +143,37 @@
   margin: .3rem 0;
 }
 .token-info small { color: rgba(255,255,255,.35); }
+
+/* Email step & restore modal */
+.payment-email-step { display: flex; flex-direction: column; gap: .8rem; }
+.payment-label { font-size: .85rem; color: rgba(255,255,255,.55); font-weight: 600; }
+.payment-input {
+  background: #2a2a2a;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  padding: .75rem 1rem;
+  color: #f5f2eb;
+  font-size: 1rem;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color .2s;
+}
+.payment-input:focus { outline: none; border-color: #d94f3d; }
+.payment-input--otp {
+  font-size: 1.5rem;
+  letter-spacing: .4rem;
+  text-align: center;
+}
+.payment-email-hint { font-size: .8rem; color: rgba(255,255,255,.35); margin: 0; }
+.btn-text {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.4);
+  font-size: .85rem;
+  cursor: pointer;
+  padding: .4rem 0;
+  text-align: center;
+  font-family: inherit;
+}
+.btn-text:hover { color: rgba(255,255,255,.7); }
