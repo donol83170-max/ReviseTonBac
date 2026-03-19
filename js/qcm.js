@@ -4,8 +4,21 @@ let _questions = [];
 let _current   = 0;
 let _score     = 0;
 
+function shuffleOptions(q) {
+  const indices = q.options.map((_, i) => i);
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+  return {
+    ...q,
+    options: indices.map(i => q.options[i]),
+    correct: indices.indexOf(q.correct)
+  };
+}
+
 function initQCM(questions) {
-  _questions = questions;
+  _questions = questions.map(shuffleOptions);
   _current   = 0;
   _score     = 0;
 
