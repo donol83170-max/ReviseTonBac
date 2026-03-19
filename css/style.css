@@ -224,6 +224,7 @@ section { padding: 6rem 4rem; }
 }
 .card--fr .card-tag { background: rgba(200,160,23,.2); color: #e8c84a; }
 .card--maths .card-tag { background: rgba(74,122,101,.3); color: #8dccb0; }
+.card--hg .card-tag { background: rgba(184,92,56,.25); color: #f0a07a; }
 .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
 .card h3 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; margin-bottom: .7rem; }
 .card p { color: rgba(255,255,255,.55); font-size: .95rem; margin-bottom: 1.5rem; }
@@ -258,6 +259,7 @@ section { padding: 6rem 4rem; }
 }
 .card--fr .card-cta:hover { border-color: var(--gold); color: #e8c84a; }
 .card--maths .card-cta:hover { border-color: var(--sage); color: #8dccb0; }
+.card--hg .card-cta:hover { border-color: #b85c38; color: #f0a07a; }
 
 /* ---- COMMENT ÇA MARCHE ---- */
 .how { background: var(--cream); }

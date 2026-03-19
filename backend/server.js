@@ -24,10 +24,18 @@ const PRODUITS = {
   'ma-geo':          { nom: 'Géométrie dans l\'espace',    prix: 499,  matiere: 'maths' },
   'ma-log':          { nom: 'Logarithme & exponentielle',  prix: 499,  matiere: 'maths' },
 
+  // Thèmes Histoire-Géo — 4,99€ = 499 centimes
+  'hg-guerre-froide':  { nom: 'La guerre froide',       prix: 499, matiere: 'histoire-geo' },
+  'hg-decolonisation': { nom: 'La décolonisation',      prix: 499, matiere: 'histoire-geo' },
+  'hg-monde-1991':     { nom: 'Le monde depuis 1991',   prix: 499, matiere: 'histoire-geo' },
+  'hg-france-1945':    { nom: 'La France depuis 1945',  prix: 499, matiere: 'histoire-geo' },
+  'hg-mondialisation': { nom: 'La mondialisation',      prix: 499, matiere: 'histoire-geo' },
+
   // Packs
-  'pack-francais':   { nom: 'Pack Français complet',  prix: 1499, matiere: 'francais' },
-  'pack-maths':      { nom: 'Pack Maths complet',      prix: 1799, matiere: 'maths'    },
-  'pack-total':      { nom: 'Pack Total ReviseTonBac', prix: 3499, matiere: 'all'      },
+  'pack-francais':      { nom: 'Pack Français complet',      prix: 1499, matiere: 'francais'     },
+  'pack-maths':         { nom: 'Pack Maths complet',          prix: 1799, matiere: 'maths'        },
+  'pack-histoire-geo':  { nom: 'Pack Histoire-Géo complet',   prix: 1499, matiere: 'histoire-geo' },
+  'pack-total':         { nom: 'Pack Total ReviseTonBac',      prix: 3499, matiere: 'all'          },
 };
 
 // ─── Clé publique Stripe pour le frontend ─────────────────────────────────────
