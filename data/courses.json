@@ -1,0 +1,54 @@
+{
+  "Maths": [
+    {
+      "id": "m1",
+      "title": "Suites numériques",
+      "estimated_hours": 4,
+      "importance": 5
+    },
+    {
+      "id": "m2",
+      "title": "Fonctions exponentielles et logarithmes",
+      "estimated_hours": 8,
+      "importance": 5
+    },
+    {
+      "id": "m3",
+      "title": "Géométrie dans l'espace",
+      "estimated_hours": 6,
+      "importance": 3
+    },
+    {
+      "id": "m4",
+      "title": "Probabilités",
+      "estimated_hours": 5,
+      "importance": 4
+    }
+  ],
+  "Français": [
+    {
+      "id": "f1",
+      "title": "Le Roman au XIXème siècle",
+      "estimated_hours": 6,
+      "importance": 4
+    },
+    {
+      "id": "f2",
+      "title": "La Poésie du XVIème au XVIIIème",
+      "estimated_hours": 5,
+      "importance": 3
+    },
+    {
+      "id": "f3",
+      "title": "Le Théâtre du XVIIème au XXIème",
+      "estimated_hours": 6,
+      "importance": 5
+    },
+    {
+      "id": "f4",
+      "title": "L'Argumentation / Littérature d'idées",
+      "estimated_hours": 5,
+      "importance": 4
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "dq1",
+    "subject": "Maths",
+    "topicId": "m1",
+    "question": "Soit (un) une suite arithmétique de premier terme u0 = 2 et de raison r = 3. Quelle est la valeur de u10 ?",
+    "options": ["22", "30", "32", "35"],
+    "correct": 2
+  },
+  {
+    "id": "dq1b",
+    "subject": "Maths",
+    "topicId": "m1",
+    "question": "Une suite (un) est géométrique de raison q = 2 et u0 = 5. Quelle est l'expression de un ?",
+    "options": ["un = 5 + 2n", "un = 5 * 2^n", "un = 2 * 5^n", "un = 5 * n^2"],
+    "correct": 1
+  },
+  {
+    "id": "dq2",
+    "subject": "Maths",
+    "topicId": "m2",
+    "question": "Quelle est la dérivée de f(x) = e^(2x) ?",
+    "options": ["e^(2x)", "2e^(2x)", "2e^x", "e^x / 2"],
+    "correct": 1
+  },
+  {
+    "id": "dq2b",
+    "subject": "Maths",
+    "topicId": "m2",
+    "question": "Quelle est la valeur de ln(e^3) ?",
+    "options": ["1", "e", "3", "0"],
+    "correct": 2
+  },
+  {
+    "id": "dq3",
+    "subject": "Français",
+    "topicId": "f1",
+    "question": "Quel auteur a écrit 'Le Père Goriot' ?",
+    "options": ["Gustave Flaubert", "Émile Zola", "Honoré de Balzac", "Victor Hugo"],
+    "correct": 2
+  },
+  {
+    "id": "dq3b",
+    "subject": "Français",
+    "topicId": "f1",
+    "question": "Dans 'Madame Bovary', comment s'appelle l'héroïne ?",
+    "options": ["Emma", "Jeanne", "Louise", "Thérèse"],
+    "correct": 0
+  },
+  {
+    "id": "dq4",
+    "subject": "Français",
+    "topicId": "f3",
+    "question": "Dans quelle pièce trouve-t-on le personnage d'Argan ?",
+    "options": ["Le Misanthrope", "Le Malade imaginaire", "L'Avare", "Tartuffe"],
+    "correct": 1
+  },
+  {
+    "id": "dq4b",
+    "subject": "Français",
+    "topicId": "f3",
+    "question": "Qui est l'auteur de 'Phèdre' ?",
+    "options": ["Corneille", "Molière", "Jean Racine", "Marivaux"],
+    "correct": 2
+  },
+  {
+    "id": "dq5",
+    "subject": "Maths",
+    "topicId": "m3",
+    "question": "Dans l'espace, deux droites non coplanaires :",
+    "options": ["Sont sécantes", "Sont parallèles", "Ne sont ni sécantes ni parallèles", "Sont confondues"],
+    "correct": 2
+  },
+  {
+    "id": "dq5b",
+    "subject": "Maths",
+    "topicId": "m3",
+    "question": "Le produit scalaire de deux vecteurs orthogonaux est :",
+    "options": ["1", "-1", "0", "Indéfini"],
+    "correct": 2
+  },
+  {
+    "id": "dq6",
+    "subject": "Maths",
+    "topicId": "m4",
+    "question": "Si P(A) = 0.3 et P(B) = 0.4, et que A et B sont indépendants, P(A ∩ B) est :",
+    "options": ["0.7", "0.1", "0.12", "0"],
+    "correct": 2
+  },
+  {
+    "id": "dq7",
+    "subject": "Français",
+    "topicId": "f2",
+    "question": "Quel mouvement littéraire privilégie la forme, comme dans 'L'Art pour l'Art' ?",
+    "options": ["Le Romantisme", "Le Parnasse", "Le Réalisme", "Le Surréalisme"],
+    "correct": 1
+  },
+  {
+    "id": "dq8",
+    "subject": "Français",
+    "topicId": "f4",
+    "question": "Quelle figure de style consiste à rapprocher deux termes avec un outil de comparaison ?",
+    "options": ["La métaphore", "La comparaison", "L'allégorie", "La métonymie"],
+    "correct": 1
+  }
+]

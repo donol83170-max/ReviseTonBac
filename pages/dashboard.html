@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mon Tableau de Bord — ReviseTonBac</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="../css/dashboard.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body class="dashboard-page">
+
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">Révise<span>ton</span>Bac</a>
+    <ul class="nav-links">
+      <li><a href="francais.html">Français</a></li>
+      <li><a href="maths.html">Maths</a></li>
+      <li><a href="#" class="nav-user">👤 Mon Compte</a></li>
+    </ul>
+  </nav>
+
+  <main class="dashboard-container">
+    <header class="dashboard-header">
+      <h1>Bonjour, <span id="user-name">Étudiant</span> 👋</h1>
+      <p id="exam-countdown">J-45 avant ton épreuve</p>
+    </header>
+
+    <div class="dashboard-grid">
+      
+      <!-- Current Task -->
+      <section class="dash-card task-card">
+        <div class="card-header">
+            <h3>📖 Ma tâche du jour</h3>
+            <div class="task-nav">
+                <button class="btn-nav-small" onclick="prevDay()">←</button>
+                <span class="tag-today">Aujourd'hui</span>
+                <button class="btn-nav-small" onclick="nextDay()">→</button>
+            </div>
+        </div>
+        <div class="task-content">
+            <h2 id="today-topic">...</h2>
+            <p id="today-details">...</p>
+            <div class="task-actions">
+                <button class="btn-primary" id="btn-start-task">Commencer la session</button>
+            </div>
+        </div>
+      </section>
+
+      <!-- Progress Stats -->
+      <section class="dash-card stats-card">
+        <h3>📊 Ma Progression</h3>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-val" id="stat-completed">0%</span>
+                <span class="stat-label">Programme terminé</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-val" id="stat-streak">🔥 1</span>
+                <span class="stat-label">Jours d'affilée</span>
+            </div>
+        </div>
+      </section>
+
+      <!-- Next Days Timeline -->
+      <section class="dash-card calendar-card">
+        <h3>📅 Prochains jours</h3>
+        <div class="mini-timeline" id="mini-timeline">
+            <!-- Injected -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

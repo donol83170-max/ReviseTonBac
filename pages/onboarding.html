@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ton Parcours Sur-Mesure — ReviseTonBac</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="../css/onboarding.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body class="onboarding-page">
+
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">Révise<span>ton</span>Bac</a>
+    <div class="nav-step-indicator">Étape <span id="current-step-num">1</span> / 4</div>
+  </nav>
+
+  <main class="onboarding-container">
+    <div class="onboarding-card">
+      
+      <!-- Step 1: Subject Selection -->
+      <section class="step-content active" id="step-1">
+        <h1 class="step-title">Bienvenue ! On prépare quoi ?</h1>
+        <p class="step-sub">Sélectionne les matières que tu souhaites réviser pour ton Bac.</p>
+        
+        <div class="subject-selection">
+          <label class="subject-card">
+            <input type="checkbox" name="subject" value="Maths" checked>
+            <div class="subject-card-inner">
+              <span class="subject-icon">📐</span>
+              <span class="subject-name">Mathématiques</span>
+              <span class="subject-desc">Spécialité Terminale</span>
+            </div>
+          </label>
+          <label class="subject-card">
+            <input type="checkbox" name="subject" value="Français">
+            <div class="subject-card-inner">
+              <span class="subject-icon">📖</span>
+              <span class="subject-name">Français</span>
+              <span class="subject-desc">Première Générale</span>
+            </div>
+          </label>
+        </div>
+        
+        <div class="step-actions">
+          <button class="btn-primary" onclick="nextStep()">Continuer →</button>
+        </div>
+      </section>
+
+      <!-- Step 2: Date & Hours -->
+      <section class="step-content" id="step-2">
+        <h1 class="step-title">Ton calendrier</h1>
+        <p class="step-sub">Quand est ton épreuve et combien de temps as-tu par jour ?</p>
+        
+        <div class="form-group">
+          <label for="exam-date">📅 Date de l'épreuve</label>
+          <input type="date" id="exam-date" value="2026-06-15">
+        </div>
+
+        <div class="form-group">
+          <label for="hours-per-day">⚡ Heures de révision / jour</label>
+          <div class="range-wrap">
+            <input type="range" id="hours-per-day" min="1" max="8" value="2">
+            <output id="hours-val">2 heures</output>
+          </div>
+        </div>
+        
+        <div class="step-actions">
+          <button class="btn-ghost" onclick="prevStep()">← Retour</button>
+          <button class="btn-primary" onclick="nextStep()">Lancer le diagnostic →</button>
+        </div>
+      </section>
+
+      <!-- Step 3: Diagnostic -->
+      <section class="step-content" id="step-3">
+        <div class="diagnostic-header">
+          <h1 class="step-title">Test Diagnostique</h1>
+          <div class="diagnostic-progress">
+            <div class="diag-progress-fill" id="diag-progress-fill" style="width: 0%"></div>
+          </div>
+        </div>
+        <div id="diagnostic-question-container">
+          <!-- Questions will be injected here -->
+        </div>
+      </section>
+
+      <!-- Step 4: Result & Plan -->
+      <section class="step-content" id="step-4">
+        <div class="result-header">
+           <div class="confetti-icon">🎉</div>
+           <h1 class="step-title">Parcours débloqué !</h1>
+           <p class="step-sub">Nous avons optimisé tes <span id="res-days">30</span> jours selon ton profil.</p>
+        </div>
+        
+        <div class="plan-visual-container">
+          <div class="plan-sidebar">
+            <div class="intensity-card">
+              <span class="intensity-label">Intensité du programme</span>
+              <div class="intensity-meter">
+                <div class="intensity-fill" id="intensity-fill"></div>
+              </div>
+              <span class="intensity-value" id="res-intensity">Modérée</span>
+            </div>
+            <div class="focus-card">
+              <span class="focus-label">Priorité n°1</span>
+              <div class="focus-subject" id="res-focus-subject">Maths</div>
+              <div class="focus-topic" id="res-focus-topic">Suites Numériques</div>
+            </div>
+          </div>
+
+          <div class="plan-main">
+            <h3 class="timeline-title" id="timeline-title">Tes 7 premiers jours</h3>
+            <div class="plan-timeline" id="plan-timeline">
+              <!-- Timeline items injected here -->
+            </div>
+            <div class="plan-footer-msg" id="plan-footer-msg">
+              ... et <span id="res-remaining-days">82</span> jours de révision optimisés ensuite.
+            </div>
+          </div>
+        </div>
+        
+        <div class="step-actions">
+          <button class="btn-primary btn-large" onclick="finalizeOnboarding()">C'est parti ! 🚀</button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="../js/onboarding.js"></script>
+</body>
+</html>
