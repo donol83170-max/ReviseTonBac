@@ -1,6 +1,6 @@
 let currentDayIndex = 0;
 let userPlan = null;
-const FREE_TOPICS = ['ma-suites', 'fr-roman'];
+const FREE_TOPICS = ['ma-suites', 'fr-roman', 'hg-sgm'];
 
 document.addEventListener('DOMContentLoaded', () => {
     const rawPlan = localStorage.getItem('revise_ton_bac_plan');

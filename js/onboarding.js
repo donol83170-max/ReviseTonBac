@@ -13,7 +13,7 @@ let userData = {
 let allCourses = {};
 let allDiagnostic = [];
 
-const FREE_TOPICS = ['ma-suites', 'fr-roman'];
+const FREE_TOPICS = ['ma-suites', 'fr-roman', 'hg-sgm'];
 
 // Initialize
 document.addEventListener('DOMContentLoaded', async () => {

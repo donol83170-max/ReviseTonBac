@@ -50,5 +50,43 @@
       "estimated_hours": 5,
       "importance": 4
     }
+  ],
+  "Histoire-Géo": [
+    {
+      "id": "hg-sgm",
+      "title": "La Seconde Guerre Mondiale",
+      "estimated_hours": 6,
+      "importance": 5
+    },
+    {
+      "id": "hg-guerre-froide",
+      "title": "La Guerre Froide",
+      "estimated_hours": 5,
+      "importance": 4
+    },
+    {
+      "id": "hg-decolonisation",
+      "title": "La Décolonisation",
+      "estimated_hours": 5,
+      "importance": 3
+    },
+    {
+      "id": "hg-monde-1991",
+      "title": "Le monde depuis 1991",
+      "estimated_hours": 4,
+      "importance": 3
+    },
+    {
+      "id": "hg-france-1945",
+      "title": "La France depuis 1945",
+      "estimated_hours": 5,
+      "importance": 4
+    },
+    {
+      "id": "hg-mondialisation",
+      "title": "La Mondialisation",
+      "estimated_hours": 6,
+      "importance": 5
+    }
   ]
 }

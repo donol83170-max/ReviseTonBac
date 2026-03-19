@@ -102,5 +102,77 @@
     "question": "Quelle figure de style consiste à rapprocher deux termes avec un outil de comparaison ?",
     "options": ["La métaphore", "La comparaison", "L'allégorie", "La métonymie"],
     "correct": 1
+  },
+  {
+    "id": "dq9",
+    "subject": "Histoire-Géo",
+    "topicId": "hg-sgm",
+    "question": "Quelle date marque le début de la Seconde Guerre mondiale en Europe ?",
+    "options": ["1er septembre 1939", "18 juin 1940", "7 décembre 1941", "8 mai 1945"],
+    "correct": 0
+  },
+  {
+    "id": "dq9b",
+    "subject": "Histoire-Géo",
+    "topicId": "hg-sgm",
+    "question": "Quelle bataille marque un tournant majeur sur le front de l'Est en 1943 ?",
+    "options": ["Normandie", "Stalingrad", "El Alamein", "Midway"],
+    "correct": 1
+  },
+  {
+    "id": "dq10",
+    "subject": "Histoire-Géo",
+    "topicId": "hg-guerre-froide",
+    "question": "Quel mur symbolisait la division de l'Europe pendant la Guerre Froide ?",
+    "options": ["Le Mur de l'Atlantique", "Le Mur de Berlin", "La Ligne Maginot", "Le Rideau de Fer"],
+    "correct": 1
+  },
+  {
+    "id": "dq10b",
+    "subject": "Histoire-Géo",
+    "topicId": "hg-guerre-froide",
+    "question": "En quelle année l'URSS s'est-elle effondrée ?",
+    "options": ["1989", "1990", "1991", "1992"],
+    "correct": 2
+  },
+  {
+    "id": "dq11",
+    "subject": "Histoire-Géo",
+    "topicId": "hg-decolonisation",
+    "question": "Quel pays a obtenu son indépendance de la France en 1962 après une longue guerre ?",
+    "options": ["Le Vietnam", "Le Maroc", "L'Algérie", "Le Sénégal"],
+    "correct": 2
+  },
+  {
+    "id": "dq11b",
+    "subject": "Histoire-Géo",
+    "topicId": "hg-decolonisation",
+    "question": "Qui était le leader de l'indépendance de l'Inde ?",
+    "options": ["Nehru", "Gandhi", "Mandela", "Ho Chi Minh"],
+    "correct": 1
+  },
+  {
+    "id": "dq12",
+    "subject": "Histoire-Géo",
+    "topicId": "hg-monde-1991",
+    "question": "Quel événement tragique a marqué les États-Unis en 2001 ?",
+    "options": ["Chute du mur", "Guerre du Golfe", "Attentats du 11 septembre", "Ouragan Katrina"],
+    "correct": 2
+  },
+  {
+    "id": "dq13",
+    "subject": "Histoire-Géo",
+    "topicId": "hg-france-1945",
+    "question": "Qui est le premier président de la Ve République ?",
+    "options": ["Charles de Gaulle", "Georges Pompidou", "Valéry Giscard d'Estaing", "François Mitterrand"],
+    "correct": 0
+  },
+  {
+    "id": "dq14",
+    "subject": "Histoire-Géo",
+    "topicId": "hg-mondialisation",
+    "question": "Qu'est-ce que la 'Triade' dans le contexte de la mondialisation ?",
+    "options": ["Trois mafias", "Trois pôles de puissance économique", "Trois océans", "Trois religions"],
+    "correct": 1
   }
 ]
