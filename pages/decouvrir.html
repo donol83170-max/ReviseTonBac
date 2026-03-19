@@ -18,6 +18,7 @@
     <ul class="nav-links">
       <li><a href="francais.html">Français</a></li>
       <li><a href="maths.html">Maths</a></li>
+      <li><a href="histoire-geo.html">Histoire-Géo</a></li>
       <li><a href="../index.html#tarifs">Tarifs</a></li>
     </ul>
   </nav>
@@ -57,6 +58,20 @@
         <li>📊 Score en direct</li>
       </ul>
       <a href="../themes/francais/roman.html" class="btn-decouvrir btn-decouvrir--fr">Accéder gratuitement →</a>
+    </div>
+
+    <div class="decouvrir-card decouvrir-card--hg">
+      <div class="decouvrir-num">01</div>
+      <div class="decouvrir-badge">✦ Gratuit</div>
+      <div class="decouvrir-icon">🗺️</div>
+      <h2>La Seconde Guerre mondiale</h2>
+      <p>Causes, grandes phases du conflit, bilan humain et géopolitique de la SGM.</p>
+      <ul class="decouvrir-details">
+        <li>📄 Fiche de cours complète</li>
+        <li>✅ 20 QCM corrigés</li>
+        <li>📊 Score en direct</li>
+      </ul>
+      <a href="../themes/histoire-geo/sgm.html" class="btn-decouvrir btn-decouvrir--hg">Accéder gratuitement →</a>
     </div>
 
   </div>
@@ -217,11 +232,90 @@
     </div>
   </div>
 
+  <!-- THÈMES HISTOIRE-GÉO PAYANTS -->
+  <div class="themes-section themes-section--hg" id="histoire-geo">
+    <p class="section-label">— Histoire-Géographie</p>
+    <div class="themes-grid">
+
+      <div class="theme-card" id="card-hg-guerre-froide">
+        <div class="theme-num theme-num--hg">02</div>
+        <h3>La guerre froide</h3>
+        <p>Bipolarisation du monde, crises majeures, course aux armements et détente.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 20 QCM corrigés</span>
+        </div>
+        <div class="theme-price" id="price-hg-guerre-froide">4,99€</div>
+        <button class="btn-primary btn-primary--hg" onclick="debloquer('hg-guerre-froide')">Débloquer</button>
+      </div>
+
+      <div class="theme-card" id="card-hg-decolonisation">
+        <div class="theme-num theme-num--hg">03</div>
+        <h3>La décolonisation</h3>
+        <p>Processus, acteurs, conflits d'indépendance et nouveaux États du Tiers-Monde.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 20 QCM corrigés</span>
+        </div>
+        <div class="theme-price" id="price-hg-decolonisation">4,99€</div>
+        <button class="btn-primary btn-primary--hg" onclick="debloquer('hg-decolonisation')">Débloquer</button>
+      </div>
+
+      <div class="theme-card" id="card-hg-monde-1991">
+        <div class="theme-num theme-num--hg">04</div>
+        <h3>Le monde depuis 1991</h3>
+        <p>Fin de la guerre froide, nouvel ordre mondial, terrorisme et multipolarité.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 20 QCM corrigés</span>
+        </div>
+        <div class="theme-price" id="price-hg-monde-1991">4,99€</div>
+        <button class="btn-primary btn-primary--hg" onclick="debloquer('hg-monde-1991')">Débloquer</button>
+      </div>
+
+      <div class="theme-card" id="card-hg-france-1945">
+        <div class="theme-num theme-num--hg">05</div>
+        <h3>La France depuis 1945</h3>
+        <p>IVe République, Ve République, croissance, crises et construction européenne.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 20 QCM corrigés</span>
+        </div>
+        <div class="theme-price" id="price-hg-france-1945">4,99€</div>
+        <button class="btn-primary btn-primary--hg" onclick="debloquer('hg-france-1945')">Débloquer</button>
+      </div>
+
+      <div class="theme-card" id="card-hg-mondialisation">
+        <div class="theme-num theme-num--hg">06</div>
+        <h3>La mondialisation</h3>
+        <p>Flux, acteurs, territoires, inégalités et contestations de la mondialisation.</p>
+        <div class="theme-meta">
+          <span>📄 Fiche de cours</span>
+          <span>✅ 20 QCM corrigés</span>
+        </div>
+        <div class="theme-price" id="price-hg-mondialisation">4,99€</div>
+        <button class="btn-primary btn-primary--hg" onclick="debloquer('hg-mondialisation')">Débloquer</button>
+      </div>
+
+    </div>
+    <div class="pack-banner pack-banner--hg">
+      <div>
+        <div class="pack-label">Pack Histoire-Géo complet</div>
+        <div class="pack-desc">Les 6 thèmes débloqués d'un coup — économise 14,95€</div>
+      </div>
+      <div class="pack-right">
+        <div class="pack-price">14,99€ <s>29,94€</s></div>
+        <button class="btn-primary" onclick="ouvrirPaiement('pack-histoire-geo')">Tout débloquer</button>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-logo">Révise<span>ton</span>Bac</div>
     <p>© 2026 ReviseTonBac — Tous droits réservés</p>
     <div class="footer-links">
+      <a href="#" onclick="ouvrirRestauration(); return false;">Restaurer mon accès</a>
       <a href="#">Mentions légales</a>
       <a href="#">CGV</a>
       <a href="#">Contact</a>
@@ -256,6 +350,9 @@
       ['fr-poesie','fr-theatre','fr-idees','fr-commentaire','fr-dissertation'].forEach(id => {
         if (estDebloque(id)) marquerDebloqueF(id);
       });
+      ['hg-guerre-froide','hg-decolonisation','hg-monde-1991','hg-france-1945','hg-mondialisation'].forEach(id => {
+        if (estDebloque(id)) marquerDebloqueHG(id);
+      });
     });
 
     function debloquer(produitId) {
@@ -285,6 +382,19 @@
         btn.textContent = '✅ Débloqué — Accéder';
         btn.style.background = '#22c55e';
         btn.onclick = () => window.location.href = `../themes/francais/${produitId.replace('fr-','')}.html`;
+      }
+      if (priceEl) priceEl.style.display = 'none';
+    }
+
+    function marquerDebloqueHG(produitId) {
+      const card = document.getElementById(`card-${produitId}`);
+      const priceEl = document.getElementById(`price-${produitId}`);
+      if (!card) return;
+      const btn = card.querySelector('button');
+      if (btn) {
+        btn.textContent = '✅ Débloqué — Accéder';
+        btn.style.background = '#22c55e';
+        btn.onclick = () => window.location.href = `../themes/histoire-geo/${produitId.replace('hg-','')}.html`;
       }
       if (priceEl) priceEl.style.display = 'none';
     }

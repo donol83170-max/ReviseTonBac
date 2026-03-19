@@ -13,10 +13,10 @@
 
 .decouvrir-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
   padding: 3rem 4rem;
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -37,6 +37,11 @@
   background: var(--forest);
   color: var(--paper);
   border-color: var(--gold);
+}
+.decouvrir-card--hg {
+  background: var(--forest);
+  color: var(--paper);
+  border-color: #b85c38;
 }
 
 .decouvrir-num {
@@ -59,6 +64,7 @@
 }
 .decouvrir-card--maths .decouvrir-badge { background: var(--sage); color: var(--paper); }
 .decouvrir-card--fr .decouvrir-badge { background: var(--gold); color: var(--forest); }
+.decouvrir-card--hg .decouvrir-badge { background: #b85c38; color: var(--paper); }
 
 .decouvrir-icon { font-size: 2.5rem; margin-bottom: 1rem; text-align: center; }
 
@@ -104,6 +110,7 @@
 .btn-decouvrir:hover { transform: translateY(-2px); }
 .btn-decouvrir--maths { background: var(--sage); color: var(--paper); }
 .btn-decouvrir--fr { background: var(--gold); color: var(--forest); }
+.btn-decouvrir--hg { background: #b85c38; color: var(--paper); }
 
 .decouvrir-more {
   text-align: center;
@@ -132,6 +139,9 @@
   text-align: center;
 }
 
+@media (max-width: 900px) {
+  .decouvrir-grid { grid-template-columns: 1fr 1fr; }
+}
 @media (max-width: 700px) {
   .decouvrir-hero { padding: 3rem 1.5rem 1.5rem; }
   .decouvrir-grid { grid-template-columns: 1fr; padding: 2rem 1.5rem; }

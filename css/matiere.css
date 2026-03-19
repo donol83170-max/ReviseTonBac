@@ -10,6 +10,7 @@
 }
 .matiere-hero--fr { background: #fdf8e8; }
 .matiere-hero--maths { background: #eef5f0; }
+.matiere-hero--hg { background: #fdf1eb; }
 
 .matiere-tag {
   display: inline-block;
@@ -23,6 +24,7 @@
 }
 .matiere-hero--fr .matiere-tag { background: rgba(200,160,23,.15); color: #8a6e00; }
 .matiere-hero--maths .matiere-tag { background: rgba(74,122,101,.15); color: var(--sage); }
+.matiere-hero--hg .matiere-tag { background: rgba(184,92,56,.15); color: #b85c38; }
 
 .matiere-hero h1 {
   font-family: var(--font-display);
@@ -55,6 +57,7 @@
 .theme-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.08); }
 .theme-card--free { border-color: var(--gold); background: var(--gold-pale); }
 .theme-card--maths.theme-card--free { border-color: var(--sage); background: #eef5f0; }
+.theme-card--hg.theme-card--free { border-color: #b85c38; background: #fdf1eb; }
 
 .theme-free-badge {
   position: absolute;
@@ -68,6 +71,7 @@
   border-radius: 100px;
 }
 .theme-free-badge--maths { background: var(--sage); }
+.theme-free-badge--hg { background: #b85c38; }
 
 .theme-num {
   font-family: var(--font-display);
@@ -79,6 +83,7 @@
   margin-bottom: .5rem;
 }
 .theme-num--maths { color: var(--sage); }
+.theme-num--hg { color: #b85c38; }
 
 .theme-card h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; margin-bottom: .6rem; }
 .theme-card p { font-size: .9rem; color: var(--text-muted); margin-bottom: 1.2rem; line-height: 1.5; }
@@ -104,6 +109,8 @@
 
 .btn-primary--maths { background: var(--sage); }
 .btn-primary--maths:hover { background: #3a6653; }
+.btn-primary--hg { background: #b85c38; }
+.btn-primary--hg:hover { background: #9a4a2c; }
 
 /* PACK BANNER */
 .pack-banner {
@@ -118,6 +125,7 @@
   flex-wrap: wrap;
 }
 .pack-banner--maths { background: var(--sage); }
+.pack-banner--hg { background: #b85c38; }
 
 .pack-label { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; margin-bottom: .3rem; }
 .pack-desc { font-size: .9rem; opacity: .7; }
@@ -126,6 +134,7 @@
 .pack-price s { font-size: 1rem; opacity: .5; font-family: var(--font-body); }
 .pack-banner .btn-primary { background: var(--paper); color: var(--ink); white-space: nowrap; }
 .pack-banner--maths .btn-primary { background: var(--paper); color: var(--sage); }
+.pack-banner--hg .btn-primary { background: var(--paper); color: #b85c38; }
 
 @media (max-width: 900px) {
   .matiere-hero { padding: 3rem 1.5rem; }

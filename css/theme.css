@@ -9,6 +9,7 @@
 }
 .breadcrumb a { color: var(--gold); text-decoration: none; font-weight: 500; }
 .breadcrumb--maths a { color: var(--sage); }
+.breadcrumb--hg a { color: #b85c38; }
 
 .theme-hero { padding: 4rem 4rem 3rem; text-align: center; background: var(--forest); color: var(--paper); }
 .theme-hero--fr { background: var(--forest); }
@@ -27,6 +28,7 @@
   clear: both;
 }
 .theme-badge--maths { background: var(--accent-math); }
+.theme-badge--hg { background: #b85c38; }
 
 .theme-hero h1 {
   font-family: var(--font-display);
