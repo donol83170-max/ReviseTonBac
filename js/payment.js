@@ -279,12 +279,12 @@ function stripeAppearance() {
   return {
     theme: 'night',
     variables: {
-      colorPrimary: '#d94f3d',
-      colorBackground: '#1a1a1a',
-      colorText: '#f5f2eb',
+      colorPrimary: '#6366f1',
+      colorBackground: '#1e1b4b',
+      colorText: '#f8fafc',
       colorDanger: '#ef4444',
-      fontFamily: 'DM Sans, sans-serif',
-      borderRadius: '10px',
+      fontFamily: 'Nunito, sans-serif',
+      borderRadius: '1rem',
     },
   };
 }

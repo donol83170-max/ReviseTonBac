@@ -3,42 +3,42 @@
 .nav-logo { text-decoration: none; color: var(--ink); }
 
 .breadcrumb {
-  font-size: .85rem;
+  font-size: .9rem;
   color: var(--text-muted);
-  padding: 1rem 4rem;
+  padding: 2rem 4rem;
 }
-.breadcrumb a { color: var(--gold); text-decoration: none; font-weight: 500; }
-.breadcrumb--maths a { color: var(--sage); }
-.breadcrumb--hg a { color: #b85c38; }
+.breadcrumb a { color: var(--primary-light); text-decoration: none; font-weight: 700; transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--text-main); }
 
-.theme-hero { padding: 4rem 4rem 3rem; text-align: center; background: var(--forest); color: var(--paper); }
-.theme-hero--fr { background: var(--forest); }
-.theme-hero--maths { background: var(--forest); }
+.theme-hero { 
+  padding: 6rem 4rem 4rem; 
+  text-align: center; 
+  background: var(--bg-main); 
+  color: var(--text-main);
+  border-bottom: 1px solid var(--glass-border);
+}
 
 .theme-badge {
   display: inline-block;
-  background: var(--gold);
+  background: var(--primary);
   color: white;
-  font-size: .78rem;
-  font-weight: 700;
-  padding: .3rem .9rem;
+  font-size: .8rem;
+  font-weight: 800;
+  padding: .5rem 1.2rem;
   border-radius: 100px;
-  margin-bottom: 1rem;
-  float: left;
-  clear: both;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
 }
-.theme-badge--maths { background: var(--accent-math); }
-.theme-badge--hg { background: #b85c38; }
+.theme-badge--maths { background: var(--accent-math); box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); }
 
 .theme-hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(3rem, 7vw, 5rem);
   font-weight: 800;
-  letter-spacing: -2px;
-  margin-bottom: 1rem;
-  clear: both;
+  letter-spacing: -3px;
+  margin-bottom: 1.5rem;
 }
-.theme-hero p { color: rgba(255,255,255,.7); font-size: 1rem; max-width: 480px; margin: 0 auto; }
+.theme-hero p { color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto; line-height: 1.6; }
 
 /* FICHE */
 .fiche-section {
@@ -60,48 +60,47 @@
   font-weight: 800;
 }
 .fiche-tag {
-  background: var(--cream);
-  font-size: .8rem;
-  padding: .3rem .9rem;
-  border-radius: 100px;
-  font-weight: 500;
-  border: 1px solid rgba(0,0,0,.1);
+  background: var(--bg-card-hover);
+  border: 1px solid var(--glass-border);
 }
 
 .fiche-content { display: flex; flex-direction: column; gap: 2rem; }
 
 .fiche-block {
-  background: var(--paper);
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: var(--radius);
-  padding: 2rem;
-  border: 1.5px solid var(--cream);
+  padding: 3rem;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
 .fiche-block h3 {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   font-weight: 800;
-  margin-bottom: 1rem;
-  padding-bottom: .8rem;
-  border-bottom: 2px solid var(--cream);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--glass-border);
+  color: var(--text-main);
+  letter-spacing: -0.5px;
 }
-.fiche-block p { color: var(--text-muted); margin-bottom: .8rem; line-height: 1.7; font-size: .95rem; }
-.fiche-block ul { padding-left: 1.2rem; color: var(--text-muted); font-size: .95rem; }
-.fiche-block ul li { margin-bottom: .5rem; line-height: 1.6; }
-.fiche-block strong { color: var(--ink); }
+.fiche-block p { color: var(--text-muted); margin-bottom: 1.2rem; line-height: 1.8; font-size: 1.05rem; }
+.fiche-block ul { padding-left: 1.5rem; color: var(--text-muted); font-size: 1.05rem; }
+.fiche-block ul li { margin-bottom: 0.8rem; line-height: 1.7; }
+.fiche-block strong { color: var(--primary-light); font-weight: 800; }
 
 .fiche-astuce {
-  background: var(--gold-pale);
-  border: 1.5px solid var(--gold);
-  border-radius: 10px;
-  padding: 1rem 1.2rem;
-  font-size: .9rem;
-  color: var(--ink);
+  background: var(--primary);
+  opacity: 0.1;
+  border: 1.5px solid var(--primary);
+  color: var(--text-main);
   margin-top: 1rem;
 }
 
 /* TABLEAU */
 .tableau {
-  border: 2px solid #c8c0b0;
+  border: 1px solid var(--glass-border);
   border-radius: 10px;
   overflow: hidden;
   font-size: .9rem;
@@ -114,9 +113,9 @@
 }
 .tableau-row > div {
   padding: .7rem 1rem;
-  border-bottom: 1px solid #c8c0b0;
-  border-right: 1px solid #c8c0b0;
-  color: var(--ink);
+  border-bottom: 1px solid var(--glass-border);
+  border-right: 1px solid var(--glass-border);
+  color: var(--text-main);
 }
 .tableau-row > div:last-child { border-right: none; }
 .tableau-row:last-child > div { border-bottom: none; }
@@ -130,19 +129,19 @@
 }
 
 .formule-block {
-  background: var(--cream);
+  background: var(--bg-card-hover);
   border-radius: 10px;
   padding: 1rem 1.5rem;
   font-family: monospace;
   font-size: 1rem;
-  color: var(--ink);
+  color: var(--primary-light);
   margin: .8rem 0;
   border: 1.5px solid rgba(0,0,0,.08);
 }
 
 /* QCM — Duolingo style */
 .qcm-section {
-  background: #f7f4ed;
+  background: var(--bg-main);
   min-height: 100vh;
   display: none;
   flex-direction: column;
@@ -175,10 +174,10 @@
   letter-spacing: 2px;
 }
 .qcm-card {
-  background: var(--paper);
+  background: var(--bg-card);
   border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 8px 32px rgba(45,74,62,.12);
+  padding: 2.5rem;
+  box-shadow: var(--glass-shadow);
   animation: fadeInCard .35s ease;
   border: 1.5px solid var(--cream-dark);
 }
@@ -195,9 +194,9 @@
 }
 .options { display: flex; flex-direction: column; gap: .7rem; margin-bottom: 1rem; }
 .option-btn {
-  background: var(--cream);
-  border: 1.5px solid var(--cream-dark);
-  color: var(--ink);
+  background: var(--bg-card-hover);
+  border: 1.5px solid var(--glass-border);
+  color: var(--text-main);
   border-radius: 12px;
   padding: .9rem 1.2rem;
   text-align: left;
@@ -284,6 +283,21 @@
 .btn-next-link:hover { text-decoration: underline; }
 
 /* Résultat final */
+.payment-modal {
+  background: var(--bg-card);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 2rem;
+  padding: 3.5rem;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--glass-border);
+  position: relative;
+  animation: modalIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+}
 .qcm-result {
   background: var(--paper);
   border-radius: 20px;

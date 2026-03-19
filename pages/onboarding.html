@@ -24,35 +24,30 @@
         <p class="step-sub">Sélectionne les matières que tu souhaites réviser pour ton Bac.</p>
         
         <div class="subject-selection">
-          <label class="subject-card">
-            <input type="checkbox" name="subject" value="Maths" checked>
+          <div class="subject-card" onclick="selectAndNext('Maths')">
             <div class="subject-card-inner">
               <span class="subject-icon">📐</span>
               <span class="subject-name">Mathématiques</span>
               <span class="subject-desc">Spécialité Terminale</span>
             </div>
-          </label>
-          <label class="subject-card">
-            <input type="checkbox" name="subject" value="Français">
+          </div>
+          <div class="subject-card" onclick="selectAndNext('Français')">
             <div class="subject-card-inner">
               <span class="subject-icon">📖</span>
               <span class="subject-name">Français</span>
               <span class="subject-desc">Première Générale</span>
             </div>
-          </label>
-          <label class="subject-card">
-            <input type="checkbox" name="subject" value="Histoire-Géo">
+          </div>
+          <div class="subject-card" onclick="selectAndNext('Histoire-Géo')">
             <div class="subject-card-inner">
               <div class="subject-icon">🌍</div>
               <div class="subject-name">Histoire-Géo</div>
               <div class="subject-desc">Terminale Générale</div>
             </div>
-          </label>
+          </div>
         </div>
         
-        <div class="step-actions">
-          <button class="btn-primary" onclick="nextStep()">Continuer →</button>
-        </div>
+        <!-- Bouton Continuer supprimé pour accès direct -->
       </section>
 
       <!-- Step 2: Date & Hours -->
@@ -135,6 +130,14 @@
     </div>
   </main>
 
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="mentions-legales.html">Mentions Légales</a>
+      <a href="politique-confidentialite.html">Politique de Confidentialité</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
   <script src="../js/onboarding.js"></script>
 </body>
 </html>

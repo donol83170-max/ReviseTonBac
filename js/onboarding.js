@@ -37,12 +37,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+function selectAndNext(subject) {
+    userData.subjects = [subject];
+    nextStep();
+}
+
 function nextStep() {
     if (currentStep === 1) {
-        // Collect subjects
-        const checked = document.querySelectorAll('input[name="subject"]:checked');
-        userData.subjects = Array.from(checked).map(cb => cb.value);
-        if (userData.subjects.length === 0) return alert("Choisis au moins une matière !");
+        if (userData.subjects.length === 0) return alert("Choisis une matière !");
     }
     
     if (currentStep === 2) {

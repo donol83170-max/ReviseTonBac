@@ -6,6 +6,7 @@
   <meta name="description" content="ReviseTonBac — Révise le bac avec des fiches de cours claires et des QCM corrigés. Maths, Français, méthodes éprouvées pour réussir le baccalauréat."/>
   <title>ReviseTonBac — Révise. Réussis.</title>
   <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/payment.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet"/>
 </head>
 <body>
@@ -22,86 +23,108 @@
   </nav>
 
   <style>
-    /* Quick styles for onboarding promo */
+    /* Premium Onboarding Promo */
     .onboarding-promo {
-        margin: 6rem auto;
-        max-width: 1100px;
-        padding: 4rem;
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-        border-radius: 2.5rem;
-        color: white;
+        margin: 8rem auto;
+        max-width: 1200px;
+        padding: 5rem;
+        background: radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                    var(--bg-card);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
+        border-radius: 3rem;
         display: flex;
         align-items: center;
-        gap: 4rem;
-        overflow: hidden;
+        gap: 5rem;
         position: relative;
+        overflow: hidden;
     }
-    .promo-content { flex: 1; position: relative; z-index: 2; }
+    .onboarding-promo::after {
+        content: '';
+        position: absolute;
+        bottom: -100px;
+        right: -100px;
+        width: 300px;
+        height: 300px;
+        background: var(--primary);
+        filter: blur(150px);
+        opacity: 0.1;
+        pointer-events: none;
+    }
+    .promo-content { flex: 1.2; position: relative; z-index: 2; }
     .promo-badge {
         display: inline-block;
-        padding: 0.4rem 1rem;
-        background: #4a90e2;
+        padding: 0.5rem 1.2rem;
+        background: rgba(99, 102, 241, 0.2);
+        color: var(--primary-light);
         border-radius: 2rem;
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         font-weight: 800;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
-    .onboarding-promo .section-title { color: white; text-align: left; margin-bottom: 1.5rem; }
-    .onboarding-promo p { font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9; line-height: 1.6; }
+    .onboarding-promo .section-title { text-align: left; margin-bottom: 1.5rem; }
+    .onboarding-promo p { font-size: 1.25rem; margin-bottom: 3rem; color: var(--text-muted); line-height: 1.6; }
+    
     .promo-visual { flex: 1; display: flex; justify-content: center; position: relative; }
     .mockup-card {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        padding: 2rem;
-        border-radius: 1.5rem;
-        width: 250px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        transform: rotate(5deg);
-        animation: float 4s ease-in-out infinite;
+        background: var(--bg-card-hover);
+        backdrop-filter: blur(20px);
+        padding: 2.5rem;
+        border-radius: 2rem;
+        width: 300px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transform: rotate(-3deg);
+        box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+        animation: float 6s ease-in-out infinite;
     }
     @keyframes float {
-        0%, 100% { transform: rotate(5deg) translateY(0); }
-        50% { transform: rotate(5deg) translateY(-15px); }
+        0%, 100% { transform: rotate(-3deg) translateY(0); }
+        50% { transform: rotate(-3deg) translateY(-20px); }
     }
-    .mockup-line { height: 8px; background: rgba(255,255,255,0.2); border-radius: 4px; margin-bottom: 1rem; }
+    .mockup-line { height: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; margin-bottom: 1.2rem; }
     .mockup-line.short { width: 60%; }
     .mockup-check { 
-        margin-top: 1.5rem; 
-        font-size: 0.9rem; 
-        font-weight: 600; 
-        color: #4ade80; 
+        margin-top: 2rem; 
+        font-size: 1rem; 
+        font-weight: 700; 
+        color: var(--accent-math); 
         display: flex; 
         align-items: center; 
-        gap: 0.5rem;
+        gap: 0.8rem;
     }
-    @media (max-width: 800px) {
-        .onboarding-promo { flex-direction: column; padding: 2.5rem; text-align: center; }
-        .onboarding-promo .section-title { text-align: center; }
-        .promo-visual { display: none; }
+    @media (max-width: 900px) {
+        .onboarding-promo { flex-direction: column; padding: 3rem 1.5rem; text-align: center; gap: 3rem; margin: 4rem 1rem; }
+        .promo-visual { transform: scale(0.8); }
+    }
+
+    /* Light Mode Cleanup for Promo (Keeping the 'orb' feel) */
+    [data-theme='light'] .onboarding-promo {
+        background: radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.06) 0%, transparent 50%),
+                    var(--bg-card);
+        background-image: none; /* Keep just the soft radial */
+    }
+    [data-theme='light'] .onboarding-promo::after {
+        opacity: 0.03;
+        background: var(--primary-light);
+    }
+    [data-theme='light'] .mockup-card {
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05);
+        background: #ffffff;
     }
   </style>
 
-  <!-- HERO -->
   <section class="hero">
-    <div class="hero-blob blob1"></div>
-    <div class="hero-blob blob2"></div>
-
-    <div class="hero-badge">✦ 100% programme officiel Bac 2026</div>
-    <h1 class="hero-title">Révise, <em>Réussis.</em></h1>
+    <div class="hero-badge">✦ Le programme officiel Bac 2026</div>
+    <h1 class="hero-title">Révise. <em>Réussis.</em></h1>
     <p class="hero-sub">
-      Fiches de cours claires + QCM corrigés pour décrocher ton Bac.<br>
-      Un thème offert par matière pour commencer dès maintenant.
+      La plateforme de révision nouvelle génération.<br>
+      Fiches interactives, QCM et planning IA sur-mesure.
     </p>
     <div class="hero-cta">
-      <a href="pages/decouvrir.html" class="btn-primary">Essayer gratuitement →</a>
-      <a href="#matieres" class="btn-ghost">Voir les matières</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><span>14</span>thèmes disponibles</div>
-      <span class="stat-sep">·</span>
-      <div class="stat"><span>3</span>matières</div>
-      <span class="stat-sep">·</span>
-      <div class="stat"><span>1</span>thème offert</div>
+      <a href="pages/onboarding.html" class="btn-primary">Commencer gratuitement</a>
+      <a href="#matieres" class="btn-ghost">Explorer les thèmes</a>
     </div>
   </section>
 
@@ -246,8 +269,8 @@
     <p>© 2026 ReviseTonBac — Tous droits réservés</p>
     <div class="footer-links">
       <a href="#" onclick="ouvrirRestauration(); return false;">Restaurer mon accès</a>
-      <a href="#">Mentions légales</a>
-      <a href="#">CGV</a>
+      <a href="pages/mentions-legales.html">Mentions Légales</a>
+      <a href="pages/politique-confidentialite.html">Politique de Confidentialité</a>
       <a href="#">Contact</a>
     </div>
   </footer>
