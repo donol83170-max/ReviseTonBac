@@ -1,14 +1,20 @@
 /* Onboarding Custom Styles */
 
 .onboarding-page {
-    background: radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.1) 0%, var(--bg-main) 70%);
+    background: radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225,39%,30%,0.2) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(339,49%,30%,0.1) 0, transparent 50%),
+                var(--bg-main);
     min-height: 100vh;
     font-family: var(--font-body);
-    transition: background 0.4s ease;
+    transition: background 0.5s ease;
 }
 
 [data-theme='light'] .onboarding-page {
-    background: var(--bg-main) !important;
+    background: radial-gradient(at 0% 0%, hsla(210, 40%, 98%, 1) 0, transparent 50%),
+                radial-gradient(at 50% 0%, hsla(210, 40%, 95%, 1) 0, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(210, 40%, 98%, 1) 0, transparent 50%),
+                #f1f5f9 !important;
 }
 
 .onboarding-container {

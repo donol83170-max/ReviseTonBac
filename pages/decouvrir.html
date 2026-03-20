@@ -43,7 +43,7 @@
         <li>✅ 20 QCM corrigés</li>
         <li>📊 Score en direct</li>
       </ul>
-      <a href="../themes/maths/suites.html" class="btn-decouvrir btn-decouvrir--maths">Accéder gratuitement →</a>
+      <a href="reader.html?id=ma-suites" class="btn-decouvrir btn-decouvrir--maths">Accéder gratuitement →</a>
     </div>
 
     <div class="decouvrir-card decouvrir-card--fr">
@@ -57,7 +57,7 @@
         <li>✅ 20 QCM corrigés</li>
         <li>📊 Score en direct</li>
       </ul>
-      <a href="../themes/francais/roman.html" class="btn-decouvrir btn-decouvrir--fr">Accéder gratuitement →</a>
+      <a href="reader.html?id=fr-roman" class="btn-decouvrir btn-decouvrir--fr">Accéder gratuitement →</a>
     </div>
 
     <div class="decouvrir-card decouvrir-card--hg">
@@ -71,7 +71,7 @@
         <li>✅ 20 QCM corrigés</li>
         <li>📊 Score en direct</li>
       </ul>
-      <a href="../themes/histoire-geo/sgm.html" class="btn-decouvrir btn-decouvrir--hg">Accéder gratuitement →</a>
+      <a href="reader.html?id=hg-sgm" class="btn-decouvrir btn-decouvrir--hg">Accéder gratuitement →</a>
     </div>
 
   </div>
@@ -374,7 +374,7 @@
       if (btn) {
         btn.textContent = '✅ Débloqué — Accéder';
         btn.style.background = '#22c55e';
-        btn.onclick = () => window.location.href = `../themes/maths/${produitId.replace('ma-','')}.html`;
+        btn.onclick = () => window.location.href = `reader.html?id=${produitId}`;
       }
       if (priceEl) priceEl.style.display = 'none';
     }
@@ -387,7 +387,7 @@
       if (btn) {
         btn.textContent = '✅ Débloqué — Accéder';
         btn.style.background = '#22c55e';
-        btn.onclick = () => window.location.href = `../themes/francais/${produitId.replace('fr-','')}.html`;
+        btn.onclick = () => window.location.href = `reader.html?id=${produitId}`;
       }
       if (priceEl) priceEl.style.display = 'none';
     }
@@ -400,7 +400,7 @@
       if (btn) {
         btn.textContent = '✅ Débloqué — Accéder';
         btn.style.background = '#22c55e';
-        btn.onclick = () => window.location.href = `../themes/histoire-geo/${produitId.replace('hg-','')}.html`;
+        btn.onclick = () => window.location.href = `reader.html?id=${produitId}`;
       }
       if (priceEl) priceEl.style.display = 'none';
     }

@@ -42,7 +42,7 @@
           <span>📄 Fiche de cours</span>
           <span>✅ 20 QCM corrigés</span>
         </div>
-        <a href="../themes/maths/suites.html" class="btn-primary btn-primary--maths">Accéder gratuitement →</a>
+        <a href="reader.html?id=ma-suites" class="btn-primary btn-primary--maths">Accéder gratuitement →</a>
       </div>
 
       <!-- THÈMES PAYANTS -->
@@ -79,7 +79,7 @@
           <span>✅ 20 QCM corrigés</span>
         </div>
         <div class="theme-price" id="price-ma-probas">4,99€</div>
-        <button class="btn-primary btn-primary--maths" onclick="debloquer('ma-probas')">Débloquer</button>
+        <button class="btn-primary btn-primary--maths" onclick="window.location.href='reader.html?id=ma-probas'">Débloquer</button>
       </div>
 
       <div class="theme-card" id="card-ma-geo">
@@ -174,7 +174,7 @@
       if (btn) {
         btn.textContent = '✅ Débloqué — Accéder';
         btn.style.background = '#22c55e';
-        btn.onclick = () => window.location.href = `../themes/maths/${produitId.replace('ma-','')}.html`;
+        btn.onclick = () => window.location.href = `reader.html?id=${produitId}`;
       }
       if (priceEl) priceEl.style.display = 'none';
     }

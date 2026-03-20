@@ -42,7 +42,7 @@
           <span>📄 Fiche de cours</span>
           <span>✅ 20 QCM corrigés</span>
         </div>
-        <a href="../themes/francais/roman.html" class="btn-primary">Accéder gratuitement →</a>
+        <a href="reader.html?id=fr-roman" class="btn-primary">Accéder gratuitement →</a>
       </div>
 
       <!-- THÈMES PAYANTS -->
@@ -175,7 +175,7 @@
       if (btn) {
         btn.textContent = '✅ Débloqué — Accéder';
         btn.style.background = '#22c55e';
-        btn.onclick = () => window.location.href = `../themes/francais/${produitId.replace('fr-','')}.html`;
+        btn.onclick = () => window.location.href = `reader.html?id=${produitId}`;
       }
       if (priceEl) priceEl.style.display = 'none';
     }

@@ -1,11 +1,13 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const Database = require('better-sqlite3');
 const nodemailer = require('nodemailer');
 const path = require('path');
 const crypto = require('crypto');
+const fs = require('fs');
 
 // ─── Base de données SQLite ────────────────────────────────────────────────────
 const db = new Database(path.join(__dirname, 'purchases.db'));
@@ -117,9 +119,19 @@ function getPurchasesByEmailHash(emailHash) {
 
 // ─── App Express ──────────────────────────────────────────────────────────────
 const app = express();
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+      "script-src": ["'self'", "'unsafe-inline'", "https://js.stripe.com"],
+      "frame-src": ["'self'", "https://js.stripe.com"],
+      "connect-src": ["'self'", "https://api.stripe.com", "http://localhost:3000", "ws://localhost:3000"],
+    },
+  },
+}));
 app.use(express.json());
 app.use(cors({ origin: process.env.FRONTEND_URL || '*' }));
-app.use(express.static('../'));
+app.use(express.static(path.join(__dirname, '..')));
 
 // ─── Catalogue des produits ───────────────────────────────────────────────────
 const PRODUITS = {
@@ -148,8 +160,31 @@ const PRODUITS = {
   'pack-francais':      { nom: 'Pack Français complet',      prix: 1499, matiere: 'francais'     },
   'pack-maths':         { nom: 'Pack Maths complet',          prix: 1799, matiere: 'maths'        },
   'pack-histoire-geo':  { nom: 'Pack Histoire-Géo complet',   prix: 1499, matiere: 'histoire-geo' },
-  'pack-total':         { nom: 'Pack Total ReviseTonBac',      prix: 3499, matiere: 'all'          },
+  'pack-total':         { nom: 'Pack Total ReviseTonBac',      prix: 3499,  matiere: 'all'          },
 };
+
+const THEME_FILES = {
+  'fr-poesie': 'francais/poesie.html',
+  'fr-theatre': 'francais/theatre.html',
+  'fr-idees': 'francais/idees.html',
+  'fr-commentaire': 'francais/commentaire.html',
+  'fr-dissertation': 'francais/dissertation.html',
+  'ma-derivation': 'maths/derivation.html',
+  'ma-integration': 'maths/integration.html',
+  'ma-probas': 'maths/probas.html',
+  'ma-geo': 'maths/geo.html',
+  'ma-log': 'maths/log.html',
+  'ma-suites': 'maths/suites.html',
+  'hg-guerre-froide': 'histoire-geo/guerre-froide.html',
+  'hg-decolonisation': 'histoire-geo/decolonisation.html',
+  'hg-monde-1991': 'histoire-geo/monde-1991.html',
+  'hg-france-1945': 'histoire-geo/france-1945.html',
+  'hg-mondialisation': 'histoire-geo/mondialisation.html',
+  'hg-sgm': 'histoire-geo/sgm.html',
+};
+
+// Charger les fichiers de cours privés (metadata)
+const COURSES_DATA = JSON.parse(fs.readFileSync(path.join(__dirname, 'courses.private.json'), 'utf8'));
 
 // ─── Clé publique Stripe pour le frontend ─────────────────────────────────────
 app.get('/config', (req, res) => {
@@ -277,6 +312,53 @@ app.post('/verify-restore', (req, res) => {
 
   const produitIds = getPurchasesByEmailHash(emailHash);
   res.json({ success: true, produitIds });
+});
+
+// ─── Récupérer le contenu d'un cours (SÉCURISÉ) ──────────────────────────────
+app.get('/api/course/:produitId', (req, res) => {
+  const { produitId } = req.params;
+  const email = req.query.email;
+  const isAdmin = req.headers['x-admin-rtb'] === '1';
+
+  const FREE_TOPICS = ['ma-suites', 'fr-roman', 'hg-sgm'];
+  const isFree = FREE_TOPICS.includes(produitId);
+
+  if (isAdmin || isFree) {
+    const filePath = THEME_FILES[produitId];
+    if (!filePath) return res.status(404).json({ error: 'Cours non trouvé' });
+    const fullPath = path.join(__dirname, 'protected_themes', filePath);
+    if (!fs.existsSync(fullPath)) return res.status(404).json({ error: 'Fichier physique introuvable' });
+    return res.send(fs.readFileSync(fullPath, 'utf8'));
+  }
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(401).json({ error: 'Identification requise.' });
+  }
+
+  const emailHash = hashEmail(email);
+  const achats = getPurchasesByEmailHash(emailHash);
+  
+  // Vérification de l'accès (unité ou pack)
+  const accessible = 
+    achats.includes(produitId) ||
+    (produitId.startsWith('fr-') && achats.includes('pack-francais')) ||
+    (produitId.startsWith('ma-') && achats.includes('pack-maths')) ||
+    (produitId.startsWith('hg-') && achats.includes('pack-histoire-geo')) ||
+    achats.includes('pack-total');
+
+  if (!accessible) {
+    return res.status(403).json({ error: 'Accès non autorisé. Veuillez acheter ce thème.' });
+  }
+
+  const filePath = THEME_FILES[produitId];
+  if (!filePath) return res.status(404).json({ error: 'Fiche de cours non trouvée' });
+
+  const fullPath = path.join(__dirname, 'protected_themes', filePath);
+  if (!fs.existsSync(fullPath)) return res.status(404).json({ error: 'Fichier physique introuvable' });
+
+  // On renvoie le contenu HTML directement
+  const html = fs.readFileSync(fullPath, 'utf8');
+  res.send(html);
 });
 
 // ─── Démarrage ────────────────────────────────────────────────────────────────

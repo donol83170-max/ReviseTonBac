@@ -17,11 +17,25 @@ const FREE_TOPICS = ['ma-suites', 'fr-roman', 'hg-sgm'];
 
 // Initialize
 document.addEventListener('DOMContentLoaded', async () => {
+    // Check for file:// protocol
+    if (window.location.protocol === 'file:') {
+        alert("⚠️ ATTENTION : L'onboarding ne peut pas fonctionner en ouvrant le fichier directement. \n\nTu dois utiliser le serveur local : \n1. Lance 'npm run dev' dans ton terminal.\n2. Ouvre http://localhost:3000 dans ton navigateur.");
+        document.body.innerHTML = `<div style="padding: 50px; text-align: center; font-family: sans-serif;">
+            <h2>🚫 Accès restreint</h2>
+            <p>Le site doit être lancé via le serveur local pour fonctionner.</p>
+            <p>Utilise : <a href="http://localhost:3000/pages/onboarding.html">http://localhost:3000/pages/onboarding.html</a></p>
+        </div>`;
+        return;
+    }
+
     try {
         const [courseRes, diagRes] = await Promise.all([
-            fetch('../data/courses.json'),
-            fetch('../data/diagnostic.json')
+            fetch('../data/courses.json').catch(e => { throw new Error("Impossible de charger les cours. Utilise le serveur local."); }),
+            fetch('../data/diagnostic.json').catch(e => { throw new Error("Impossible de charger le diagnostic. Utilise le serveur local."); })
         ]);
+        
+        if (!courseRes.ok || !diagRes.ok) throw new Error("Erreur lors de la récupération des données.");
+
         allCourses = await courseRes.json();
         allDiagnostic = await diagRes.json();
         

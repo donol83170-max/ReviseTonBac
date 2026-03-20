@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecteur de Cours — ReviseTonBac</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body { background: var(--bg-main); color: var(--text-main); }
+        .reader-container { max-width: 900px; margin: 4rem auto; padding: 0 2rem; position: relative; }
+        .reader-content { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 3rem; min-height: 80vh; }
+        .reader-loading { text-align: center; padding: 10rem 0; font-size: 1.2rem; color: var(--text-muted); }
+        .reader-error { text-align: center; padding: 5rem 2rem; }
+        .btn-back { margin-bottom: 2rem; display: inline-flex; align-items: center; gap: .5rem; text-decoration: none; color: var(--text-muted); transition: color .3s; }
+        .btn-back:hover { color: var(--primary); }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="../index.html" class="nav-logo">Révise<span>ton</span>Bac</a>
+    </nav>
+
+    <div class="reader-container">
+        <a href="javascript:history.back()" class="btn-back">← Retour</a>
+        
+        <div id="reader-view" class="reader-loading">
+            Chargement de ta fiche de cours en cours...
+        </div>
+    </div>
+
+    <script>
+        async function loadContent() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            const email = localStorage.getItem('rsb_email');
+            const isAdmin = localStorage.getItem('rsb_admin') === '1';
+
+            if (!id) {
+                document.getElementById('reader-view').innerHTML = '<div class="reader-error"><h3>Erreur</h3><p>ID du thème manquant.</p></div>';
+                return;
+            }
+
+            try {
+                const headers = {};
+                if (isAdmin) headers['x-admin-rtb'] = '1';
+
+                // On utilise un chemin relatif pour éviter les problèmes de hostname
+                const response = await fetch(`../api/course/${id}?email=${encodeURIComponent(email || '')}`, {
+                    headers: headers
+                });
+
+                if (response.status === 403) {
+                    document.getElementById('reader-view').innerHTML = `
+                        <div class="reader-error">
+                            <h3>Contenu Verrouillé 🔒</h3>
+                            <p>Tu n'as pas encore débloqué ce thème. Achète-le pour y accéder !</p>
+                            <br>
+                            <a href="../index.html#tarifs" class="btn-primary">Voir les tarifs</a>
+                        </div>
+                    `;
+                    return;
+                }
+
+                if (response.status === 401) {
+                    document.getElementById('reader-view').innerHTML = `
+                        <div class="reader-error">
+                            <h3>Identification Requise 👤</h3>
+                            <p>Tu dois être connecté ou avoir saisi ton email pour accéder à tes cours.</p>
+                            <br>
+                            <a href="../index.html#restaurer" class="btn-primary">Restaurer mon accès</a>
+                        </div>
+                    `;
+                    return;
+                }
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({}));
+                    throw new Error(errorData.error || "Erreur serveur");
+                }
+
+                const html = await response.text();
+                
+                // On injecte le contenu de la fiche (en extrayant le body si besoin ou tel quel)
+                const doc = new DOMParser().parseFromString(html, 'text/html');
+                const content = doc.body.innerHTML; 
+                
+                document.getElementById('reader-view').className = 'reader-content';
+                document.getElementById('reader-view').innerHTML = content;
+
+            } catch (err) {
+                document.getElementById('reader-view').innerHTML = '<div class="reader-error"><h3>Erreur</h3><p>Impossible de charger le cours. Vérifie ta connexion.</p></div>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadContent);
+    </script>
+</body>
+</html>
