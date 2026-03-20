@@ -164,6 +164,7 @@ const PRODUITS = {
 };
 
 const THEME_FILES = {
+  'fr-roman': 'francais/roman.html',
   'fr-poesie': 'francais/poesie.html',
   'fr-theatre': 'francais/theatre.html',
   'fr-idees': 'francais/idees.html',

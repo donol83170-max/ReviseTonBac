@@ -30,19 +30,24 @@ function initQCM(questions) {
   const ficheSection = document.querySelector('.fiche-section');
   const btnWrap = document.createElement('div');
   btnWrap.className = 'qcm-launch-wrap';
-  btnWrap.innerHTML = `
-    <div class="qcm-launch-card">
-      <div>
-        <div class="qcm-launch-title">Teste tes connaissances</div>
-        <div class="qcm-launch-meta">
-          <span>📝 ${questions.length} questions</span>
-          <span>⚡ ~${Math.ceil(questions.length * 0.75)} min</span>
-          <span>✅ Corrigé instantanément</span>
-        </div>
-      </div>
-      <button class="qcm-launch-btn" onclick="lancerQCM()">Lancer le QCM →</button>
+  const card = document.createElement('div');
+  card.className = 'qcm-launch-card';
+  const info = document.createElement('div');
+  info.innerHTML = `
+    <div class="qcm-launch-title">Teste tes connaissances</div>
+    <div class="qcm-launch-meta">
+      <span>📝 ${questions.length} questions</span>
+      <span>⚡ ~${Math.ceil(questions.length * 0.75)} min</span>
+      <span>✅ Corrigé instantanément</span>
     </div>
   `;
+  const launchBtn = document.createElement('button');
+  launchBtn.className = 'qcm-launch-btn';
+  launchBtn.textContent = 'Lancer le QCM →';
+  launchBtn.addEventListener('click', lancerQCM);
+  card.appendChild(info);
+  card.appendChild(launchBtn);
+  btnWrap.appendChild(card);
   ficheSection.appendChild(btnWrap);
 
   // Construire la structure Duolingo dans #qcm

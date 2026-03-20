@@ -2,17 +2,20 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+  <script>document.documentElement.setAttribute("data-theme",localStorage.getItem("rsb_theme")||"dark");</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow"/>
     <title>Lecteur de Cours — ReviseTonBac</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body { background: var(--bg-main); color: var(--text-main); }
-        .reader-container { max-width: 900px; margin: 4rem auto; padding: 0 2rem; position: relative; }
-        .reader-content { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 3rem; min-height: 80vh; }
+        .reader-container { max-width: 100%; margin: 0 auto; padding: 0; position: relative; }
+        .reader-content { min-height: 80vh; }
         .reader-loading { text-align: center; padding: 10rem 0; font-size: 1.2rem; color: var(--text-muted); }
         .reader-error { text-align: center; padding: 5rem 2rem; }
-        .btn-back { margin-bottom: 2rem; display: inline-flex; align-items: center; gap: .5rem; text-decoration: none; color: var(--text-muted); transition: color .3s; }
+        .btn-back { margin: 1.5rem 4rem; display: inline-flex; align-items: center; gap: .5rem; text-decoration: none; color: var(--text-muted); transition: color .3s; font-weight: 600; }
         .btn-back:hover { color: var(--primary); }
     </style>
 </head>
@@ -86,6 +89,9 @@
                     document.head.appendChild(style.cloneNode(true));
                 });
 
+                // Supprimer nav et footer du thème (reader a les siens)
+                doc.querySelectorAll('nav, footer, .breadcrumb').forEach(el => el.remove());
+
                 // Injecter le contenu HTML (sans scripts)
                 const readerView = document.getElementById('reader-view');
                 readerView.className = 'reader-content';
@@ -99,6 +105,7 @@
                     document.body.appendChild(newScript);
                 });
 
+
             } catch (err) {
                 document.getElementById('reader-view').innerHTML = '<div class="reader-error"><h3>Erreur</h3><p>Impossible de charger le cours. Vérifie ta connexion.</p></div>';
             }
@@ -106,5 +113,6 @@
 
         document.addEventListener('DOMContentLoaded', loadContent);
     </script>
+  <script src="../js/main.js"></script>
 </body>
 </html>

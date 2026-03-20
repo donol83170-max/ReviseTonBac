@@ -341,7 +341,7 @@ section { padding: 6rem 4rem; }
 
 /* ---- TARIFS ---- */
 .tarifs { background: var(--bg-main); transition: background 0.4s ease; }
-.tarifs-sub { color: var(--text-muted); margin-bottom: 4rem; font-size: 1.1rem; margin-top: -2.5rem; }
+.tarifs-sub { color: var(--text-muted); margin-bottom: 4rem; font-size: 1.1rem; margin-top: -2.5rem; text-align: center; }
 .tarifs-grid {
   display: grid;
   grid-template-columns: 1fr 1.1fr 1fr;
