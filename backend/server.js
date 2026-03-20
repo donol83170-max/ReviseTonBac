@@ -318,6 +318,7 @@ app.post('/verify-restore', (req, res) => {
 app.get('/api/course/:produitId', (req, res) => {
   const { produitId } = req.params;
   const email = req.query.email;
+  const isAdmin = req.headers['x-admin-rtb'] === '1';
 
   const FREE_TOPICS = ['ma-suites', 'fr-roman', 'hg-sgm'];
   const isFree = FREE_TOPICS.includes(produitId);
@@ -334,7 +335,7 @@ app.get('/api/course/:produitId', (req, res) => {
     return res.status(403).json({ error: 'Accès refusé.' });
   }
 
-  if (isFree) {
+  if (isAdmin || isFree) {
     if (!fs.existsSync(fullPath)) return res.status(404).json({ error: 'Fichier physique introuvable' });
     return res.send(fs.readFileSync(fullPath, 'utf8'));
   }

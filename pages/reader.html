@@ -29,11 +29,13 @@
         </div>
     </div>
 
+    <script src="../js/qcm.js"></script>
     <script>
         async function loadContent() {
             const params = new URLSearchParams(window.location.search);
             const id = params.get('id');
             const email = localStorage.getItem('rsb_email');
+            const isAdmin = localStorage.getItem('rsb_admin') === '1';
 
             if (!id) {
                 document.getElementById('reader-view').innerHTML = '<div class="reader-error"><h3>Erreur</h3><p>ID du thème manquant.</p></div>';
@@ -41,8 +43,10 @@
             }
 
             try {
-                // On utilise un chemin relatif pour éviter les problèmes de hostname
-                const response = await fetch(`../api/course/${id}?email=${encodeURIComponent(email || '')}`);
+                const headers = {};
+                if (isAdmin) headers['x-admin-rtb'] = '1';
+
+                const response = await fetch(`../api/course/${id}?email=${encodeURIComponent(email || '')}`, { headers });
 
                 if (response.status === 403) {
                     document.getElementById('reader-view').innerHTML = `
@@ -74,13 +78,26 @@
                 }
 
                 const html = await response.text();
-                
-                // On injecte le contenu de la fiche (en extrayant le body si besoin ou tel quel)
+
                 const doc = new DOMParser().parseFromString(html, 'text/html');
-                const content = doc.body.innerHTML; 
-                
-                document.getElementById('reader-view').className = 'reader-content';
-                document.getElementById('reader-view').innerHTML = content;
+
+                // Extraire les styles inline du thème et les ajouter au head
+                doc.querySelectorAll('style').forEach(style => {
+                    document.head.appendChild(style.cloneNode(true));
+                });
+
+                // Injecter le contenu HTML (sans scripts)
+                const readerView = document.getElementById('reader-view');
+                readerView.className = 'reader-content';
+                readerView.innerHTML = doc.body.innerHTML;
+
+                // Exécuter les scripts inline (initQCM etc.)
+                doc.querySelectorAll('script').forEach(oldScript => {
+                    if (oldScript.src) return; // ignorer les scripts externes (déjà chargés)
+                    const newScript = document.createElement('script');
+                    newScript.textContent = oldScript.textContent;
+                    document.body.appendChild(newScript);
+                });
 
             } catch (err) {
                 document.getElementById('reader-view').innerHTML = '<div class="reader-error"><h3>Erreur</h3><p>Impossible de charger le cours. Vérifie ta connexion.</p></div>';
