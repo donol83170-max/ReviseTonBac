@@ -257,9 +257,9 @@
       {
         q: "Si X ~ B(20 ; 0,5), P(X ≤ 10) est approximativement :",
         options: ["Inférieure à 0,5", "Supérieure à 0,5", "Égale à 0,5 (environ)", "Égale à 1"],
-        correct: 2,
-        explication: "B(20 ; 0,5) est symétrique autour de np = 10, donc P(X ≤ 10) ≈ 0,5 (légèrement supérieure car P(X=10) > 0).",
-        exemple: "P(X ≤ 10) ≈ 0,588 en incluant P(X=10) ≈ 0,176."
+        correct: 1,
+        explication: "B(20 ; 0,5) est symétrique autour de np = 10. Comme P(X = 10) > 0, on a P(X ≤ 10) = 0,5 + P(X=10)/2 ≈ 0,588, donc supérieure à 0,5.",
+        exemple: "P(X ≤ 10) ≈ 0,588 car on inclut P(X = 10) ≈ 0,176."
       },
       {
         q: "Chez un médecin, 80% des patients sont guéris. Sur 3 patients indépendants, P(tous guéris) vaut :",
