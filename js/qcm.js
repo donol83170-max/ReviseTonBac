@@ -1,8 +1,9 @@
 // ReviseTonBac — qcm.js (Duolingo style)
 
-let _questions = [];
-let _current   = 0;
-let _score     = 0;
+let _questions         = [];
+let _originalQuestions = []; // questions avant mélange, pour resetQCM
+let _current           = 0;
+let _score             = 0;
 
 function shuffleOptions(q) {
   const indices = q.options.map((_, i) => i);
@@ -18,9 +19,10 @@ function shuffleOptions(q) {
 }
 
 function initQCM(questions) {
-  _questions = questions.map(shuffleOptions);
-  _current   = 0;
-  _score     = 0;
+  _originalQuestions = questions;           // sauvegarde pour resetQCM
+  _questions         = questions.map(shuffleOptions);
+  _current           = 0;
+  _score             = 0;
 
   // Cacher la section QCM au départ
   const qcmSection = document.querySelector('.qcm-section');
@@ -174,4 +176,17 @@ function lancerQCM() {
   showQuestion(0);
 }
 
-function resetQCM() { location.reload(); }
+function resetQCM() {
+  // Remet à zéro sans recharger la page — nouveau mélange à chaque fois
+  const qcmSection = document.querySelector('.qcm-section');
+  const resultEl   = document.getElementById('result');
+  const qcmEl      = document.getElementById('qcm');
+  const launchWrap = document.querySelector('.qcm-launch-wrap');
+
+  if (resultEl)   { resultEl.classList.add('hidden'); resultEl.innerHTML = ''; }
+  if (qcmEl)      { qcmEl.style.display = ''; }
+  if (qcmSection) { qcmSection.style.display = 'none'; }
+  if (launchWrap) { launchWrap.style.display = ''; }
+
+  initQCM(_originalQuestions); // repart des questions originales → nouveau mélange
+}

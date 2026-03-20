@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
-    "dev": "nodemon backend/server.js"
+    "dev": "nodemon backend/server.js",
+    "inject": "node scripts/inject-theme.js"
   },
   "dependencies": {
     "better-sqlite3": "^12.8.0",

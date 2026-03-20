@@ -129,6 +129,42 @@ app.use(helmet({
     },
   },
 }));
+
+// ⚠️ WEBHOOK — doit être déclaré AVANT express.json()
+// express.json() consomme le body : si le webhook passe par lui,
+// stripe.webhooks.constructEvent() reçoit un body vide → signature invalide → crash.
+app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
+  const sig = req.headers['stripe-signature'];
+
+  if (!process.env.STRIPE_WEBHOOK_SECRET) {
+    console.error('❌ STRIPE_WEBHOOK_SECRET manquant dans .env');
+    return res.status(500).end();
+  }
+
+  let event;
+  try {
+    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
+  } catch (err) {
+    console.error('❌ Webhook signature invalide :', err.message);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  if (event.type === 'payment_intent.succeeded') {
+    const pi = event.data.object;
+    const { produitId, produitNom, emailHash } = pi.metadata;
+
+    if (produitId && emailHash) {
+      savePurchase(pi.id, produitId, emailHash);
+      console.log(`✅ Webhook — accès débloqué : ${produitNom} (${pi.amount / 100}€)`);
+    } else {
+      console.warn('⚠️ Webhook reçu sans produitId ou emailHash dans metadata');
+    }
+  }
+
+  // Répondre 200 rapidement — Stripe retentera si pas de réponse dans 30s
+  res.json({ received: true });
+});
+
 app.use(express.json({ limit: '100kb' }));
 app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:3000' }));
 app.use(express.static(path.join(__dirname, '..')));
@@ -225,31 +261,8 @@ app.post('/create-payment-intent', async (req, res) => {
   }
 });
 
-// ─── Confirmer le paiement ────────────────────────────────────────────────────
-app.post('/confirm-payment', async (req, res) => {
-  const { paymentIntentId } = req.body;
-
-  try {
-    const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
-
-    if (paymentIntent.status === 'succeeded') {
-      const { produitId, produitNom, emailHash } = paymentIntent.metadata;
-      console.log(`✅ Paiement confirmé — ${produitNom} — ${paymentIntent.amount / 100}€`);
-
-      if (emailHash) savePurchase(paymentIntent.id, produitId, emailHash);
-
-      res.json({
-        success: true,
-        produitId,
-        message: `Accès débloqué : ${produitNom}`,
-      });
-    } else {
-      res.status(400).json({ success: false, message: 'Paiement non confirmé.' });
-    }
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+// /confirm-payment supprimé — l'accès est désormais débloqué exclusivement
+// par le webhook Stripe (/webhook) dont la signature est vérifiée côté serveur.
 
 // ─── Demander un OTP de restauration ─────────────────────────────────────────
 app.post('/request-restore', async (req, res) => {
@@ -316,9 +329,9 @@ app.post('/verify-restore', (req, res) => {
 });
 
 // ─── Récupérer le contenu d'un cours (SÉCURISÉ) ──────────────────────────────
-app.get('/api/course/:produitId', (req, res) => {
+app.post('/api/course/:produitId', (req, res) => {
   const { produitId } = req.params;
-  const email = req.query.email;
+  const email = req.body.email;           // plus dans l'URL
   const isAdmin = req.headers['x-admin-rtb'] === '1';
 
   const FREE_TOPICS = ['ma-suites', 'fr-roman', 'hg-sgm'];

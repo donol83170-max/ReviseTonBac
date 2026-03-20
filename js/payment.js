@@ -122,13 +122,9 @@ async function confirmerPaiement() {
   }
 
   if (paymentIntent.status === 'succeeded') {
-    const res = await fetch(`${BACKEND_URL}/confirm-payment`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ paymentIntentId: paymentIntent.id }),
-    });
-    const data = await res.json();
-    if (data.success) afficherSucces(data.produitId);
+    // Le webhook Stripe s'occupe de débloquer l'accès en base côté serveur.
+    // Ici on met juste à jour le localStorage et on affiche la confirmation.
+    afficherSucces(currentProduitId);
   }
 }
 
@@ -139,16 +135,35 @@ function afficherSucces(produitId) {
   localStorage.setItem('rsb_achats', JSON.stringify(achats));
   if (currentEmail) localStorage.setItem('rsb_email', currentEmail);
 
-  document.getElementById('payment-form-container').innerHTML = `
-    <div class="payment-success">
-      <div class="success-icon">✅</div>
-      <h3>Paiement réussi !</h3>
-      <p>Ton thème est débloqué. Un e-mail de confirmation t'a été envoyé.</p>
-      <button class="btn-primary" onclick="fermerModal(); location.reload();">
-        Accéder au contenu →
-      </button>
-    </div>
-  `;
+  const container = document.getElementById('payment-form-container');
+  let secondes = 4;
+
+  function render() {
+    container.innerHTML = `
+      <div class="payment-success">
+        <div class="success-icon">✅</div>
+        <h3>Paiement réussi !</h3>
+        <p>Ton thème est débloqué. Un e-mail de confirmation t'a été envoyé.</p>
+        <p class="success-redirect">Redirection dans <strong>${secondes}</strong> seconde${secondes > 1 ? 's' : ''}…</p>
+        <button class="btn-primary" onclick="fermerModal(); location.reload();">
+          Accéder au contenu →
+        </button>
+      </div>
+    `;
+  }
+
+  render();
+
+  const interval = setInterval(() => {
+    secondes--;
+    if (secondes <= 0) {
+      clearInterval(interval);
+      fermerModal();
+      location.reload();
+    } else {
+      render();
+    }
+  }, 1000);
 }
 
 // ─── Fermer la modale ─────────────────────────────────────────────────────────

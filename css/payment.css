@@ -131,7 +131,8 @@
   color: var(--text-main);
   margin-bottom: 0.8rem;
 }
-.payment-success p { color: var(--text-muted); margin-bottom: 2.5rem; font-size: 1.1rem; }
+.payment-success p { color: var(--text-muted); margin-bottom: 1rem; font-size: 1.1rem; }
+.success-redirect { font-size: .9rem !important; opacity: .6; margin-bottom: 2rem !important; }
 
 .payment-secure {
   display: flex;
