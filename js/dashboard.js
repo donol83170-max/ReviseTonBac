@@ -85,25 +85,54 @@ function updateDayView() {
     if (!dayData) return;
 
     const isToday = currentDayIndex === Math.floor((new Date().setHours(0,0,0,0) - new Date(userPlan.createdDate).setHours(0,0,0,0)) / (1000 * 60 * 60 * 24));
-    
-    const isFree = FREE_TOPICS.includes(dayData.tasks[0].topicId);
-    
+
     document.querySelector('.tag-today').textContent = isToday ? "Aujourd'hui" : `Jour ${dayData.day}`;
-    document.getElementById('today-topic').innerHTML = (isFree ? '' : '<span class="badge-premium-dash">Premium</span> ') + dayData.tasks[0].title;
-    document.getElementById('today-details').textContent = `${dayData.tasks[0].subject} — Session de ${dayData.tasks[0].hours}h.`;
+
+    if (!dayData.tasks || dayData.tasks.length === 0) {
+        document.getElementById('today-topic').textContent = 'Pas de tâche prévue';
+        document.getElementById('today-details').textContent = '';
+    } else {
+        const task = dayData.tasks[0];
+        const isFree = FREE_TOPICS.includes(task.topicId);
+        const topicEl = document.getElementById('today-topic');
+        topicEl.textContent = task.title;
+        if (!isFree) {
+            const badge = document.createElement('span');
+            badge.className = 'badge-premium-dash';
+            badge.textContent = 'Premium';
+            topicEl.prepend(badge, ' ');
+        }
+        document.getElementById('today-details').textContent = `${task.subject} — Session de ${task.hours}h.`;
+    }
 
     // Update Mini Timeline (next 5 days from current)
     const miniTimeline = document.getElementById('mini-timeline');
     miniTimeline.innerHTML = '';
     
     userPlan.schedule.slice(currentDayIndex + 1, currentDayIndex + 6).forEach(day => {
-        const isFree = FREE_TOPICS.includes(day.tasks[0].topicId);
+        if (!day.tasks || day.tasks.length === 0) return;
+        const task = day.tasks[0];
+        const isFree = FREE_TOPICS.includes(task.topicId);
         const dayEl = document.createElement('div');
         dayEl.className = 'mini-day';
-        dayEl.innerHTML = `
-            <div class="mini-day-title">Jour ${day.day}</div>
-            <div class="mini-day-topic">${isFree ? '' : '<span class="badge-premium-mini">Premium</span> '}${day.tasks[0].title}</div>
-        `;
+
+        const titleEl = document.createElement('div');
+        titleEl.className = 'mini-day-title';
+        titleEl.textContent = `Jour ${day.day}`;
+
+        const topicEl = document.createElement('div');
+        topicEl.className = 'mini-day-topic';
+        if (!isFree) {
+            const badge = document.createElement('span');
+            badge.className = 'badge-premium-mini';
+            badge.textContent = 'Premium';
+            topicEl.appendChild(badge);
+            topicEl.append(' ');
+        }
+        topicEl.append(task.title);
+
+        dayEl.appendChild(titleEl);
+        dayEl.appendChild(topicEl);
         miniTimeline.appendChild(dayEl);
     });
 }

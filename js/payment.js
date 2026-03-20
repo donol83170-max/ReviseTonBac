@@ -92,8 +92,12 @@ async function validerEmail() {
 
     paymentElement.mount('#stripe-element');
   } catch (err) {
-    document.getElementById('payment-form-container').innerHTML =
-      `<p class="payment-error">Erreur : ${err.message}</p>`;
+    const errP = document.createElement('p');
+    errP.className = 'payment-error';
+    errP.textContent = 'Erreur : ' + err.message;
+    const container = document.getElementById('payment-form-container');
+    container.innerHTML = '';
+    container.appendChild(errP);
   }
 }
 
@@ -157,7 +161,6 @@ function fermerModal() {
 
 // ─── Vérifier si un thème est débloqué ───────────────────────────────────────
 function estDebloque(produitId) {
-  if (localStorage.getItem('rsb_admin') === '1') return true;
   const achats = JSON.parse(localStorage.getItem('rsb_achats') || '[]');
   if (achats.includes(produitId)) return true;
   if (produitId.startsWith('fr-') && achats.includes('pack-francais')) return true;

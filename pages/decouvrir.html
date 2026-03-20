@@ -322,9 +322,8 @@
     <p>© 2026 ReviseTonBac — Tous droits réservés</p>
     <div class="footer-links">
       <a href="#" onclick="ouvrirRestauration(); return false;">Restaurer mon accès</a>
-      <a href="#">Mentions légales</a>
-      <a href="#">CGV</a>
-      <a href="#">Contact</a>
+      <a href="mentions-legales.html">Mentions Légales</a>
+      <a href="politique-confidentialite.html">Politique de Confidentialité</a>
     </div>
   </footer>
 
@@ -350,14 +349,10 @@
   <script src="../js/payment.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      ['ma-derivation','ma-integration','ma-probas','ma-geo','ma-log'].forEach(id => {
-        if (estDebloque(id)) marquerDebloqueM(id);
-      });
-      ['fr-poesie','fr-theatre','fr-idees','fr-commentaire','fr-dissertation'].forEach(id => {
-        if (estDebloque(id)) marquerDebloqueF(id);
-      });
-      ['hg-guerre-froide','hg-decolonisation','hg-monde-1991','hg-france-1945','hg-mondialisation'].forEach(id => {
-        if (estDebloque(id)) marquerDebloqueHG(id);
+      ['ma-derivation','ma-integration','ma-probas','ma-geo','ma-log',
+       'fr-poesie','fr-theatre','fr-idees','fr-commentaire','fr-dissertation',
+       'hg-guerre-froide','hg-decolonisation','hg-monde-1991','hg-france-1945','hg-mondialisation'].forEach(id => {
+        if (estDebloque(id)) marquerDebloque(id);
       });
     });
 
@@ -366,33 +361,7 @@
       ouvrirPaiement(produitId);
     }
 
-    function marquerDebloqueM(produitId) {
-      const card = document.getElementById(`card-${produitId}`);
-      const priceEl = document.getElementById(`price-${produitId}`);
-      if (!card) return;
-      const btn = card.querySelector('button');
-      if (btn) {
-        btn.textContent = '✅ Débloqué — Accéder';
-        btn.style.background = '#22c55e';
-        btn.onclick = () => window.location.href = `reader.html?id=${produitId}`;
-      }
-      if (priceEl) priceEl.style.display = 'none';
-    }
-
-    function marquerDebloqueF(produitId) {
-      const card = document.getElementById(`card-${produitId}`);
-      const priceEl = document.getElementById(`price-${produitId}`);
-      if (!card) return;
-      const btn = card.querySelector('button');
-      if (btn) {
-        btn.textContent = '✅ Débloqué — Accéder';
-        btn.style.background = '#22c55e';
-        btn.onclick = () => window.location.href = `reader.html?id=${produitId}`;
-      }
-      if (priceEl) priceEl.style.display = 'none';
-    }
-
-    function marquerDebloqueHG(produitId) {
+    function marquerDebloque(produitId) {
       const card = document.getElementById(`card-${produitId}`);
       const priceEl = document.getElementById(`price-${produitId}`);
       if (!card) return;

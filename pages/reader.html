@@ -33,7 +33,6 @@
             const params = new URLSearchParams(window.location.search);
             const id = params.get('id');
             const email = localStorage.getItem('rsb_email');
-            const isAdmin = localStorage.getItem('rsb_admin') === '1';
 
             if (!id) {
                 document.getElementById('reader-view').innerHTML = '<div class="reader-error"><h3>Erreur</h3><p>ID du thème manquant.</p></div>';
@@ -41,13 +40,8 @@
             }
 
             try {
-                const headers = {};
-                if (isAdmin) headers['x-admin-rtb'] = '1';
-
                 // On utilise un chemin relatif pour éviter les problèmes de hostname
-                const response = await fetch(`../api/course/${id}?email=${encodeURIComponent(email || '')}`, {
-                    headers: headers
-                });
+                const response = await fetch(`../api/course/${id}?email=${encodeURIComponent(email || '')}`);
 
                 if (response.status === 403) {
                     document.getElementById('reader-view').innerHTML = `

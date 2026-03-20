@@ -129,8 +129,8 @@ app.use(helmet({
     },
   },
 }));
-app.use(express.json());
-app.use(cors({ origin: process.env.FRONTEND_URL || '*' }));
+app.use(express.json({ limit: '100kb' }));
+app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:3000' }));
 app.use(express.static(path.join(__dirname, '..')));
 
 // ─── Catalogue des produits ───────────────────────────────────────────────────
@@ -318,15 +318,23 @@ app.post('/verify-restore', (req, res) => {
 app.get('/api/course/:produitId', (req, res) => {
   const { produitId } = req.params;
   const email = req.query.email;
-  const isAdmin = req.headers['x-admin-rtb'] === '1';
 
   const FREE_TOPICS = ['ma-suites', 'fr-roman', 'hg-sgm'];
   const isFree = FREE_TOPICS.includes(produitId);
 
-  if (isAdmin || isFree) {
-    const filePath = THEME_FILES[produitId];
-    if (!filePath) return res.status(404).json({ error: 'Cours non trouvé' });
-    const fullPath = path.join(__dirname, 'protected_themes', filePath);
+  // Vérifier que le produitId est connu (protection path traversal)
+  const filePath = THEME_FILES[produitId];
+  if (!filePath) return res.status(404).json({ error: 'Cours non trouvé' });
+
+  const protectedDir = path.resolve(__dirname, 'protected_themes');
+  const fullPath = path.resolve(protectedDir, filePath);
+
+  // Protection path traversal : vérifier que le chemin résolu reste dans protected_themes
+  if (!fullPath.startsWith(protectedDir)) {
+    return res.status(403).json({ error: 'Accès refusé.' });
+  }
+
+  if (isFree) {
     if (!fs.existsSync(fullPath)) return res.status(404).json({ error: 'Fichier physique introuvable' });
     return res.send(fs.readFileSync(fullPath, 'utf8'));
   }
@@ -337,9 +345,9 @@ app.get('/api/course/:produitId', (req, res) => {
 
   const emailHash = hashEmail(email);
   const achats = getPurchasesByEmailHash(emailHash);
-  
+
   // Vérification de l'accès (unité ou pack)
-  const accessible = 
+  const accessible =
     achats.includes(produitId) ||
     (produitId.startsWith('fr-') && achats.includes('pack-francais')) ||
     (produitId.startsWith('ma-') && achats.includes('pack-maths')) ||
@@ -350,13 +358,8 @@ app.get('/api/course/:produitId', (req, res) => {
     return res.status(403).json({ error: 'Accès non autorisé. Veuillez acheter ce thème.' });
   }
 
-  const filePath = THEME_FILES[produitId];
-  if (!filePath) return res.status(404).json({ error: 'Fiche de cours non trouvée' });
-
-  const fullPath = path.join(__dirname, 'protected_themes', filePath);
   if (!fs.existsSync(fullPath)) return res.status(404).json({ error: 'Fichier physique introuvable' });
 
-  // On renvoie le contenu HTML directement
   const html = fs.readFileSync(fullPath, 'utf8');
   res.send(html);
 });
