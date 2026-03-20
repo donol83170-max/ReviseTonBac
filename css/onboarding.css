@@ -75,6 +75,8 @@
 
 .subject-card {
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 
 .subject-card input {
